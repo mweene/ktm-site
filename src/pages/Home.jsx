@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import RecentSermons from "../components/RecentSermons";
 import Beliefs from "../components/Beliefs";
+import Events from "../components/Events";
 
 export default function Home() {
     return (
@@ -13,23 +14,11 @@ export default function Home() {
             <div className="px-6 py-4 lg:px-16 lg:py-12">
                 <RecentSermons />
                 <Beliefs />
-                <RecentEvents />
+                <Events />
                 <Calendar />
             </div>
             <Footer />
         </>
-    );
-}
-
-function RecentEvents() {
-    return (
-        <div className="">
-            <h3>recent events</h3>
-            <div className="">
-                <div className="buttons"></div>
-                <div className="gallery"></div>
-            </div>
-        </div>
     );
 }
 

@@ -39,13 +39,13 @@ export default function Beliefs() {
               grid md:grid-cols-2 place-content-between
               md:gap-6 md:flex-row bg-neutral-950 text-neutral-100 md:mx-8 p-6 md:p-9 rounded-4xl
             ">
-            <TextContainer />
-            <CardsContainer />
+            <TextHeader />
+            <Accordion />
         </div>
     );
 }
 
-function TextContainer() {
+function TextHeader() {
     return (
         <div className="text-container flex flex-col place-content-between">
             <div className="">
@@ -67,39 +67,55 @@ function TextContainer() {
     );
 }
 
-function CardsContainer() {
-    const [isCardOpen, setisCardOpen] = useState(false);
-    const [activeCard, setActiveCards] = useState(false);
-
-    const handleCardClick = () => setisCardOpen(prev => !prev);
+function Accordion() {
+    const [openId, setOpenId] = useState(null);
+    const toggleCard = id => setOpenId(openId === id ? null : id);
 
     return (
         <div className="flex flex-col gap-2">
             {beliefsObject.map(b => (
                 <BeliefCard 
                     key={b.id} 
-                    title={b.title}
-                    content={b.content}
-                    activeCard={activeCard}
-                    onClick={() => setActiveCards(b.id)}
+                    belief={b}
+                    isOpen={openId === b.id}
+                    onToggle={() => toggleCard(b.id)}
                 />
             ))}
         </div>
     );
 }
 
-function BeliefCard({title, content, activeCard, onClick}) {
-    return (
-        <div 
-            className="bg-neutral-800/40 p-6 rounded-2xl border border-neutral-50/10 cursor-pointer"
-            onClick={onClick}
-        >
-            <div className="flex place-content-between place-items-center gap-1">
-                <h3 className="text-[1.4rem] capitalize">{title}</h3>
-                {activeCard === 1 ? <Minus size={30}/> : <Plus size={30}/>}
-            </div>
-            {activeCard === 1 ? <p className="mt-9 text-neutral-300">{content}</p> : null}
+function BeliefCard({ belief, isOpen, onToggle }) {
+  return (
+    <div
+      className={`group transition-all duration-300 bg-neutral-900/50 border rounded-2xl overflow-hidden py-3 ${
+        isOpen ? "border-neutral-50/30 bg-neutral-800/60" : "border-neutral-50/10 hover:border-neutral-50/20"
+      }`}
+    >
+      <button
+        onClick={onToggle}
+        className="w-full flex justify-between items-center p-6 text-left"
+        aria-expanded={isOpen}
+      >
+        <h3 className="text-xl font-medium capitalize">{belief.title}</h3>
+        <div className="text-neutral-400 group-hover:text-white transition-colors">
+          {isOpen ? <Minus size={24} /> : <Plus size={24} />}
         </div>
-    );
+      </button>
+
+      {/* Content Area */}
+      <div
+        className={`grid transition-all duration-300 ease-in-out ${
+          isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+        }`}
+      >
+        <div className="overflow-hidden">
+          <p className="px-6 pb-6 text-neutral-400 leading-relaxed text-sm md:text-base">
+            {belief.content}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
 }
 
