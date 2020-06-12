@@ -1,0 +1,289 @@
+*,
+*:before,
+*:after {
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+  font-family: 'M PLUS Rounded 1c','Acme', "Helvetica Neue", Helvetica, sans-serif;
+  background-color: #fff;
+  line-height: 1.6;
+  height: 100%;
+  }
+
+  h2{
+    font-family: 'Cabin', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 30px;
+    text-align: left;
+    padding-left: 50px;
+    padding-top: 35px;
+    margin: 20px;
+  }
+/* the code in this section is the for the header on all pages */
+.header-fixed {
+    background-color:#1474d4d7;
+    box-shadow:0 1px 1px #ccc;
+    padding: 20px 40px;
+    height: 80px;
+    color: #fff;
+    box-sizing: border-box;
+    top:-100px;
+  
+    -webkit-transition:top 0.3s;
+    transition:top 0.3s;
+  }
+  
+.header-fixed .header-limiter {
+    max-width: 1200px;
+    text-align: center;
+    margin: 0 auto;
+  }
+  
+/*	The header placeholder. It is displayed when the header is fixed to the top of the
+    browser window, in order to prevent the content of the page from jumping up. */
+  
+.header-fixed-placeholder{
+    height: 80px;
+    display: none;
+  }
+  
+  /* Logo */
+.header-fixed .header-limiter h1 {
+    float: left;
+    font: normal 28px 'Bungee' sans-serif;
+    line-height: 40px;
+    margin: 0;
+  }
+   
+  /* The navigation links */
+.header-fixed .header-limiter a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+.header-fixed .header-limiter nav {
+    font:16px 'Cabin', Helvetica;
+    line-height: 40px;
+    float: right;
+  }
+  
+.header-fixed .header-limiter nav a{
+    display: inline-block;
+    padding: 0 5px;
+    text-decoration:none;
+    color: #ffffff;
+    opacity: 0.9;
+  }
+  
+.header-fixed .header-limiter nav a:hover{
+    opacity: 1;
+  }
+  
+.header-fixed .header-limiter nav a.selected {
+    color: #608bd2;
+    pointer-events: none;
+    opacity: 1;
+  }
+  
+/* Fixed version of the header */
+  
+body.fixed .header-fixed {
+    padding: 10px 40px;
+    height: 50px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  
+body.fixed .header-fixed-placeholder {
+    display: block;
+  }
+  
+body.fixed .header-fixed .header-limiter h1 {
+    font-size: 24px;
+    line-height: 30px;
+  }
+  
+body.fixed .header-fixed .header-limiter nav {
+    line-height: 28px;
+    font-size: 13px;
+  }
+  
+/* Making the header responsive */
+  @media all and (max-width: 600px) {
+    .header-fixed {
+      padding: 20px 0;
+      height: 75px;
+    }
+  
+    .header-fixed .header-limiter h1 {
+      float: none;
+      margin: -8px 0 10px;
+      text-align: center;
+      font-size: 24px;
+      line-height: 1;
+    }
+  
+    .header-fixed .header-limiter nav {
+      line-height: 1;
+      float:none;
+    }
+  
+    .header-fixed .header-limiter nav a {
+      font-size: 13px;
+    }
+  
+    body.fixed .header-fixed {
+      display: none;
+    }
+  
+  }
+ /* Welcome text and homepage image */
+#showcase{
+  background-image:url('../img/bible.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+#showcase h1{
+  font-family: 'Cabin';
+  font-size: 55px;
+  line-height: 1.2;
+  color: floralwhite;
+}
+
+#showcase p{
+  font-size: 20px;
+  color: oldlace;
+}
+
+#showcase .button{
+  font-size: 20px;
+  text-decoration: none;
+  color: #fff;
+  border: whitesmoke 2px solid;
+  padding: 10px 20px;
+  border-radius: 15px;
+  margin-top: 20px;
+}
+
+#showcase .button:hover{
+  background: #0156a1ea;
+  color: #fff;
+}
+
+#section-a {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 20vh 10vh;
+  background: #fff;
+  color: #000;
+  opacity: 0.7;
+}
+
+#section-a .box-1 {	
+  background: transparent;
+} 
+
+#section-a .box-2 {
+	background: #0156a1ea;
+  margin-top: 4px;
+  height: 226px;
+}
+
+#section-a h3 {
+  font-size: 25px;
+  color: #fff;
+  text-align: center;
+}
+
+#RemoveListnumber {
+  list-style: none;
+}
+
+#section-a ol {
+  font-size: 15px;
+  color: #fff;
+  text-align: left;
+}
+
+/* the code below is for the footer */
+#footer address{
+  display: grid;
+  text-align: justify;
+  font-family: 'MPLUS Rounded 1c', sans-serif;
+  background-color: #416f89;
+  color: #fff;
+  padding: 10px;
+}
+
+.history{
+  text-align: justify;
+  padding-left: 50px;
+  padding-top: 0px;
+  margin: 20px;
+  color: pink;
+}
+
+/*----------------*/
+   /* practice */
+/* ---------------*/
+.wrapper{
+  display: inline-grid;
+  grid-template-columns: 70% 30%;
+  grid-gap: 1em;
+  padding: 70px;
+  margin-top: -60px;
+}
+.wrapper > div{
+  background: blueviolet;
+  padding: 1em;
+}
+.wrapper > div:nth-child(odd){
+  background: rgb(100, 28, 168);
+}
+
+/*beliefs page grid layout */
+.container-beliefs{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1em;
+  /* grid-auto-rows: 100px;*/
+  grid-auto-rows: minmax(100px, auto);
+  justify-items: stretch;
+  align-items: stretch;
+}
+.container-beliefs > div{
+  background: rgb(55, 103, 214);
+}
+
+.container-beliefs.btn{
+  font-size: 20px;
+  text-decoration: navajowhite;
+  color: #fff;
+  border: whitesmoke 2px solid;
+  padding: 10px 20px;
+  border-radius: 15px;
+  margin-top: 20px;
+}
+
+.container-beliefs.btn:hover{
+  background-color: #608bd2;
+  color: #fff;
+}
+
+

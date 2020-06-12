@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html data-ls-installed="true" lang="en">
+    <head>
+        <title>Katimamulilo SDA Church</title>  
+        <meta charset="UTF-8">
+        <meta name="author" content="harrison mweene">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://fonts.googleapis.com/css2?family=Acme&family=M+PLUS+Rounded+1c:wght@300&display=swap" rel="stylesheet">  
+        <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Cabin&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style/style.css">
+    </head>
+    <body>
+        <header class="header-fixed">
+            <div class="header-limiter">
+              <h1><a href="index.html" class="logo">Katimamulilo SDA Church</a></h1>
+    
+              <nav>
+                <a href="about.html">About</a>
+                <a href="events.html">Events</a>
+                <a href="beliefs.html">beliefs</a>
+                <a href="leadership.html">Leadership</a>
+                <a href="media.html">Media</a>
+                <a href="location.html">Location</a>
+              </nav>
+          </div>
+          </header>
+    <!--prevent content from jumping off the page-->
+    <div class="header-fixed-placeholder"></div> 
+         
+    <!--Page content-->
+        <main>
+            <section>
+              <audio controls>
+                <source src="Fukatilani.mp3" type="audio/mpeg">
+              </audio>
+            </section>
+        </main>
+
+    <!--some js fo the header-->
+  <!--  <script type="text/javascript">
+        $(document).ready(function(){
+         $("#jquery_jplayer_1").jPlayer({
+          ready: function () {
+           $(this).jPlayer("setMedia", {
+            m4a: "/media/mysound.mp4",
+            oga: "/media/mysound.ogg"
+           });
+          },
+          swfPath: "/js",
+          supplied: "m4a, oga"
+         });
+        });
+       </script>
+       <div id="jquery_jplayer_1"></div>
+       <div id="jp_container_1">
+        <a href="#" class="jp-play">Play</a>
+        <a href="#" class="jp-pause">Pause</a>
+       </div> -->
+    <!--place here-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    var showHeaderAt = 150;
+    var win = $(window),
+        body = $('body');
+
+    // show fixed header only on larger screens
+
+    if(win.width() > 400){
+      // When we scroll more than 150px down, we set the
+		  // "fixed" class on the body element.
+
+      win.on('scroll', function(e)){
+        if(win.scrollTop(), function(e)){
+          if(win.scrollTop() > showHeaderAt) {
+					body.addClass('fixed');
+				}
+				else {
+					body.removeClass('fixed');
+				}
+			});
+
+		}
+
+	});
+</script>
+    </body>
+</html>

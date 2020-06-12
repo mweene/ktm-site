@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html data-ls-installed="true" lang="en">
+    <head>
+        <title>Katimamulilo SDA Church</title>  
+        <meta charset="UTF-8">
+        <meta name="author" content="harrison mweene">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://fonts.googleapis.com/css2?family=Acme&family=M+PLUS+Rounded+1c:wght@300&display=swap" rel="stylesheet">  
+        <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Cabin&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style/style.css">
+    </head>
+    <body>
+        <header class="header-fixed">
+            <div class="header-limiter">
+              <h1><a href="index.html" class="logo">Katimamulilo SDA Church</a></h1>
+    
+              <nav>
+                <a href="about.html">About</a>
+                <a href="events.html">Events</a>
+                <a href="beliefs.html">beliefs</a>
+                <a href="leadership.html">Leadership</a>
+                <a href="media.html">Media</a>
+                <a href="location.html">Location</a>
+              </nav>
+          </div>
+          </header>
+    <!--prevent content from jumping off the page-->
+    <div class="header-fixed-placeholder"></div> 
+         
+    <!--Page content-->
+        <main>
+            <section>
+                <h2>Our Beliefs</h2>
+                <p class="history">
+                    As Seventh-Adventists we have 28 fundatamental beliefs that serve as guidance for every church activity
+                    and every actions in our lives. Our beliefs are listed below. 
+                </p>
+                <div class="container-beliefs">
+                    <div class="box-1">1 the holy scriptures</div>
+                    <div class="box-2">2 the trinity</div>
+                    <div class="box-3">3 the father</div>
+                    <div class="box-4">4 the son</div>
+                    <div class="box-5">5 the holy spirit</div>
+                    <div class="box-6">6 creation</div>
+                    <div>7 the nature of humanity</div>
+                    <div>8 the great controversy</div> 
+                    <div>9 the life, death, and resurrection of jesus christ</div>
+                    <div>10 the experince of salvation</div>
+                    <div>11 growing in christ</div>
+                    <div>12 the church</div>
+<!--                <div>13 the remnant and its mission</div>
+                    <div>14 unity in the body of christ</div>
+                    <div>15 baptism</div>
+                    <div>16 the lords supper</div>
+                    <div>17 spiritual gifts and ministries</div>
+                    <div>18 the gift of phrophecy</div>
+                    <div>19 the law of God</div>
+                    <div>20 the sabbath</div>
+                    <div>21 stewardship</div>
+                    <div>22 christian behaivour</div>
+                    <div>23 marriage and the family</div>
+                    <div>24 christ's ministry in the heavenly sanctuary</div>
+                    <div>25 the second coming of christ</div>
+                    <div>26 death and resurrection</div>
+                    <div>27 the millennium and the end of sin</div>
+                    <div>28 the new earth</div> -->
+                </div>
+                <button class="btn">
+                <a href="#">Load more...</a>
+                </button>
+            </section>
+        </main>
+
+    <!--some js fo the header-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    var showHeaderAt = 150;
+    var win = $(window),
+        body = $('body');
+
+    // show fixed header only on larger screens
+
+    if(win.width() > 400){
+      // When we scroll more than 150px down, we set the
+		  // "fixed" class on the body element.
+
+      win.on('scroll', function(e)){
+        if(win.scrollTop(), function(e)){
+          if(win.scrollTop() > showHeaderAt) {
+					body.addClass('fixed');
+				}
+				else {
+					body.removeClass('fixed');
+				}
+			});
+
+		}
+
+	});
+</script>
+    </body>
+</html>
