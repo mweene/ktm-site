@@ -1,51 +1,41 @@
 <!DOCTYPE html>
 <html data-lt-installd="true" lang="en">
-    <head>
-        <title>Katimamulilo SDA Church</title>
-        <meta charset="UTF-8">
-        <meta name="author" content="harrison mweene">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link href="https://fonts.googleapis.com/css2?family=Acme&family=M+PLUS+Rounded+1c:wght@300&display=swap" rel="stylesheet">  
-        <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Cabin&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="style/style.css">
-    </head>
-    <body>
-        <header class="header-fixed">
-            <div class="header-limiter">
-              <h1><a href="index.html" class="logo">Katimamulilo SDA Church</a></h1>
-    
-              <nav>
+
+<head>
+    <title>Katimamulilo SDA Church</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="harrison mweene">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=M+PLUS+Rounded+1c:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Cabin&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+    <header class="header-fixed">
+        <div class="header-limiter">
+            <h1><a href="index.html" class="logo">Katimamulilo SDA Church</a></h1>
+
+            <nav>
                 <a href="about.html">About</a>
                 <a href="events.html">Events</a>
-                <a href="beliefs.html">beliefs</a>
+                <a href="beliefs.html">Beliefs</a>
                 <a href="leadership.html">Leadership</a>
                 <a href="media.html">Media</a>
                 <a href="give.html">Give</a>
-              </nav>
-          </div>
-          </header>
+            </nav> <!--change the style of the nav-bar so that it shows the current location -->
+        </div>
+    </header>
     <!--prevent content from jumping off the page-->
-    <div class="header-fixed-placeholder"></div> 
+    <div class="header-fixed-placeholder"></div>
+    <!--Page content-->
+        
     <main>
-        <section>
-            <h2>History of katimamulilo SDA church</h2>
-            <p class="history">katimamulilo church was formed in the year 2012 by Garden Main Sda church,
-               formation of the church was based on the lack of space by garden main church..., from worshiping at ngwerere primary
-               school as a company the church was led by elder ....., in the year 2015 the church managed to acquire a peice of land 
-               near katimamulilo road and was established as a church in 2016 by pastor ...
-            </p>
-            <h2>Location</h2>
-            <div class="wrapper">
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Esse sequi laboriosam, fugiat quasi dolor suscipit itaque excepturi aperiam expedita!
-                </div>
-                <div>
-                    word from our district pastor. pastor ....
-                </div>
-            </div>
-        </section>
-    </main>
+    <section id="hist-section"> <!--this is the history section -->
+        <h1>The History of katimamulilo SDA church</h1>
+            <p> Katimamulilo SDA Church was formed in the year 2013, the reason behind the construction was a new church was because the mother <a href="https://gardenmainsdachurch.com">church Garden Main SDA Church</a> was unable to occupy the large number of congregants present at that time, so the leadership decided to rent a class room at a near by school<a href="https://ngwerereprimaryschool.com"> by the name of ngwerere primary</a> a numberof members moved from the main church and started worshiping from the newly forme comapany. leaders were choosen and given the responsibilty of running all the affairs of the newly formed company...... As years wen by the number of people at ngwerere grow as well, there arised a need of finding more space and a permannet place where a curch would be constructed. </p>
+    </section>
+</main>
     <br>
     <footer id="footer">
         <address>
@@ -55,32 +45,32 @@
     </footer>
 
     <!--some js fo the header-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script>
-  $(document).ready(function(){
-    var showHeaderAt = 150;
-    var win = $(window),
-        body = $('body');
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var showHeaderAt = 150;
+            var win = $(window),
+                body = $('body');
 
-    // show fixed header only on larger screens
+            // show fixed header only on larger screens
 
-    if(win.width() > 400){
-      // When we scroll more than 150px down, we set the
-          // "fixed" class on the body element.
+            if (win.width() > 400) {
+                // When we scroll more than 150px down, we set the
+                // "fixed" class on the body element.
 
-      win.on('scroll', function(e)){
-        if(win.scrollTop(), function(e)){
-          if(win.scrollTop() > showHeaderAt) {
-                    body.addClass('fixed');
-                }
-                else {
-                    body.removeClass('fixed');
-                }
-            });
+                win.on('scroll', function(e)) {
+                    if (win.scrollTop(), function(e)) {
+                        if (win.scrollTop() > showHeaderAt) {
+                            body.addClass('fixed');
+                        } else {
+                            body.removeClass('fixed');
+                        }
+                    });
 
-        }
+            }
 
-    });
-</script>    
+        });
+    </script>
 </body>
+
 </html>
