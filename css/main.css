@@ -4,4 +4,6 @@ body {
     background: #f2f6e9;
 }
 
-
+.lead{
+    text-align: justify!important;
+}

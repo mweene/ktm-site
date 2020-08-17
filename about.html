@@ -1,76 +1,64 @@
-<!DOCTYPE html>
-<html data-lt-installd="true" lang="en">
-
+<!doctype html>
+<html lang="en">
 <head>
-    <title>Katimamulilo SDA Church</title>
-    <meta charset="UTF-8">
-    <meta name="author" content="harrison mweene">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css2?family=Acme&family=M+PLUS+Rounded+1c:wght@300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Cabin&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style/style.css">
+    <title>About</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
-
 <body>
-    <header class="header-fixed">
-        <div class="header-limiter">
-            <h1><a href="index.html" class="logo">Katimamulilo SDA Church</a></h1>
+    <div class="container-fluid">
+        <header>
+            <!-- NAVBAR STARTS HERE -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#"><img class="header-img" src="img/logo.png" width="30" height="30"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-            <nav>
-                <a href="about.html">About</a>
-                <a href="events.html">Events</a>
-                <a href="beliefs.html">Beliefs</a>
-                <a href="leadership.html">Leadership</a>
-                <a href="media.html">Media</a>
-                <a href="give.html">Give</a>
-            </nav> <!--change the style of the nav-bar so that it shows the current location -->
-        </div>
-    </header>
-    <!--prevent content from jumping off the page-->
-    <div class="header-fixed-placeholder"></div>
-    <!--Page content-->
-        
-    <main>
-    <section id="hist-section"> <!--this is the history section -->
-        <h1>The History of katimamulilo SDA church</h1>
-		<p> Katimamulilo SDA Church was formed in the year 2013, the reason behind the construction was a new church was because the mother <a href="https://gardenmainsdachurch.com">church Garden Main SDA Church</a> was unable to occupy the large number of congregants present at that time, so the leadership decided to rent a class room at a near by school<a href="https://ngwerereprimaryschool.com"> by the name of ngwerere primary</a> a numberof members moved from the main church and started worshiping from the newly forme comapany. leaders were choosen and given the responsibilty of running all the affairs of the newly formed company...... As years wen by the number of people at ngwerere grow as well, there arised a need of finding more space and a permannet place where a curch would be constructed. </p> <img src="../img/hand.jpg"> <!-- add an image alongside the historical text -->
-    </section>
-</main>
-    <br>
-    <footer id="footer">
-        <address>
-            Katimamulilo sda church is located near katimamulilo road and faces directly at the redcross in garden compound.
-        </address>
-        <p>Copyright 2020 &copy; All rights reserved.</p>
-    </footer>
+                <div class="collapse navbar-collapse" id="navbarsExample09">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="beliefs.html">Beliefs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="media.html">Media</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="calendar.html">Calendar</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Departments</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown09">
+                                <a class="dropdown-item" href="departments/elders.html">Elders</a>
+                                <a class="dropdown-item" href="departments/deacons.html">Deacons</a>
+                                <a class="dropdown-item" href="departments/youth.html">Youths</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 my-md-0">
+                        <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+                    </form>
+                </div>
+            </nav>
+            <!-- NAVBAR ENDS HERE -->
+        </header>
 
-    <!--some js fo the header-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            var showHeaderAt = 150;
-            var win = $(window),
-                body = $('body');
+        <main role="main">
+            
+        </main>
+    </div>
 
-            // show fixed header only on larger screens
-
-            if (win.width() > 400) {
-                // When we scroll more than 150px down, we set the
-                // "fixed" class on the body element.
-
-                win.on('scroll', function(e)) {
-                    if (win.scrollTop(), function(e)) {
-                        if (win.scrollTop() > showHeaderAt) {
-                            body.addClass('fixed');
-                        } else {
-                            body.removeClass('fixed');
-                        }
-                    });
-
-            }
-
-        });
-    </script>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </body>
-
-</html>
+</html>        
+        <!--this is the history section 
+        <h1 class="header">The History of katimamulilo SDA church</h1>
+        <p> Katimamulilo SDA Church was formed in the year 2013, the reason behind the construction was a new church was because the mother <a href="https://gardenmainsdachurch.com">church Garden Main SDA Church</a> was unable to occupy the large number of congregants present at that time, so the leadership decided to rent a class room at a near by school<a href="https://ngwerereprimaryschool.com"> by the name of ngwerere primary</a> a numberof members moved from the main church and started worshiping from the newly forme comapany. leaders were choosen and given the responsibilty of running all the affairs of the newly formed company...... As years wen by the number of people at ngwerere grow as well, there arised a need of finding more space and a permannet place where a curch would be constructed. </p>  add an image alongside the historical text -->
