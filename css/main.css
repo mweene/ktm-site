@@ -7,3 +7,211 @@ body {
 .lead{
     text-align: justify!important;
 }
+
+/*Servives sections on the home page */
+
+section {
+  padding: 0;
+  overflow: hidden;
+}
+
+.section-bg{
+	background-color: #fff9f7;
+}
+
+.section-header h2{
+	font-size: 32px;
+	text-align: center;
+	font-weight: 500;
+	position: relative;
+}
+
+.section-header p{
+	text-align: center;
+	margin: auto;
+	font-size: 15px;
+	padding-bottom: 60px;
+	color: #556877;
+	width: 50%;
+}
+
+#services .box{
+	padding: 30px;
+	position: relative;
+	overflow: hidden;
+	border-radius: 10px;
+	margin: 0 10px 40px 10px;
+	background: #fff;
+	box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);
+	transition: all 0.3s ease-in-out;
+}
+
+/* leadership section */
+
+.team-section{
+	background-color: #fff;
+}
+
+.team-section h2,{
+	font-size: 32px;
+	text-align: center;
+	position: relative;
+}
+
+.team-section p{
+	text-align: center;
+	margin: auto;
+	font-size: 15px;
+	padding-bottom: 60px;
+	width: 50%;
+}
+
+.rounded-circle{
+	box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.2);
+}
+
+/**footer section**/
+.footer-section{
+  background-color: grey;
+}
+
+/* style for the beliefs page */
+.blog .entry{
+  padding: 20px;
+  margin-bottom: 60px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.blog .entry .entry-img{
+  max-height: 400px;
+  margin: -20px -20px 20px -20px;
+  overflow: hidden;
+}
+
+.blog .entry .entry-title{
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: bold;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.blog .entry .entry-title a {
+  color: ;
+  text-decoration: none;
+  transition: 0.3s;
+  background-color: transparent;
+}
+
+.blog .entry .entry-title a:hover {
+  color: #ff5821;
+}
+
+.blog .entry .entry-content p{
+  line-height: 24px;
+  font-size: 15px;
+}
+
+.blog .entry .entry-content .read-more{
+  text-align-last: right;
+}
+
+.blog .entry .entry-content .read-more a {
+  text-decoration: none;
+  display: inline-block;
+  background: #003265;
+  color: #fff;
+  padding: 6px 20px;
+  transition: 0.3s;
+  font-size: 14px;
+}
+
+.blog .entry .entry-content .read-more a:hover {
+  background: #ff774a;
+}
+
+/* pagination */
+.blog .blog-pagination ul{
+	display: flex;
+	padding-left: 0;
+	list-style: none;
+}
+
+.blog .blog-pagination li{
+	margin: 0 5px;
+}
+
+.blog .blog-pagination li .disabled{
+	background: #fff;
+	border: 1px solid #fdfcfc;
+}
+
+.blog .blog-pagination li {
+    border: 1px solid #f32345;
+    margin: 0 5px;
+}
+
+.blog .blog-pagination li .disabled i {
+    color: #dedede;
+    padding: 10px 16px;
+    display: inline-block;
+}
+
+.blog .blog-pagination li a {
+    color: #989595;
+    padding: 7px 16px;
+    display: inline-block;
+}
+
+.blog .blog-pagination li a:hover{
+	color: navy-blue;
+}
+
+/*style for the footer*/
+.footer {
+  background: #152F4F;
+  color: white;
+.links {
+
+ ul {
+  list-style-type: none;
+}
+
+li a {
+  color: white;
+  transition: color .2s;
+
+&:hover {
+  text-decoration: none;
+  color: #4180CB;
+}
+}
+}
+           
+.about-company {
+  i {
+    font-size: 25px;
+    }
+  a {
+    color: white;
+    transition: color .2s;
+  &:hover {
+  color: #4180CB
+    }
+    }
+}
+           
+.location {
+  i {
+    font-size: 18px;
+      }
+}
+           
+.copyright p {
+  border-top: 1px solid rgba(255, 255, 255, .1);
+  }
+}
+
+/*page-pagination*/
+
