@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/evo-calendar.css">
     <link rel="icon" href="https://img.icons8.com/fluent/128/000000/calendar.png">
     <meta charset="utf-8">
-
+    <meta name="author" content="harrison mweene">
 </head>
 
 <body>
@@ -81,7 +81,7 @@
                                 <tbody>
                                     <tr>
                                         <th scope="row">1</th>
-                                        <td>Induction Ceremony</td>
+                                        <td><a href="#" data-toggle="popover" title="Popover Header" data-content="Some content inside the popover">Toggle popover</a></td>
                                         <td>Camp Fire</td>
                                         <td>Community Service</td>
                                         <td>Music Promotion</td>
@@ -342,9 +342,13 @@
             </div>
         </footer>
     </div><!-- ./container-fluid-->
-
     <script src="jquery-3.5.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="popover"]').popover();   
+        });
+    </script>
 </body>
 
 </html>
