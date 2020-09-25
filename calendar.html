@@ -58,7 +58,7 @@
         <main role="main">
             <h1 class="section-title center"><strong>2020 calendar</strong></h1>
             <p>Lorem ipsum dolor, sit amet consectetur, adipisicing elit. Molestiae, eius.</p>
-            <div id="accordion">
+            <div id="accordion" class="md-accordion accordion-blocks">
                 <div class="card">
                     <div class="card-header" id="headingOne">
                         <h5 class="mb-0">
@@ -291,18 +291,21 @@
             <!--</div> End of row div -->
 
                 <br>
-
-                <nav aria-label="page navigation example">
-                  <ul class="pagination justify-content-center">
-                    <li class="page-item"><a class="page-link" href="">Previous</a></li>
-                    <li class="page-item"><a class="page-link" href="">1</a></li>
-                    <li class="page-item"><a class="page-link" href="">2</a></li>
-                    <li class="page-item"><a class="page-link" href="">3</a></li>
-                    <li class="page-item"><a class="page-link" href="">4</a></li>
-                    <li class="page-item"><a class="page-link" href="">Next</a></li>
-                  </ul>
-                </nav>
-
+                <nav aria-label="Page navigation example">
+  <ul class="pagination pg-blue justify-content-center">
+    <li class="page-item ">
+      <a class="page-link" tabindex="-1">Previous</a>
+    </li>
+    <li class="page-item"><a class="page-link">1</a></li>
+    <li class="page-item active">
+      <a class="page-link">2 <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="page-item"><a class="page-link">3</a></li>
+    <li class="page-item ">
+      <a class="page-link">Next</a>
+    </li>
+  </ul>
+</nav>
             </div>
         </main>
 
@@ -343,12 +346,8 @@
         </footer>
     </div><!-- ./container-fluid-->
     <script src="jquery-3.5.1.min.js"></script>
+    <script src="js/main.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $('[data-toggle="popover"]').popover();   
-        });
-    </script>
 </body>
 
 </html>
