@@ -10,6 +10,10 @@ body {
     background: #f2f6e9;
 }
 
+.navbar-brand{ /*moves the nav-links to the right */
+  margin-right: 20rem!important;
+}
+
 .lead{
     text-align: justify!important;
 }
@@ -176,12 +180,12 @@ section {
 
 /*style for the footer*/
 .footer {
-  background: #152F4F;
+  background: #304688!important;
   color: white;
-.links {
+}
 
- ul {
-  list-style-type: none;
+.footer h2{
+  color: #fff;
 }
 
 li a {
@@ -195,7 +199,7 @@ li a {
 }
 }
 
-.about-company {
+.about-church {
   i {
     font-size: 25px;
     }
@@ -233,4 +237,18 @@ li a {
 #pagination.active, #pagination.btn:hover {
   background-color: #666;
   color: white;
+}
+
+/*style for the about us page*/
+.top-intro{
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+.intro{
+  text-align: center;
+  color: royalblue;
+}
+
+.quote h3{
+  color: royalblue;
 }
