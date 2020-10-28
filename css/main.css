@@ -180,7 +180,7 @@ section {
 
 /*style for the footer*/
 .footer {
-  background: #304688!important;
+  background: #2f557f!important;
   color: white;
 }
 
@@ -240,15 +240,45 @@ li a {
 }
 
 /*style for the about us page*/
-.top-intro{
-  padding-top: 1rem;
-  padding-bottom: 2rem;
-}
-.intro{
-  text-align: center;
-  color: royalblue;
-}
+
 
 .quote h3{
   color: royalblue;
+}
+
+/***Calendar****/
+.top-intro{
+  width: 100%;
+  position: relative;
+  background: url("../img/ktm2.jpg") center bottom no-repeat;
+  background-size: cover;
+  padding: 200px 0 10px 0;
+  opacity: 0.8;
+}
+
+.intro{
+  text-align: center;
+  color: #fff;
+  font-family: "AdventSans-Logo"!important;
+}
+.top-intro h1{
+  font-weight: 700;
+  font-weight: bold;
+}
+
+.top-intro .btn{
+  text-align: center;
+  vertical-align: middle;
+}
+
+/**Accordion button**/
+#accordion .btn-link{
+  font-weight: 600!important;
+  color: teal!important;
+  text-decoration: none!important;
+}
+
+.card .btn {
+  font-weight: 500!important;
+  color: dodgerblue!important;
 }
