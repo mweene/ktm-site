@@ -1,5 +1,11 @@
 import "./App.css";
+import Navbar from "./components/Navbar";
 
 export default function App() {
-    return <div className="">Katimamulilo homepage</div>;
+    return (
+        <div className="">
+            <Navbar />
+            Katimamulilo homepage
+        </div>
+    );
 }
