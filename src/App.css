@@ -1,0 +1,14 @@
+.app {
+    padding: 1rem;
+}
+
+button {
+    cursor: pointer;
+    padding: 0.5rem 1.5rem;
+    background-color: #111;
+    color: #fff;
+}
+
+p {
+    font-size: 1.1rem;
+}
