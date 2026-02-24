@@ -3,11 +3,13 @@ import Hero from "../components/Hero";
 import RecentSermons from "../components/RecentSermons";
 import BeliefsSection from "../components/BeliefsSection";
 
-export default function Homepage() {
+export default function Home() {
     return (
         <>
-            <Navbar />
-            <Hero />
+            <div className="top py-4 px-10">
+              <Navbar />
+              <Hero />
+            </div>
             <RecentSermons />
             <BeliefsSection />
             <RecentEvents />

@@ -1,14 +1,36 @@
-.app {
-    padding: 1rem;
+image {
+  width: 100%;
 }
 
 button {
-    cursor: pointer;
-    padding: 0.5rem 1.5rem;
-    background-color: #111;
-    color: #fff;
+  cursor: pointer;
+  padding: 0.65rem 1.75rem;
+  border-radius: 1.5rem;
+  font-size: 1.125rem;
 }
 
 p {
-    font-size: 1.1rem;
+  font-size: 1.1rem;
+}
+
+.top {
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0) 0%,
+      rgba(0,0,0,0.4)40%,
+      rgba(0,0,0,0.9) 100%
+    ) ,
+    url("./assets/bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.map {
+  background-image: url("./assets/map.webp");
+  background-size: cover;
+  background-position: bottom;
+  background-blend-mode: soft-light;
+  /*background-size: 30rem;*/
+  /*box-shadow: inset 0px 0px 7px 2px #000000b0;*/
 }
