@@ -10,10 +10,12 @@ export default function Home() {
               <Navbar />
               <Hero />
             </div>
-            <RecentSermons />
-            <BeliefsSection />
-            <RecentEvents />
-            <Calendar />
+            <div className="px-16 py-12">
+                <RecentSermons />
+                <BeliefsSection />
+                <RecentEvents />
+                <Calendar />
+            </div>
             <Footer />
         </>
     );

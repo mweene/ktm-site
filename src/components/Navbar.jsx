@@ -1,35 +1,59 @@
 import { useState } from "react";
 import Logo from "../assets/logo.svg";
-import {X, Menu} from "lucide-react";
+import {Menu, LucideCircleArrowRight, LucideXCircle} from "lucide-react";
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     return (
-        <nav className="relative">
-            <div className="logo-section flex place-content-between place-items-center">
-                <img src={Logo} alt="logo" className="logo h-[3rem]" />
+        <nav className="relative grid place-content-center place-items-center">
+            <div className="logo-section py-2 px-8 rounded-full flex place-content-between gap-160 place-items-center bg-neutral-700/20 backdrop-blur-lg border border-neutral-50/20 w-fit">
+                <img src={Logo} alt="logo" className="logo h-12" />
                 <a
-                    onClick={() => setIsMenuOpen((prev) => !prev)}
+                    onClick={() => setIsMenuOpen(true)}
                     className="cursor-pointer text-white"
                 >
-                    {isMenuOpen ? <X size={25} /> : <Menu size={25}/>}
+                    <Menu size={25}/>
                 </a>
             </div>
 
-            {isMenuOpen && <NavList />}
+            {isMenuOpen && <NavList onClose={() => setIsMenuOpen(false)}/>}
         </nav>
     );
 }
 
-function NavList() {
+function NavList({onClose}) {
     return (
-        <div className="absolute w-full left-0 text-left pt-4 z-2">
-            <ul className="text-2xl flex flex-col gap-2 [&>li]:p-5 [&>li]:border">
+        <div className="absolute w-2/6 top-0 right-0 mt-4 px-8 py-6 z-2 bg-gray-100/85 backdrop-blur-2xl rounded-3xl">
+            <div className="nav-menu flex place-content-between place-items-start pb-10">
+                <p className=" text-sm text-gray-700">
+                    Lusaka, Zambia{" "}
+                    <span className="text-black font-medium">8:44</span> PM
+                </p>
+                <a className="flex gap-1 place-items-center cursor-pointer" onClick={onClose}>
+                    <span>Close</span><LucideXCircle size={20}/>
+                </a>
+            </div>
+            <ul className="font-medium text-2xl flex flex-col gap-5 [&>li]:text-gray-950 [&>li]:capitalize">
                 <li>home</li>
                 <li>sermons</li>
                 <li>events</li>
-                <li>about us</li>
+                <li>about</li>
+                <li>contact</li>
+                <li className="contacts self-end">
+                    <Contacts />
+                </li>
             </ul>
         </div>
     );
+}
+
+function Contacts() {
+    return (
+        <ul className="text-sm font-medium flex flex-col gap-3 [&>li]:flex [&>li]:place-content-between [&>li]:place-items-center [&>li]:gap-4">
+            <li>whatsApp <LucideCircleArrowRight size={17}/></li>
+            <li>facebook <LucideCircleArrowRight size={17}/></li>
+            <li>youtube <LucideCircleArrowRight size={17}/></li>
+            <li>email <LucideCircleArrowRight size={17}/></li>
+        </ul>
+    )
 }
