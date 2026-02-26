@@ -1,14 +1,15 @@
 export default function BeliefsSection() {
     return (
         <section className="">
-            <h2>our beliefs</h2>
-            <p>
+            <h2 className="capitalize text-5xl font-medium">our beliefs</h2>
+            
+            <p className="text-lg text-neutral-800 my-4">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia
                 ducimus fuga amet deleniti eaque repudiandae sunt magni eius
                 sed.
             </p>
 
-            <div className="cards">
+            <div className="cards grid gap-4">
                 <BCard />
                 <BCard />
                 <BCard />
@@ -19,7 +20,7 @@ export default function BeliefsSection() {
 
 function BCard() {
     return (
-        <div>
+        <div className="bg-neutral-200 p-6 rounded-2xl">
             <div className="text">
                 <h3>belief 1</h3>
                 <p>
