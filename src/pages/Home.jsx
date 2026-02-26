@@ -6,11 +6,11 @@ import BeliefsSection from "../components/BeliefsSection";
 export default function Home() {
     return (
         <>
-            <div className="top py-4 px-10">
+            <div className="top p-4 md:py-4 md:px-10">
               <Navbar />
               <Hero />
             </div>
-            <div className="px-16 py-12">
+            <div className="px-6 py-4 lg:px-16 lg:py-12">
                 <RecentSermons />
                 <BeliefsSection />
                 <RecentEvents />

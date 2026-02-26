@@ -1,13 +1,14 @@
 export default function BeliefsSection() {
     return (
         <section className="">
-            <h2 className="capitalize text-5xl font-medium">our beliefs</h2>
+            <div className="md:w-4/7">
+                <h2 className="uppercase text-[1.01rem] font-bold text-neutral-600">our beliefs</h2>
             
-            <p className="text-lg text-neutral-800 my-4">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia
-                ducimus fuga amet deleniti eaque repudiandae sunt magni eius
-                sed.
-            </p>
+                <p className="text-4xl mt-1.5 mb-6">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia
+                    ducimus fuga amet ipsum dolor promising.
+                </p>
+            </div>
 
             <div className="cards grid gap-4">
                 <BCard />
