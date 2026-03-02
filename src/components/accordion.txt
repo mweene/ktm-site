@@ -1,0 +1,99 @@
+import { useState } from "react";
+import { Plus, Minus } from "lucide-react";
+
+const beliefsObject = [
+  { id: 1, title: "the holy scriptures", content: "The Holy Scriptures, Old and New Testaments..." },
+  { id: 2, title: "the holy trinity", content: "There is one God: Father, Son, and Holy Spirit..." },
+  { id: 3, title: "the father", content: "God the eternal Father is the Creator..." },
+  { id: 4, title: "the son", content: "God the eternal Son became incarnate..." },
+  { id: 5, title: "the holy spirit", content: "God the eternal Spirit was active..." },
+];
+
+export default function Beliefs() {
+  return (
+    <section className="grid md:grid-cols-2 gap-12 bg-neutral-950 text-neutral-100 md:mx-8 p-6 md:p-12 rounded-[2rem] items-start">
+      <TextHeader />
+      <Accordion />
+    </section>
+  );
+}
+
+function TextHeader() {
+  return (
+    <div className="flex flex-col justify-between h-full space-y-8">
+      <div>
+        <h2 className="uppercase text-sm tracking-widest font-bold text-neutral-500 mb-4">
+          fundamental beliefs
+        </h2>
+        <p className="text-3xl md:text-4xl leading-tight">
+          Seventh-day Adventists accept the Bible as their only creed and hold
+          certain fundamental beliefs to be the teaching of the Holy Scriptures.
+        </p>
+      </div>
+      <div>
+        <button className="bg-neutral-50 hover:bg-neutral-200 transition-colors text-neutral-950 px-6 py-3 rounded-full font-semibold capitalize">
+          download pdf file
+        </button>
+        <p className="text-sm text-neutral-400 mt-3">
+          For the rest of our beliefs, click the download button above.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function Accordion() {
+  // Use null for "no card open"
+  const [openId, setOpenId] = useState(null);
+
+  const toggleCard = (id) => {
+    setOpenId(openId === id ? null : id);
+  };
+
+  return (
+    <div className="flex flex-col gap-3">
+      {beliefsObject.map((belief) => (
+        <BeliefCard
+          key={belief.id}
+          belief={belief}
+          isOpen={openId === belief.id}
+          onToggle={() => toggleCard(belief.id)}
+        />
+      ))}
+    </div>
+  );
+}
+
+function BeliefCard({ belief, isOpen, onToggle }) {
+  return (
+    <div
+      className={`group transition-all duration-300 bg-neutral-900/50 border rounded-2xl overflow-hidden ${
+        isOpen ? "border-neutral-50/30 bg-neutral-800/60" : "border-neutral-50/10 hover:border-neutral-50/20"
+      }`}
+    >
+      <button
+        onClick={onToggle}
+        className="w-full flex justify-between items-center p-6 text-left"
+        aria-expanded={isOpen}
+      >
+        <h3 className="text-xl font-medium capitalize">{belief.title}</h3>
+        <div className="text-neutral-400 group-hover:text-white transition-colors">
+          {isOpen ? <Minus size={24} /> : <Plus size={24} />}
+        </div>
+      </button>
+
+      {/* Content Area */}
+      <div
+        className={`grid transition-all duration-300 ease-in-out ${
+          isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+        }`}
+      >
+        <div className="overflow-hidden">
+          <p className="px-6 pb-6 text-neutral-400 leading-relaxed text-sm md:text-base">
+            {belief.content}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -1,7 +1,7 @@
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import RecentSermons from "../components/RecentSermons";
-import BeliefsSection from "../components/BeliefsSection";
+import Beliefs from "../components/Beliefs";
 
 export default function Home() {
     return (
@@ -12,7 +12,7 @@ export default function Home() {
             </div>
             <div className="px-6 py-4 lg:px-16 lg:py-12">
                 <RecentSermons />
-                <BeliefsSection />
+                <Beliefs />
                 <RecentEvents />
                 <Calendar />
             </div>

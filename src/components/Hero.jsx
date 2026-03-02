@@ -4,7 +4,7 @@ import { Navigation } from "lucide-react";
 export default function Hero() {
   const [location, setLocation] = useState(false);
   return (
-    <section className="Hero h-[93dvh] md:h-[88.25dvh] grid pb-4">
+    <section className="Hero h-[93dvh] md:h-[90dvh] grid pb-4">
       <div className=" flex place-content-between pb-4">
         <div className="main-text place-self-end rounded-xl w-4/7">
           <h1 className="text-4xl md:text-6xl font-semibold text-white">His word lives.</h1>
