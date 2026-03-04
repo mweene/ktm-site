@@ -56,10 +56,12 @@ function TextHeader() {
                 </p>
             </div>
             <div className="">
-                <button className="bg-neutral-50 text-neutral-950 font-semibold capitalize">
-                    download pdf file
-                </button>
-                <p className="text-[.945rem] text-neutral-400 mt-1">
+                <div>
+                  <a href="./accordion.txt" download='SDA_Fundamental_Beliefs.txt' className="bg-neutral-50 text-neutral-950 font-semibold capitalize py-4 px-10 mb-4 rounded-3xl">
+                    download PDF file
+                </a>
+                </div>
+                <p className="text-[.945rem] text-neutral-400 mt-4">
                     For the rest our beliefs click the download button above
                 </p>
             </div>
