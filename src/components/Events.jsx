@@ -36,7 +36,7 @@ function EventCard({bgImage="ktm1.jpg", className}) {
             className={`bento-card p-10 rounded-4xl h-full bg-[url(/src/assets/${bgImage})]
             hover:bg-blue-400 relative ${className}`}
         >
-         <div className="">
+         <div className="opacity-0 hover:opacity-100 bg-white overflow-hidden">
             <h4>Lorem ipsum dolor sit.</h4>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
          </div>
