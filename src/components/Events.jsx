@@ -1,3 +1,5 @@
+import {ArrowLeft, ArrowRight} from "lucide-react";
+
 export default function Events() {
     return (
         <div className="my-10">
@@ -8,6 +10,10 @@ export default function Events() {
                 </p>
             </div>
             <EventGallery />
+            <div className="flex">
+              <ArrowLeft size={25}/>
+              <ArrowRight size={25} />
+            </div>
         </div>
     )
 }
@@ -33,13 +39,9 @@ function EventGallery() {
 function EventCard({bgImage="ktm1.jpg", className}) {
     return (
         <div 
-            className={`bento-card p-10 rounded-4xl h-full bg-[url(/src/assets/${bgImage})]
+            className={`bento-card rounded-4xl h-[15rem] bg-[url(/src/assets/${bgImage})]
             hover:bg-blue-400 relative ${className}`}
         >
-         <div className="opacity-0 hover:opacity-100 bg-white overflow-hidden">
-            <h4>Lorem ipsum dolor sit.</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
-         </div>
         </div>
     )
 }

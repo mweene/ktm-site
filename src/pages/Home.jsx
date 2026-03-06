@@ -3,6 +3,7 @@ import Hero from "../components/Hero";
 import RecentSermons from "../components/RecentSermons";
 import Beliefs from "../components/Beliefs";
 import Events from "../components/Events";
+import Calendar from "../components/Calendar";
 
 export default function Home() {
     return (
@@ -22,17 +23,6 @@ export default function Home() {
     );
 }
 
-function Calendar() {
-    return (
-        <div className="">
-            <h3>our church calendar</h3>
-            <div className="">
-                <div className="calendar"></div>
-                <div className="calendar-popup"></div>
-            </div>
-        </div>
-    );
-}
 
 function Footer() {
     return <div className="">footer</div>;

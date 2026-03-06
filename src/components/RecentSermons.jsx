@@ -17,12 +17,10 @@ export default function RecentSermons() {
                     className="lg:col-span-2 transition-all duration-300 bg-[url(/src/assets/ktm1.jpg)] 
                     bg-blend-luminosity"
                 >
-                    <div className="text flex flex-col place-content-between h-full">
-                        <p className="flex place-content-between">top text <span>more text</span></p>
-                        <span className="p-6 bg-white rounded-full w-fit place-self-center">
+                    <div className="text flex flex-col place-content-center place-items-center h-full">
+                        <div className="p-6 bg-white rounded-full w-fit place-self-center">
                             <LucidePlay size={22}/>
-                        </span>
-                        <p>bottom text</p>
+                        </div>
                     </div>
                 </Card>
 
