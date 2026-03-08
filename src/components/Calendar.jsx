@@ -40,7 +40,7 @@ const dayHeaders = [
     "saturday",
 ];
 
-const extractDayFromDate = (dateStr) => dateStr.split("-")[0];
+const extractDayFromDate = (dateStr) => Number(dateStr.split("-")[2]);
 
 export default function Calendar() {
     const calendar = {
@@ -50,7 +50,12 @@ export default function Calendar() {
         calendar.grid.push(i);
     }
 
-    const handleClick = (e) => console.log(e);
+    const handleClick = (num) => {
+      const result = month.events.find(event => extractDayFromDate(event.date) === num);
+      result ? console.log(result) : console.log('no event')
+    }
+
+
     const index = dayHeaders.findIndex((day) => day === month.firstDay);
 
     const isFilled = (num) =>
@@ -67,7 +72,7 @@ export default function Calendar() {
                 {calendar.grid.map((ele) => (
                     <Box
                         key={ele}
-                        onClick={() => handleClick(ele)}
+                        onClick={() => handleClick(ele - index)}
                         isFilled={isFilled(ele)}
                     >
                         {ele - index}
