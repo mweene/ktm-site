@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import Logo from "../assets/logo.svg";
 import {Menu, LucideCircleArrowRight, LucideXCircle} from "lucide-react";
@@ -5,7 +6,7 @@ import {Menu, LucideCircleArrowRight, LucideXCircle} from "lucide-react";
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     return (
-        <nav className="relative">
+        <nav className="relative bg-neutral-900 p-4 md:py-4 md:px-10">
             <div className="logo-section flex place-content-between place-items-center">
                 <img src={Logo} alt="logo" className="logo h-12" />
                 <a
@@ -34,11 +35,10 @@ function NavList({onClose}) {
                 </a>
             </div>
             <ul className="font-medium text-2xl flex flex-col gap-5 [&>li]:text-gray-950 [&>li]:capitalize">
-                <li>home</li>
-                <li>sermons</li>
-                <li>events</li>
-                <li>about</li>
-                <li>contact</li>
+                <li><Link to="/">home</Link></li>
+                <li><Link to="/sermons">sermons</Link></li>
+                <li><Link to="/about">about</Link></li>
+                <li><Link to="/contact">contact</Link></li>
                 <li className="contacts self-end">
                     <Contacts />
                 </li>
