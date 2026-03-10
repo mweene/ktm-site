@@ -4,6 +4,7 @@ import RecentSermons from "../components/RecentSermons";
 import Beliefs from "../components/Beliefs";
 import Events from "../components/Events";
 import Calendar from "../components/Calendar";
+import Footer from "../components/Footer.jsx"
 
 export default function Home() {
     return (
@@ -23,7 +24,3 @@ export default function Home() {
     );
 }
 
-
-function Footer() {
-    return <div className="">footer</div>;
-}

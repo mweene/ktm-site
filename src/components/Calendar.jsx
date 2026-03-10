@@ -93,7 +93,7 @@ export default function Calendar() {
                         </div> 
                     </div> 
 
-                    <div className="days grid grid-cols-7 gap-0.5">
+                    <div className="days grid grid-cols-7 gap-1 mt-6 mb-4">
                         {dayHeaders.map((day) => (
                             <p key={day} className="capitalize">{day}</p>
                         ))}
@@ -135,24 +135,29 @@ function Box({ onClick, children, isFilled }) {
 
 function DisplayEvent({program}) {
     return (
-        <div className="border rounded-3xl bg-neutral-200 text-neutral-900">
-            <div className="event-image bg-sky-500 p-10 py-30 rounded-3xl"></div>
+        <div className="rounded-3xl bg-neutral-200 text-neutral-900 relative">
+            <div className="event-image bg-sky-600 bg-[url(/src/assets/ktm1.jpg) p-10 py-35 rounded-3xl"></div>
             
-            <div className="text p-6">
-                <div className="flex text-sm gap-4">
-                    <p className="bg-neutral-400">{program.date}</p>
-                    <p className="bg-neutral-400">{program.venue}</p>
+            <div className="grid text p-6 ">
+                <div className="flex flex-wrap text-sm gap-4 asolute top-0">
+                    <p className="bg-neutral-400 rounded-full">{program.date}</p>
+                    <p className="bg-neutral-400 rounded-full">{program.venue}</p>
+                    <p className="bg-neutral-400 w-fit mt-2 rounded-full">{program.charge}</p>
                 </div>
-                <p className="bg-neutral-400 w-fit mt-2">{program.charge}</p>
 
-                <p className="text-3xl font-semibold capitalize w-1/2">{program.name}</p>
-                <p>{program.note}</p>
+                <div className="mt-6">
+                  <p className="text-3xl font-semibold capitalize w-1/2">{program.name}</p>
+                  <p>{program.note}</p>
+                </div>
             </div>
 
-            <div className="buttons flex gap-2 p-6">
+        {
+          program.name === 'mweene' && 
+          (<div className="buttons flex gap-2 p-6">
                 <ArrowLeft size={20}/>
                 <ArrowRight size={20}/>
-            </div>
+          </div>)
+        }
         </div>
     )
 }
