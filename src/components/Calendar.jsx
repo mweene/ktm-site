@@ -1,3 +1,4 @@
+import MonthsArray from "../utils/generateRandomMonths";
 import { useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
@@ -56,6 +57,7 @@ const extractDayFromDate = (dateStr) => Number(dateStr.split("-")[2]);
 
 export default function Calendar() {
     const [program, setProgram] = useState(month.events[0]);
+    console.log(MonthsArray);
     const calendar = {
         grid: [],
     };
