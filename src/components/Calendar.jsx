@@ -2,46 +2,7 @@ import MonthsArray from "../utils/generateRandomMonths";
 import { useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
-const month = {
-    name: "march",
-    year: "2026",
-    days: 31,
-    firstDay: "fri",
-    events: [
-        {
-            id: "ktm001",
-            name: "pathfinder camporee",
-            date: "2026-02-05",
-            venue: "munda wanga gardens",
-            charge: "K120",
-            note: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt at neque enim fugit quas explicabo saepe dolore magni natus eaque"
-        },
-        {
-            id: "ktm002",
-            name: "adventure tea party",
-            date: "2026-02-10",
-            venue: "local church",
-            charge: "K50",
-            note: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt at neque enim fugit quas explicabo saepe dolore magni natus eaque"
-        },
-        {
-            id: "ktm003",
-            name: "dorcas rally",
-            date: "2026-02-12",
-            venue: "local church",
-            charge: "free",
-            note: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt at neque enim fugit quas explicabo saepe dolore magni natus eaque"
-        },
-        {
-            id: "ktm004",
-            name: "youth fellowship",
-            date: "2026-02-23",
-            venue: "villa sda church",
-            charge: "K75",
-            note: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt at neque enim fugit quas explicabo saepe dolore magni natus eaque"
-        },
-    ],
-};
+const month = MonthsArray[1];
 
 const dayHeaders = [
     "sun",
@@ -53,11 +14,11 @@ const dayHeaders = [
     "sat",
 ];
 
-const extractDayFromDate = (dateStr) => Number(dateStr.split("-")[2]);
+const extractDayFromDate = (dateStr) => Number(dateStr.split("/")[0]);
 
 export default function Calendar() {
     const [program, setProgram] = useState(month.events[0]);
-    console.log(MonthsArray);
+    console.log(MonthsArray[1]);
     const calendar = {
         grid: [],
     };
@@ -68,10 +29,12 @@ export default function Calendar() {
     const handleClick = (num) => {
       const result = month.events.find(event => extractDayFromDate(event.date) === num);
       result ? setProgram(result) : setProgram({name: 'no event'})
+      console.log(result)
     }
 
 
     const index = dayHeaders.findIndex((day) => day === month.firstDay);
+    console.log(`first day: ${month.firstDay}, index: ${index}, days: ${month.days}`);
 
     const isFilled = (num) =>
         num <= index || num > month.days + index ? false : true; //date placement mechanism
@@ -149,7 +112,7 @@ function DisplayEvent({program}) {
 
                 <div className="mt-6">
                   <p className="text-3xl font-semibold capitalize w-1/2">{program.name}</p>
-                  <p>{program.note}</p>
+                  <p>{program.notes}</p>
                 </div>
             </div>
 
