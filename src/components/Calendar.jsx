@@ -15,16 +15,18 @@ export default function Calendar() {
     const [month, setMonth] = useState(data.months[monthIndex]);
 
     const prevMonth = () => {
-        setMonthIndex((prev) => prev - 1);
-        setMonth(data.months[monthIndex]);
+        if (monthIndex <= 0) return;
+        const newIndex = monthIndex - 1;
+        setMonthIndex(newIndex);
+        setMonth(data.months[newIndex]);
     };
 
     const nextMonth = () => {
-        setMonthIndex((prev) => prev + 1);
-        setMonth(data.months[monthIndex]);
+        if (monthIndex >= 11) return;
+        const newIndex = monthIndex + 1;
+        setMonthIndex(newIndex);
+        setMonth(data.months[newIndex]);
     };
-
-    console.log(data);
 
     const calendar = {
         grid: [],
@@ -36,7 +38,7 @@ export default function Calendar() {
     //const handleClick = (num) => {
     //    const result = month.events.find(
     //        (event) => extractDayFromDate(event.date) === num);
-    //    result ? setProgram(result) : setProgram({ title: "no event" });
+    //    result ? setEvent(result) : setEvent({ title: "no event" });
     //};
 
     const index = month.firstDay;
@@ -62,16 +64,20 @@ export default function Calendar() {
                         </p>
 
                         <div className="buttons flex gap-2">
-                            <ArrowLeft
-                                size={20}
-                                onClick={prevMonth}
-                                className="cursor-pointer"
-                            />
-                            <ArrowRight
-                                size={20}
-                                onClick={nextMonth}
-                                className="cursor-pointer"
-                            />
+                            <button disabled={monthIndex === 0 ? true : false}>
+                                <ArrowLeft
+                                    size={20}
+                                    onClick={prevMonth}
+                                    className="cursor-pointer"
+                                />
+                            </button>
+                            <button>
+                                <ArrowRight
+                                    size={20}
+                                    onClick={nextMonth}
+                                    className="cursor-pointer"
+                                />
+                            </button>
                         </div>
                     </div>
 
