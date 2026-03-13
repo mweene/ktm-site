@@ -1,0 +1,280 @@
+{
+    "year": 2026,
+    "months": [
+        {
+            "name": "jan",
+            "firstDay": 4,
+            "days": 31,
+            "events": [
+                {
+                    "id": 1,
+                    "title": "New Year Thanksgiving Service",
+                    "description": "Opening worship service to thank God for the new year.",
+                    "venue": "Main Sanctuary",
+                    "category": "service",
+                    "date": "2026-01-01",
+                    "time": "09:00",
+                    "charge": 0
+                },
+                {
+                    "id": 2,
+                    "title": "Youth Prayer Night",
+                    "description": "Evening of prayer led by the youth ministry.",
+                    "venue": "Youth Hall",
+                    "category": "youth",
+                    "date": "2026-01-10",
+                    "time": "18:00",
+                    "charge": 0
+                },
+                {
+                    "id": 3,
+                    "title": "Music Fellowship",
+                    "description": "Choir and worship team fellowship with music practice.",
+                    "venue": "Main Sanctuary",
+                    "category": "music",
+                    "date": "2026-01-21",
+                    "time": "16:00",
+                    "charge": 0
+                }
+            ]
+        },
+
+        {
+            "name": "feb",
+            "firstDay": 0,
+            "days": 28,
+            "events": [
+                {
+                    "id": 4,
+                    "title": "Marriage Seminar",
+                    "description": "Teaching session for married couples.",
+                    "venue": "Church Hall",
+                    "category": "seminar",
+                    "date": "2026-02-07",
+                    "time": "10:00",
+                    "charge": 100
+                },
+                {
+                    "id": 5,
+                    "title": "Youth Worship Night",
+                    "description": "Night of worship and prayer led by the youth.",
+                    "venue": "Youth Hall",
+                    "category": "youth",
+                    "date": "2026-02-14",
+                    "time": "18:30",
+                    "charge": 0
+                }
+            ]
+        },
+
+        {
+            "name": "march",
+            "firstDay": 0,
+            "days": 31,
+            "events": [
+                {
+                    "id": 6,
+                    "title": "Women's Prayer Breakfast",
+                    "description": "Morning fellowship and prayer for women.",
+                    "venue": "Church Hall",
+                    "category": "fellowship",
+                    "date": "2026-03-05",
+                    "time": "08:00",
+                    "charge": 80
+                },
+                {
+                    "id": 7,
+                    "title": "Youth Bible Study Camp",
+                    "description": "Weekend retreat focused on Bible study.",
+                    "venue": "Kafue Retreat Center",
+                    "category": "camp",
+                    "date": "2026-03-14",
+                    "time": "09:00",
+                    "charge": 200
+                }
+            ]
+        },
+
+        {
+            "name": "apr",
+            "firstDay": 3,
+            "days": 30,
+            "events": [
+                {
+                    "id": 8,
+                    "title": "Good Friday Service",
+                    "description": "Special Easter weekend service.",
+                    "venue": "Main Sanctuary",
+                    "category": "service",
+                    "date": "2026-04-03",
+                    "time": "09:00",
+                    "charge": 0
+                },
+                {
+                    "id": 9,
+                    "title": "Easter Sunday Celebration",
+                    "description": "Celebrating the resurrection of Christ.",
+                    "venue": "Main Sanctuary",
+                    "category": "service",
+                    "date": "2026-04-05",
+                    "time": "09:00",
+                    "charge": 0
+                }
+            ]
+        },
+
+        {
+            "name": "may",
+            "firstDay": 5,
+            "days": 31,
+            "events": [
+                {
+                    "id": 10,
+                    "title": "Men's Fellowship Breakfast",
+                    "description": "Men gathering for fellowship and encouragement.",
+                    "venue": "Church Hall",
+                    "category": "fellowship",
+                    "date": "2026-05-09",
+                    "time": "08:30",
+                    "charge": 70
+                }
+            ]
+        },
+
+        {
+            "name": "jun",
+            "firstDay": 1,
+            "days": 30,
+            "events": [
+                {
+                    "id": 11,
+                    "title": "Mid-Year Revival",
+                    "description": "A week of spiritual revival meetings.",
+                    "venue": "Main Sanctuary",
+                    "category": "revival",
+                    "date": "2026-06-12",
+                    "time": "18:00",
+                    "charge": 0
+                }
+            ]
+        },
+
+        {
+            "name": "jul",
+            "firstDay": 3,
+            "days": 31,
+            "events": [
+                {
+                    "id": 12,
+                    "title": "Youth Camp",
+                    "description": "Annual youth camp with teachings and activities.",
+                    "venue": "Siavonga Camp",
+                    "category": "camp",
+                    "date": "2026-07-15",
+                    "time": "08:00",
+                    "charge": 350
+                }
+            ]
+        },
+
+        {
+            "name": "aug",
+            "firstDay": 6,
+            "days": 31,
+            "events": [
+                {
+                    "id": 13,
+                    "title": "Church Anniversary",
+                    "description": "Celebration of the church anniversary.",
+                    "venue": "Main Sanctuary",
+                    "category": "celebration",
+                    "date": "2026-08-08",
+                    "time": "10:00",
+                    "charge": 0
+                }
+            ]
+        },
+
+        {
+            "name": "sep",
+            "firstDay": 2,
+            "days": 30,
+            "events": [
+                {
+                    "id": 14,
+                    "title": "Family Fun Day",
+                    "description": "Outdoor fellowship event for families.",
+                    "venue": "Church Grounds",
+                    "category": "community",
+                    "date": "2026-09-19",
+                    "time": "12:00",
+                    "charge": 50
+                }
+            ]
+        },
+
+        {
+            "name": "oct",
+            "firstDay": 4,
+            "days": 31,
+            "events": [
+                {
+                    "id": 15,
+                    "title": "Prayer and Fasting Week",
+                    "description": "A week dedicated to prayer and fasting.",
+                    "venue": "Main Sanctuary",
+                    "category": "prayer",
+                    "date": "2026-10-05",
+                    "time": "18:00",
+                    "charge": 0
+                }
+            ]
+        },
+
+        {
+            "name": "nov",
+            "firstDay": 0,
+            "days": 30,
+            "events": [
+                {
+                    "id": 16,
+                    "title": "Thanksgiving Sunday",
+                    "description": "Special service for thanksgiving and testimonies.",
+                    "venue": "Main Sanctuary",
+                    "category": "service",
+                    "date": "2026-11-15",
+                    "time": "09:00",
+                    "charge": 0
+                }
+            ]
+        },
+
+        {
+            "name": "dec",
+            "firstDay": 2,
+            "days": 31,
+            "events": [
+                {
+                    "id": 17,
+                    "title": "Christmas Carol Night",
+                    "description": "Evening of carols and worship.",
+                    "venue": "Main Sanctuary",
+                    "category": "celebration",
+                    "date": "2026-12-20",
+                    "time": "18:30",
+                    "charge": 0
+                },
+                {
+                    "id": 18,
+                    "title": "New Year's Eve Service",
+                    "description": "Cross-over service into the new year.",
+                    "venue": "Main Sanctuary",
+                    "category": "service",
+                    "date": "2026-12-31",
+                    "time": "22:00",
+                    "charge": 0
+                }
+            ]
+        }
+    ]
+}
