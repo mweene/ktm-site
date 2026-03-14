@@ -1,18 +1,25 @@
-import data from "../data.json";
 import { useState } from "react";
+import data from "../data.json";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-
-//const month = data.months.jan;
-//console.log(Object.keys(data.months));
 
 const dayHeaders = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
 
-const extractDayFromDate = (dateStr) => Number(dateStr.split("-")[2]);
-
 export default function Calendar() {
     const [monthIndex, setMonthIndex] = useState(new Date().getMonth());
-    //const monthName = Object.keys(data.months)[monthIndex];
     const [month, setMonth] = useState(data.months[monthIndex]);
+    const today = new Date().getDate();
+    const [events, setEvents] = useState([
+        {
+            id: 6,
+            title: "Women's Prayer Breakfast",
+            description: "Morning fellowship and prayer for women.",
+            venue: "Church Hall",
+            category: "fellowship",
+            date: "2026-03-05",
+            time: "08:00",
+            charge: 80,
+        },
+    ]);
 
     const prevMonth = () => {
         if (monthIndex <= 0) return;
@@ -35,15 +42,18 @@ export default function Calendar() {
         calendar.grid.push(i);
     }
 
-    //const handleClick = (num) => {
-    //    const result = month.events.find(
-    //        (event) => extractDayFromDate(event.date) === num);
-    //    result ? setEvent(result) : setEvent({ title: "no event" });
-    //};
+    const extractDayFromDate = (dateStr) => Number(dateStr.split("-")[2]);
+    const handleClick = (num) => {
+        //find the day specified and its events then log them
+        const result = month.events.filter(
+            (event) => extractDayFromDate(event.date) === num,
+        );
+        setEvents(result);
+    };
 
     const index = month.firstDay;
 
-    const isFilled = (num) =>
+    const isDay = (num) =>
         num <= index || num > month.days + index ? false : true; //date placement mechanism
 
     return (
@@ -89,59 +99,85 @@ export default function Calendar() {
                         ))}
                     </div>
                     <div className="box-grid grid grid-cols-7 gap-1">
-                        {calendar.grid.map((ele) => (
-                            <Box key={ele} isFilled={isFilled(ele)}>
-                                {ele - index}
-                            </Box>
-                        ))}
+                        {calendar.grid.map((ele) =>
+                            ele - index === today ? (
+                                <Box
+                                    key={ele}
+                                    isDay={isDay(ele)}
+                                    styles="border-red-500 border-2"
+                                    onClick={() => handleClick(ele - index)}
+                                >
+                                    {ele - index}
+                                </Box>
+                            ) : (
+                                <Box
+                                    key={ele}
+                                    isDay={isDay(ele)}
+                                    onClick={() => handleClick(ele - index)}
+                                >
+                                    {ele - index}
+                                </Box>
+                            ),
+                        )}
                     </div>
                 </div>
 
-                <DisplayEvent event={month.events} />
+                <DisplayEvent events={events} />
             </div>
         </section>
     );
 }
 
-function Box({ onClick, children, isFilled }) {
+function Box({ onClick, children, isDay, styles }) {
+    const clickable = isDay;
+    const classes = `
+      box p-6 border border-neutral-800 rounded-lg
+      text-center text-neutral-100
+      ${styles}
+      ${clickable ? "cursor-pointer bg-neutral-700 hover:bg-neutral-200 hover:text-neutral-900" : ""}
+    `;
     return (
-        <div
-            onClick={onClick}
-            className={`
-              box p-6 border border-neutral-800 rounded-lg
-              cursor-pointer text-center text-neutral-100 hover:bg-neutral-200
-              hover:text-neutral-900
-              ${isFilled ? "bg-neutral-700" : null}
-            `}
-        >
-            {isFilled ? children : " "}
+        <div onClick={clickable ? onClick : undefined} className={classes}>
+            {isDay && children}
         </div>
     );
 }
 
-function DisplayEvent({ event }) {
+function DisplayEvent({ events }) {
     return (
         <div className="rounded-3xl bg-neutral-200 text-neutral-900 relative">
             <div className="event-image bg-sky-600 bg-[url(/src/assets/ktm1.jpg) p-10 py-35 rounded-3xl"></div>
 
-            <div className="grid text p-6 ">
-                <div className="flex flex-wrap text-sm gap-4 asolute top-0">
-                    <p className="bg-neutral-400 rounded-full">{event.date}</p>
-                    <p className="bg-neutral-400 rounded-full">{event.venue}</p>
-                    <p className="bg-neutral-400 w-fit mt-2 rounded-full">
-                        {event.charge}
-                    </p>
-                </div>
+            {events.length > 0 ? (
+                events.map((event) => (
+                    <div className="grid text p-6 ">
+                        <div className="flex flex-wrap text-sm gap-4 asolute top-0">
+                            <p className="bg-neutral-400 rounded-full">
+                                {event.date}
+                            </p>
+                            <p className="bg-neutral-400 rounded-full">
+                                {event.venue}
+                            </p>
+                            <p className="bg-neutral-400 w-fit mt-2 rounded-full">
+                                {event.charge}
+                            </p>
+                        </div>
 
-                <div className="mt-6">
-                    <p className="text-3xl font-semibold capitalize w-1/2">
-                        {event.title}
-                    </p>
-                    <p>{event.description}</p>
+                        <div className="mt-6">
+                            <p className="text-3xl font-semibold capitalize w-1/2">
+                                {event.title}
+                            </p>
+                            <p>{event.description}</p>
+                        </div>
+                    </div>
+                ))
+            ) : (
+                <div className="grid text p-6 ">
+                    <h1>no event</h1>
                 </div>
-            </div>
+            )}
 
-            {event.name === "mweene" && (
+            {events === "mweene" && (
                 <div className="buttons flex gap-2 p-6">
                     <ArrowLeft size={20} />
                     <ArrowRight size={20} />
