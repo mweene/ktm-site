@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 const dayHeaders = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
 
 export default function Calendar() {
+    //console.log(data);
     const [monthIndex, setMonthIndex] = useState(new Date().getMonth());
     const [month, setMonth] = useState(data.months[monthIndex]);
     const today = new Date().getDate();
@@ -35,6 +36,8 @@ export default function Calendar() {
         setMonth(data.months[newIndex]);
     };
 
+    console.log(month);
+
     const calendar = {
         grid: [],
     };
@@ -51,10 +54,16 @@ export default function Calendar() {
         setEvents(result);
     };
 
+    const eventDates = []
+    month.events.forEach(ev => eventDates.push(extractDayFromDate(ev.date)))
+    console.log(eventDates)
+
     const index = month.firstDay;
 
     const isDay = (num) =>
         num <= index || num > month.days + index ? false : true; //date placement mechanism
+    
+    const hasEvent = (num) => eventDates.includes(num);
 
     return (
         <section className="p-8 rounded-4xl bg-neutral-950 text-neutral-100">
@@ -99,26 +108,17 @@ export default function Calendar() {
                         ))}
                     </div>
                     <div className="box-grid grid grid-cols-7 gap-1">
-                        {calendar.grid.map((ele) =>
-                            ele - index === today ? (
-                                <Box
-                                    key={ele}
-                                    isDay={isDay(ele)}
-                                    styles="border-red-500 border-2"
-                                    onClick={() => handleClick(ele - index)}
-                                >
-                                    {ele - index}
-                                </Box>
-                            ) : (
-                                <Box
-                                    key={ele}
-                                    isDay={isDay(ele)}
-                                    onClick={() => handleClick(ele - index)}
-                                >
-                                    {ele - index}
-                                </Box>
-                            ),
-                        )}
+                        {calendar.grid.map((ele) => (
+                            <Box
+                                key={ele}
+                                isDay={isDay(ele)}
+                                styles={`${ele - index === today && "border-red-500 border-2"}`}
+                                hasEvent={hasEvent(ele - index)}
+                                onClick={() => handleClick(ele - index)}
+                            >
+                                {ele - index}
+                            </Box>
+                        ))}
                     </div>
                 </div>
 
@@ -128,7 +128,7 @@ export default function Calendar() {
     );
 }
 
-function Box({ onClick, children, isDay, styles }) {
+function Box({ onClick, children, isDay, styles, hasEvent }) {
     const clickable = isDay;
     const classes = `
       box p-6 border border-neutral-800 rounded-lg
@@ -139,6 +139,13 @@ function Box({ onClick, children, isDay, styles }) {
     return (
         <div onClick={clickable ? onClick : undefined} className={classes}>
             {isDay && children}
+              
+            {hasEvent ?  
+                  (<div className="circle rounded-full p-1.5 bg-red-500">
+                  </div>
+                ) : 
+                null
+            }
         </div>
     );
 }
