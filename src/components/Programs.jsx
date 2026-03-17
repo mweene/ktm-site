@@ -1,70 +1,77 @@
+const groups = [
+    {
+        id: 1, 
+        ageGroup: '3 - 10', 
+        title: 'adventures', 
+        description: 'Fun, story-based learning for the youngest members of our family'
+    },
+    {
+        id: 2, 
+        ageGroup: '3 - 10', 
+        title: 'pathfinders', 
+        description: 'Fun, story-based learning for the youngest members of our family'
+    },
+    {
+        id: 3, 
+        ageGroup: '3 - 10', 
+        title: 'ambassadors', 
+        description: 'Fun, story-based learning for the youngest members of our family'
+    },
+    {
+        id: 4, 
+        ageGroup: '3 - 10', 
+        title: 'senior youths', 
+        description: 'Fun, story-based learning for the youngest members of our family'
+    },
+    {
+        id: 5, 
+        ageGroup: 'women', 
+        title: 'womens ministries', 
+        description: 'Fun, story-based learning for the youngest members of our family'
+    },
+    {
+        id: 6, 
+        ageGroup: 'men', 
+        title: 'mens ministries', 
+        description: 'Fun, story-based learning for the youngest members of our family'
+    },
+]
+
+function ProgramsCard({ageGroup, title, description}) {
+    return (
+        <div className="border p-4 rounded-xl">
+            <p className="pt-7">age {ageGroup}</p>
+            <h4 className="capitalize font-medium">{title}</h4>
+            <p>{description}</p>
+        </div>
+    )
+}
+
 export default function Programs() {
     return (
         <div className="">
             <div>
                 <div className="">
-                    <p>our programs</p>
-                    <h2>a place for every season of life</h2>
+                    <p className="uppercase">our programs</p>
+                    <h2 className="text-5xl font-semibold">A place for every season of life</h2>
                 </div>
-                <p>
+                <p className="text-lg md:w-2/5">
                     Each program is rooted in the same mission growing through
                     Jesus Christ — but shaped for where you are right now.
                 </p>
             </div>
 
-            <div className="">
-                <p>age 3 - 12</p>
-                <p>adventures</p>
-                <p>
-                    Fun, story-based learning for the youngest members of our
-                    family.
-                </p>
-            </div>
-
-            <div className="">
-                <p>age 3 - 12</p>
-                <p>adventures</p>
-                <p>
-                    Fun, story-based learning for the youngest members of our
-                    family.
-                </p>
-            </div>
-
-            <div className="">
-                <p>age 3 - 12</p>
-                <p>adventures</p>
-                <p>
-                    Fun, story-based learning for the youngest members of our
-                    family.
-                </p>
-            </div>
-
-            <div className="">
-                <p>age 3 - 12</p>
-                <p>adventures</p>
-                <p>
-                    Fun, story-based learning for the youngest members of our
-                    family.
-                </p>
-            </div>
-
-            <div className="">
-                <p>women</p>
-                <p>dorcas</p>
-                <p>
-                    Fun, story-based learning for the youngest members of our
-                    family.
-                </p>
-            </div>
-
-            <div className="">
-                <p>men</p>
-                <p>amo</p>
-                <p>
-                    Fun, story-based learning for the youngest members of our
-                    family.
-                </p>
+            <div className="grid md:grid-cols-3 gap-1 mt-8">
+                {groups.map(ministry => (
+                    <ProgramsCard 
+                        key={ministry.id} 
+                        title={ministry.title} 
+                        ageGroup={ministry.ageGroup}
+                        description={ministry.description}
+                    />
+                ))}
             </div>
         </div>
     );
 }
+

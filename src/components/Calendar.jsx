@@ -63,17 +63,12 @@ export default function Calendar() {
     const hasEvent = (num) => eventDates.includes(num);
 
     return (
-        <section className="p-8 rounded-4xl bg-neutral-950 text-neutral-100">
-            <h2 className="uppercase text-[1.01rem] font-bold text-neutral-500">
-                church timeline
-            </h2>
-            <p className="text-5xl w-4/6">
-                Go through our programs for 2026. Set a reminder so you don't
-                miss out.
-            </p>
+        <section className="">
+            <p className="uppercase">church timeline</p>
+            <h2 className="text-5xl font-semibold">programs and events for 2026</h2>
 
-            <div className="grid md:grid-cols-3 gap-8 mt-9 p-8">
-                <div className="calendar-wrapper md:col-span-2">
+            <div className="grid md:grid-cols-2 gap-8 mt-9">
+                <div className="calendar-wrapper">
                     <div className="flex place-content-between place-items-center">
                         <p className="text-3xl font-medium capitalize text-nuetral-700">
                             {month.name} <span className="">{data.year}</span>
@@ -128,7 +123,7 @@ export default function Calendar() {
 function Box({ onClick, children, isDay, styles, hasEvent }) {
     const clickable = isDay;
     const classes = `
-      box p-6 rounded-lg
+      box p-4 rounded-lg
       text-center text-neutral-100
       ${styles}
       ${clickable ? "cursor-pointer bg-neutral-700 hover:bg-neutral-200 hover:text-neutral-900" : ""}
@@ -147,8 +142,6 @@ function Box({ onClick, children, isDay, styles, hasEvent }) {
 function DisplayEvent({ events }) {
     return (
         <div className="rounded-3xl bg-neutral-200 text-neutral-900 relative">
-            <div className="event-image bg-sky-600 bg-[url(/src/assets/ktm1.jpg) p-10 py-35 rounded-3xl"></div>
-
             {events.length > 0 ? (
                 events.map((event) => (
                     <div className="grid text p-6 ">

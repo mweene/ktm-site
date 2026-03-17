@@ -3,19 +3,22 @@ import RecentSermons from "../components/RecentSermons";
 import Programs from "../components/Programs";
 import Events from "../components/Events";
 import Calendar from "../components/Calendar";
+import FindUS from "../components/FindUS";
 
 export default function Home() {
     return (
-        <>
-            <div className="top p-4 md:py-4 md:px-10">
+        <div className="">
+            <div className="top">
                 <Hero />
             </div>
-            <div className="px-6 py-4 md:px-10 lg:py-12">
+            
+            <div className="grid md:gap-30 md:px-10">
                 <RecentSermons />
                 <Programs />
                 <Events />
                 <Calendar />
+                <FindUS />
             </div>
-        </>
+        </div>
     );
 }

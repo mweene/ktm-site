@@ -2,9 +2,9 @@ import { Navigation } from "lucide-react";
 
 export default function Hero() {
     return (
-        <section className="Hero md:h-[85dvh] grid pb-4">
-            <div className=" flex place-content-between pb-4">
-                <div className="main-text place-self-end rounded-xl w-4/7">
+        <section className="Hero min-h-[100dvh] grid md:px-10 pb-5">
+            <div className="flex place-content-between pb-4">
+                <div className="main-text place-self-end rounded-xl md:w-4/7">
                     <h1 className="text-4xl md:text-6xl font-semibold text-white">
                         His word <br />
                         Your Growth <br />
@@ -17,11 +17,11 @@ export default function Hero() {
                         every season of life
                     </p>
                     
-                    <div className="flex gap-6">
+                    <div className="md:flex gap-6">
                         <button className="text-black bg-white font-medium">
                             watch latest sermon
                         </button>
-                        <button className="border border-neutral-50 text-neutral-50">
+                        <button className="border border-neutral-500 text-neutral-50">
                             find your program
                         </button>
                     </div>

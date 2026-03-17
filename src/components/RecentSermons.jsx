@@ -2,12 +2,10 @@ import { LucidePlay } from "lucide-react";
 
 export default function RecentSermons() {
     return (
-        <section className="my-14 mb-30">
+        <section className="md:mt-30">
             <div className="md:w-4/7">
-                <p className="uppercase text-[1.01rem] font-bold text-neutral-600">
-                    recent sermons
-                </p>
-                <h2 className="text-4xl mt-1.5 mb-6 font-semibold">
+                <p className="uppercase">recent sermons</p>
+                <h2 className="text-5xl font-semibold">
                     Catch up with the word <br />
                     Anytime, Anywhere
                 </h2>
@@ -28,43 +26,42 @@ export default function RecentSermons() {
                     <div className="[&>p]:text-lg flex flex-col place-content-between">
                         <div className="card-image py-20 bg-[url(/src/assets/ktm1.jpg)] bg-right bg-blend-luminosity rounded-xl"></div>
                         <div className="my-4 self-end">
-                            <h4 className="font-medium text-xl capitalize">
-                                eligendi rerum
-                            </h4>
-                            <p className="text-neutral-800 text-lg">
-                                sit amet consectetur adipisicing elit. Minima
-                                amet autem libero, eligendi rerum deleniti
+                            <h3 className="font-medium text-lg capitalize">
+                                All Things Work Together for Good
+                            </h3>
+                            <p className="text-neutral-800 mt-1">
+                                A deep dive into trusting God's plan even in uncertain seasons of life.
                             </p>
                         </div>
-                        <div className="flex place-content-between place-items-center">
+                        <div className="flex place-content-between place-items-center pt-4">
                             <p className="font-medium">Galatians 20:6</p>
-                            <span className="p-2 bg-neutral-900 rounded-full w-fit place-self-center">
-                                <LucidePlay size={16} color="white" />
+                            <span className="p-1.5 border rounded-full w-fit place-self-center">
+                                <LucidePlay size={16} />
+                            </span>
+                        </div>
+                    </div>
+                </Card>
+                
+                <Card>
+                    <div className="[&>p]:text-lg flex flex-col place-content-between">
+                        <div className="card-image py-20 bg-[url(/src/assets/ktm1.jpg)] bg-right bg-blend-luminosity rounded-xl"></div>
+                        <div className="my-4 self-end">
+                            <h3 className="font-medium text-lg capitalize">
+                                Return to Me: A Call to Renewal
+                            </h3>
+                            <p className="text-neutral-800 mt-1">
+                                Exploring God's call to return to Him with our whole hearts.
+                            </p>
+                        </div>
+                        <div className="flex place-content-between place-items-center pt-4">
+                            <p className="font-medium">Malachi 4:7</p>
+                            <span className="p-1.5 border rounded-full w-fit place-self-center">
+                                <LucidePlay size={16} />
                             </span>
                         </div>
                     </div>
                 </Card>
 
-                <Card>
-                    <div className="[&>p]:text-lg flex flex-col place-content-between">
-                        <div className="card-image py-20 bg-[url(/src/assets/ktm1.jpg)] bg-top bg-blend-luminosity rounded-xl"></div>
-                        <div className="my-4 self-end">
-                            <h4 className="font-medium text-xl capitalize">
-                                consectetur
-                            </h4>
-                            <p className="text-neutral-800 text-lg">
-                                sit amet consectetur adipisicing elit. Minima
-                                amet autem libero, eligendi rerum deleniti
-                            </p>
-                        </div>
-                        <div className="flex place-content-between place-items-center">
-                            <p className="font-medium">Malachi 4:7</p>
-                            <span className="p-2 bg-neutral-900 rounded-full w-fit place-self-center">
-                                <LucidePlay size={16} color="white" />
-                            </span>
-                        </div>
-                    </div>
-                </Card>
             </div>
         </section>
     );

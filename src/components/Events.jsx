@@ -2,17 +2,17 @@ import {ArrowLeft, ArrowRight} from "lucide-react";
 
 export default function Events() {
     return (
-        <div className="my-10">
+        <div className="">
             <div className="text-header">
-                <h2 className="uppercase text-[1.01rem] font-bold text-neutral-500">our past events</h2>
-                <p className="text-5xl w-4/6">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                </p>
+                <p className="uppercase">our community</p>
+                <h2 className="text-5xl font-semibold">
+                    Life together in Christ.
+                </h2>
             </div>
             <EventGallery />
-            <div className="flex">
-              <ArrowLeft size={25}/>
-              <ArrowRight size={25} />
+            <div className="flex gap-1">
+              <p>view full gallery</p>
+              <ArrowRight size={20} />
             </div>
         </div>
     )

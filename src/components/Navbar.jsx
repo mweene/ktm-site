@@ -6,8 +6,8 @@ import {Menu, LucideCircleArrowRight, LucideXCircle} from "lucide-react";
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     return (
-        <nav className="relative bg-neutral-900 p-4 md:py-4 md:px-10">
-            <div className="logo-section flex place-content-between place-items-center">
+        <nav className="fixed w-full bg-neutral-900/80 border-b border-b-neutral-600/50 p-4 md:py-4 md:px-10 backdrop-blur-2xl z-2">
+            <div className="logo-section flex place-content-between place-items-center relative">
                 <img src={Logo} alt="logo" className="logo h-12" />
                 <a
                     onClick={() => setIsMenuOpen(true)}
@@ -24,7 +24,7 @@ export default function Navbar() {
 
 function NavList({onClose}) {
     return (
-        <div className="absolute w-full md:w-2/6 top-0 right-0 px-8 py-6 z-2 bg-gray-100/85 backdrop-blur-2xl rounded-3xl">
+        <div className="absolute w-full md:w-2/6 top-0 right-0 px-8 py-6 z-3 bg-gray-100 backdrop-blur-2xl rounded-3xl">
             <div className="nav-menu flex place-content-between place-items-start pb-10">
                 <p className=" text-sm text-gray-700">
                     Lusaka, Zambia{" "}
