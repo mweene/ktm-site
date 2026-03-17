@@ -36,8 +36,6 @@ export default function Calendar() {
         setMonth(data.months[newIndex]);
     };
 
-    console.log(month);
-
     const calendar = {
         grid: [],
     };
@@ -54,15 +52,14 @@ export default function Calendar() {
         setEvents(result);
     };
 
-    const eventDates = []
-    month.events.forEach(ev => eventDates.push(extractDayFromDate(ev.date)))
-    console.log(eventDates)
+    const eventDates = [];
+    month.events.forEach((ev) => eventDates.push(extractDayFromDate(ev.date)));
 
     const index = month.firstDay;
 
     const isDay = (num) =>
         num <= index || num > month.days + index ? false : true; //date placement mechanism
-    
+
     const hasEvent = (num) => eventDates.includes(num);
 
     return (
@@ -131,7 +128,7 @@ export default function Calendar() {
 function Box({ onClick, children, isDay, styles, hasEvent }) {
     const clickable = isDay;
     const classes = `
-      box p-6 border border-neutral-800 rounded-lg
+      box p-6 rounded-lg
       text-center text-neutral-100
       ${styles}
       ${clickable ? "cursor-pointer bg-neutral-700 hover:bg-neutral-200 hover:text-neutral-900" : ""}
@@ -139,13 +136,10 @@ function Box({ onClick, children, isDay, styles, hasEvent }) {
     return (
         <div onClick={clickable ? onClick : undefined} className={classes}>
             {isDay && children}
-              
-            {hasEvent ?  
-                  (<div className="circle rounded-full p-1.5 bg-red-500">
-                  </div>
-                ) : 
-                null
-            }
+
+            {hasEvent ? (
+                <div className="circle rounded-full p-1.5 w-fit bg-red-500"></div>
+            ) : null}
         </div>
     );
 }
