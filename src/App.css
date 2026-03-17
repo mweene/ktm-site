@@ -4,7 +4,6 @@ image {
 
 button {
   cursor: pointer;
-  padding: 0.65rem 1.75rem;
   border-radius: 1.5rem;
   font-size: 1.125rem;
 }

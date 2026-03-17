@@ -9,24 +9,16 @@ export default function Calendar() {
     const [monthIndex, setMonthIndex] = useState(new Date().getMonth());
     const [month, setMonth] = useState(data.months[monthIndex]);
     const today = new Date().getDate();
-    const [events, setEvents] = useState([
-        {
-            id: 6,
-            title: "Women's Prayer Breakfast",
-            description: "Morning fellowship and prayer for women.",
-            venue: "Church Hall",
-            category: "fellowship",
-            date: "2026-03-05",
-            time: "08:00",
-            charge: 80,
-        },
-    ]);
+    const [events, setEvents] = useState(month.events);
+    
+    console.log(month)
 
     const prevMonth = () => {
         if (monthIndex <= 0) return;
         const newIndex = monthIndex - 1;
         setMonthIndex(newIndex);
         setMonth(data.months[newIndex]);
+        setEvents(data.months[newIndex].events);
     };
 
     const nextMonth = () => {
@@ -34,6 +26,7 @@ export default function Calendar() {
         const newIndex = monthIndex + 1;
         setMonthIndex(newIndex);
         setMonth(data.months[newIndex]);
+        setEvents(data.months[newIndex].events);
     };
 
     const calendar = {
@@ -49,7 +42,7 @@ export default function Calendar() {
         const result = month.events.filter(
             (event) => extractDayFromDate(event.date) === num,
         );
-        setEvents(result);
+        //setEvents(result);
     };
 
     const eventDates = [];
@@ -65,24 +58,27 @@ export default function Calendar() {
     return (
         <section className="">
             <p className="uppercase">church timeline</p>
-            <h2 className="text-5xl font-semibold">programs and events for 2026</h2>
+            <h2 className="text-5xl font-semibold">Programs & events for 2026</h2>
 
             <div className="grid md:grid-cols-2 gap-8 mt-9">
                 <div className="calendar-wrapper">
                     <div className="flex place-content-between place-items-center">
-                        <p className="text-3xl font-medium capitalize text-nuetral-700">
+                        <p className="text-2xl font-semibold capitalize text-nuetral-700">
                             {month.name} <span className="">{data.year}</span>
                         </p>
 
-                        <div className="buttons flex gap-2">
-                            <button disabled={monthIndex === 0 ? true : false}>
+                        <div className="buttons flex gap-4">
+                            <button 
+                                disabled={monthIndex === 0 ? true : false}
+                                className="p-1 border hover:bg-neutral-300"
+                            >
                                 <ArrowLeft
                                     size={20}
                                     onClick={prevMonth}
                                     className="cursor-pointer"
                                 />
                             </button>
-                            <button>
+                            <button className="p-1 border hover:bg-neutral-300">
                                 <ArrowRight
                                     size={20}
                                     onClick={nextMonth}
@@ -94,7 +90,7 @@ export default function Calendar() {
 
                     <div className="days grid grid-cols-7 gap-1 mt-6 mb-4">
                         {dayHeaders.map((day) => (
-                            <p key={day} className="capitalize">
+                            <p key={day} className="uppercase">
                                 {day}
                             </p>
                         ))}
@@ -104,7 +100,7 @@ export default function Calendar() {
                             <Box
                                 key={ele}
                                 isDay={isDay(ele)}
-                                styles={`${ele - index === today && "border-red-500 border-2"}`}
+                                styles={`${ele - index === today && "bg-neutral-900"}`}
                                 hasEvent={hasEvent(ele - index)}
                                 onClick={() => handleClick(ele - index)}
                             >
@@ -125,56 +121,66 @@ function Box({ onClick, children, isDay, styles, hasEvent }) {
     const classes = `
       box p-4 rounded-lg
       text-center text-neutral-100
+      grid place-content-center place-items-center gap-1
       ${styles}
-      ${clickable ? "cursor-pointer bg-neutral-700 hover:bg-neutral-200 hover:text-neutral-900" : ""}
+      ${clickable ? "cursor-pointer bg-neutral-700 hover:bg-neutral-600" : ""}
     `;
     return (
         <div onClick={clickable ? onClick : undefined} className={classes}>
             {isDay && children}
 
             {hasEvent ? (
-                <div className="circle rounded-full p-1.5 w-fit bg-red-500"></div>
+                <div className="circle rounded-full p-1 w-fit bg-white"></div>
             ) : null}
         </div>
     );
 }
 
 function DisplayEvent({ events }) {
+    console.log(events)
     return (
-        <div className="rounded-3xl bg-neutral-200 text-neutral-900 relative">
+        <div className=" text-neutral-900 grid gap-2">
             {events.length > 0 ? (
                 events.map((event) => (
-                    <div className="grid text p-6 ">
-                        <div className="flex flex-wrap text-sm gap-4 asolute top-0">
-                            <p className="bg-neutral-400 rounded-full">
+                    <div key={event.id} className="grid text p-6 bg-neutral-200 rounded-2xl">
+                        <div className="flex flex-wrap place-content-between text-sm gap-4 asolute top-0">
+                            <div className="grid gap-2">
+                                <p className="font-medium">
                                 {event.date}
-                            </p>
-                            <p className="bg-neutral-400 rounded-full">
-                                {event.venue}
-                            </p>
-                            <p className="bg-neutral-400 w-fit mt-2 rounded-full">
-                                {event.charge}
-                            </p>
+                                </p>
+                                <p className="font-medium">
+                                    {event.time }
+                                </p>
+                            </div>
+                            
+                            <div className="grid gap-1">
+                                <p className="font-medium">
+                                    {event.venue}
+                                </p>
+                                <p className="font-medium">
+                                    {event.charge > 0 ? `K${event.charge}` : 'free'}
+                                </p>
+                            </div>
                         </div>
 
                         <div className="mt-6">
-                            <p className="text-3xl font-semibold capitalize w-1/2">
+                            <p className="text-2xl font-semibold capitalize w-3/5">
                                 {event.title}
                             </p>
                             <p>{event.description}</p>
+                            <p 
+                                className={`uppercase text-[0.8rem] mt-2 py-0.5
+                                font-medium            
+                                px-3 rounded-full bg-neutral-400 w-fit`}
+                            >
+                                {event.category}
+                            </p>
                         </div>
                     </div>
                 ))
             ) : (
                 <div className="grid text p-6 ">
                     <h1>no event</h1>
-                </div>
-            )}
-
-            {events === "mweene" && (
-                <div className="buttons flex gap-2 p-6">
-                    <ArrowLeft size={20} />
-                    <ArrowRight size={20} />
                 </div>
             )}
         </div>

@@ -37,10 +37,10 @@ const groups = [
     },
 ]
 
-function ProgramsCard({ageGroup, title, description}) {
+function ProgramsCard({ageGroup, title, description, styles}) {
     return (
-        <div className="border p-4 rounded-xl">
-            <p className="pt-7">age {ageGroup}</p>
+        <div className={`border p-4 rounded-xl ${styles}`}>
+            <p className="pt-10">age {ageGroup}</p>
             <h4 className="capitalize font-medium">{title}</h4>
             <p>{description}</p>
         </div>
@@ -68,6 +68,7 @@ export default function Programs() {
                         title={ministry.title} 
                         ageGroup={ministry.ageGroup}
                         description={ministry.description}
+                        syles='bg-pink-200'
                     />
                 ))}
             </div>
