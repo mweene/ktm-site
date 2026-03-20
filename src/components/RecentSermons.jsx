@@ -3,11 +3,11 @@ import { LucidePlay } from "lucide-react";
 export default function RecentSermons() {
     return (
         <section className="md:mt-30">
-            <div className="md:w-4/7">
+            <div className="mb-8">
                 <p className="uppercase">recent sermons</p>
                 <h2 className="text-5xl font-semibold">
                     Catch up with the word <br />
-                    Anytime, Anywhere
+                    Anytime, anywhere
                 </h2>
             </div>
             <div className="cards grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">

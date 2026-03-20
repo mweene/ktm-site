@@ -10,8 +10,8 @@ export default function FindUS() {
     ];
     return (
         <section className="grid place-content-center">
-            <div className="grid grid-cols-2 place-items-center bg-green-200 w-fit rounded-3xl">
-                <div className="bg-neutral-300 p-15 rounded-l-3xl">
+            <div className="grid md:grid-cols-2 place-items-center bg-green-200 w-fit rounded-3xl">
+                <div className="bg-neutral-300 p-9 md:p-15 rounded-l-3xl">
                     <div className="header-text">
                         <p className="uppercase">find us</p>
                         <h2 className="text-5xl font-semibold">

@@ -43,7 +43,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="bg-neutral-700 text-neutral-300 px-7.5 py-4 flex place-content-between">
+      <div className="bg-neutral-700 text-neutral-300 px-7.5 py-4 flex place-content-between text-sm">
         <p className="">ktm sda church. lusaka, zambia</p>
         <p>Copyright (c) 2026 Author. All Rights Reserved.</p>      
     </div>
