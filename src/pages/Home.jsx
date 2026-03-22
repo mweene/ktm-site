@@ -1,7 +1,7 @@
 import Hero from "../components/Hero";
 import RecentSermons from "../components/RecentSermons";
 import Programs from "../components/Programs";
-import Events from "../components/Events";
+import ActivityGallery from "../components/ActivityGallery";
 import Calendar from "../components/Calendar";
 import FindUS from "../components/FindUS";
 
@@ -15,7 +15,7 @@ export default function Home() {
             <div className="grid md:gap-30 md:px-10">
                 <RecentSermons />
                 <Programs />
-                <Events />
+                <ActivityGallery />
                 <Calendar />
                 <FindUS />
             </div>

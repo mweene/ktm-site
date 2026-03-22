@@ -70,17 +70,19 @@ export default function Calendar() {
                         <div className="buttons flex gap-4">
                             <button 
                                 disabled={monthIndex === 0 ? true : false}
-                                className="p-1 border hover:bg-neutral-300"
+                                className="p-2 bg-neutral-900"
                             >
                                 <ArrowLeft
                                     size={20}
+                                    color="white"
                                     onClick={prevMonth}
                                     className="cursor-pointer"
                                 />
                             </button>
-                            <button className="p-1 border hover:bg-neutral-300">
+                            <button className="p-2 bg-neutral-900">
                                 <ArrowRight
                                     size={20}
+                                    color="white"
                                     onClick={nextMonth}
                                     className="cursor-pointer"
                                 />
