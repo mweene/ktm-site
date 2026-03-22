@@ -27,7 +27,9 @@ export default function FindUS() {
                                     <span className="capitalize text-sm">
                                         {service.name}
                                     </span>
-                                    <span className="font-medium">{service.time} Hrs</span>
+                                    <span className="font-medium">
+                                        {service.time} Hrs
+                                    </span>
                                 </li>
                             ))}
                         </ul>
@@ -35,11 +37,13 @@ export default function FindUS() {
                 </div>
 
                 <div className="text-center grid place-items-center">
-                    <img src={Pin} alt="pin logo" className="h-[4rem]" />
+                    <img src={Pin} alt="pin logo" className="h-16" />
                     <p className="font-medium">Katimamulilo SDA Church</p>
                     <p className="font-medium">Lusaka, Zambia</p>
 
-                    <button className="uppercase border py-2 px-5">get directions</button>
+                    <button className="uppercase border py-2 px-5">
+                        get directions
+                    </button>
                 </div>
             </div>
         </section>

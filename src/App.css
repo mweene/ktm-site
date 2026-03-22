@@ -1,77 +1,55 @@
 image {
-  width: 100%;
+    width: 100%;
 }
 
 button {
-  cursor: pointer;
-  border-radius: 1.5rem;
-  font-size: 1.125rem;
+    cursor: pointer;
+    border-radius: 1.5rem;
+    font-size: 1.125rem;
 }
 
 .top {
-  background-image:
-    linear-gradient(
-      to bottom,
-      rgba(0,0,0,0) 0%,
-      rgba(0,0,0,0.4)30%,
-      rgba(0,0,0,0.9) 100%
-    ) ,
-    url("./assets/bg.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.map {
-  background-image: url("./assets/map.webp");
-  background-size: cover;
-  background-position: bottom;
-  background-blend-mode: soft-light;
-  /*background-size: 30rem;*/
-  /*box-shadow: inset 0px 0px 7px 2px #000000b0;*/
+    background-image:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0.4) 30%,
+            rgba(0, 0, 0, 0.9) 100%
+        ),
+        url("./assets/bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .carousel {
-              margin: 0 auto;
-              padding: 20px 0;
-              max-width: 700px;
-              overflow: hidden;
-              display: flex;
+    margin: 0 auto;
+    padding: 20px 0;
+    display: flex;
+    overflow-x: hidden;
 
-              > * {
-                flex: 0 0 100%;
-              }
+    > * {
+        flex: 0 0 100%;
+    }
 
-              &:hover .group {
-                animation-play-state: paused;
-              }
-            }
+    &:hover .group {
+        animation-play-state: paused;
+    }
+}
 
-            .card {
-              width: 100%;
-              color: white;
-              border-radius: 24px;
-              box-shadow: rgba(0,0,0,10%);
-              padding: 20px;
-              font-size: xx-large;
-              justify-content: center;
-              align-items: center;
-              min-height: 200px;
-            }
+.group {
+    display: flex;
+    gap: 20px;
+    padding-right: 20px;
 
-            .group {
-              display: flex;
-              gap: 20px;
-              padding-right: 20px;
+    will-change: transform;
+    animation: scrolling 10s linear infinite;
+}
 
-              will-change: transform;
-              animation: scrolling 10s linear infinite;
-            }
-
-            @keyframes scrolling {
-              0% {
-                transform: translateX(0);
-              }
-              100% {
-                transform: translateX(-100%);
-              }
-            }
+@keyframes scrolling {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}

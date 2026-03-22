@@ -4,16 +4,21 @@ export default function Events() {
     return (
         <div className="">
             <div className="text-header">
-                <p className="uppercase">our community</p>
+                <p className="uppercase">our gallery</p>
                 <h2 className="text-5xl font-semibold">
                     Life together in Christ.
                 </h2>
             </div>
-            <EventGallery />
-            <div className="flex gap-1">
-              <p>view full gallery</p>
-              <ArrowRight size={20} />
+            <div className="mt-6">
+              <ul className="flex gap-4 [&>li]:cursor-pointer">
+                <li className="underline font-medium">activity one</li>
+                <li>activity two</li>
+                <li>activity three</li>
+                <li>activity four</li>
+                <li>activity five</li>
+              </ul>
             </div>
+            <EventGallery />
         </div>
     )
 }
