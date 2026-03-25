@@ -1,27 +1,30 @@
 import { Navigation } from "lucide-react";
+import bgVid from "../assets/demo-bg.mp4";
 
 export default function Hero() {
     return (
-        <section className="Hero min-h-[100dvh] grid md:px-10 pb-5">
-            <div className="flex place-content-between pb-4">
+        <section className="Hero min-h-[100dvh] grid md:px-10 pb-5 relative">
+            <video loop autoPlay src={bgVid} className="h-full w-full object-cover absolute top-0 z-1"/>
+            <div className="video-bg-wrapper absolute bg-neutral-950/80  h-full w-full z-2"></div>  
+            <div className="flex place-content-between pb-4 static z-3">
                 <div className="main-text place-self-end rounded-xl md:w-4/7">
-                    <h1 className="text-4xl md:text-6xl font-semibold text-white">
+                    <h1 className="text-4xl md:text-7xl font-semibold text-white">
                         His word <br />
-                        Your Growth <br />
+                        <span className="text-orange-500">Your Growth</span> <br />
                         Our Journey
                     </h1>
 
-                    <p className="my-4 text-gray-200 text-lg font-light w-4/5">
+                    <p className="my-5 text-gray-200 text-lg font-light w-4/5">
                         Join a community rooted in faith, growing together
                         through the teachings of Jesus Christ for every age,
                         every season of life
                     </p>
                     
-                    <div className="md:flex gap-6">
+                    <div className="flex gap-6 [&>button]:px-6 [&>button]:py-2 [&>button]:capitalize">
                         <button className="text-black bg-white font-medium">
                             watch latest sermon
                         </button>
-                        <button className="border border-neutral-500 text-neutral-50">
+                        <button className="border border-neutral-50 text-neutral-50">
                             find your program
                         </button>
                     </div>

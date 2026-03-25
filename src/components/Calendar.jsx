@@ -10,8 +10,6 @@ export default function Calendar() {
     const [month, setMonth] = useState(data.months[monthIndex]);
     const today = new Date().getDate();
     const [events, setEvents] = useState(month.events);
-    
-    console.log(month)
 
     const prevMonth = () => {
         if (monthIndex <= 0) return;
@@ -139,7 +137,6 @@ function Box({ onClick, children, isDay, styles, hasEvent }) {
 }
 
 function DisplayEvent({ events }) {
-    console.log(events)
     return (
         <div className=" text-neutral-900 grid gap-2">
             {events.length > 0 ? (
