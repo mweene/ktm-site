@@ -22,47 +22,29 @@ export default function RecentSermons() {
                     </div>
                 </Card>
 
-                <Card>
-                    <div className="[&>p]:text-lg flex flex-col place-content-between">
-                        <div className="card-image py-20 bg-[url(/src/assets/ktm1.jpg)] bg-right bg-blend-luminosity rounded-xl"></div>
-                        <div className="my-4 self-end">
-                            <h3 className="font-medium text-lg capitalize">
-                                All Things Work Together for Good
-                            </h3>
-                            <p className="text-neutral-800 mt-1">
-                                A deep dive into trusting God's plan even in uncertain seasons of life.
-                            </p>
-                        </div>
-                        <div className="flex place-content-between place-items-center pt-4">
-                            <p className="font-medium">Galatians 20:6</p>
-                            <span className="p-1.5 border rounded-full w-fit place-self-center">
-                                <LucidePlay size={16} />
-                            </span>
-                        </div>
+                <Card className="bg-pink-400">
+                  <div className="p-4">
+                    <p className="border p-0.5 rounded-full text-sm w-fit">eld m. milanzi</p>
+                    <h3 className="text-4xl">jesus of nazareth</h3>
+                    
+                    <div className="flex gap-2">
+                      <p>week of prayer</p> 
+                      <p>21 march 2026</p>
                     </div>
+                    
+                    <div className="flex gap-2">
+                      <p>watch sermon</p>
+                      <span><LucidePlay /></span>
+                    </div>
+                  </div>
                 </Card>
                 
-                <Card>
+                <Card className="bg-pink-700">
                     <div className="[&>p]:text-lg flex flex-col place-content-between">
-                        <div className="card-image py-20 bg-[url(/src/assets/ktm1.jpg)] bg-right bg-blend-luminosity rounded-xl"></div>
-                        <div className="my-4 self-end">
-                            <h3 className="font-medium text-lg capitalize">
-                                Return to Me: A Call to Renewal
-                            </h3>
-                            <p className="text-neutral-800 mt-1">
-                                Exploring God's call to return to Him with our whole hearts.
-                            </p>
-                        </div>
-                        <div className="flex place-content-between place-items-center pt-4">
-                            <p className="font-medium">Malachi 4:7</p>
-                            <span className="p-1.5 border rounded-full w-fit place-self-center">
-                                <LucidePlay size={16} />
-                            </span>
-                        </div>
                     </div>
                 </Card>
-
             </div>
+            <p>more sermons</p>
         </section>
     );
 }
@@ -70,7 +52,10 @@ export default function RecentSermons() {
 function Card({ className, children }) {
     return (
         <div
-            className={`card rounded-4xl bg-neutral-200 p-4 min-h-92 transition cursor-pointer [&>p]:text-lg ${className}`}
+            className={`
+              card rounded-4xl min-h-92 
+              transition cursor-pointer [&>p]:text-lg ${className}
+            `}
         >
             {children}
         </div>

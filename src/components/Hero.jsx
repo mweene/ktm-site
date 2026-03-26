@@ -1,4 +1,5 @@
-import { Navigation } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Navigation, LucidePlay } from "lucide-react";
 import bgVid from "../assets/demo-bg.mp4";
 
 export default function Hero() {
@@ -20,12 +21,18 @@ export default function Hero() {
                         every season of life
                     </p>
                     
-                    <div className="flex gap-6 [&>button]:px-6 [&>button]:py-2 [&>button]:capitalize">
-                        <button className="text-black bg-white font-medium">
-                            watch latest sermon
+                    <div className="flex gap-6 [&>button>a]:px-6 [&>button>a]:py-3 [&>button]:capitalize">
+                        <button className={`
+                            text-black bg-white hover:bg-neutral-700 hover:text-neutral-50 
+                            font-medium flex items-center gap-2
+                          `}
+                        >
+                            <Link to="/sermons" className="flex items-center gap-2">
+                                <span>watch latest sermon</span> <LucidePlay size={17}/>
+                            </Link>
                         </button>
-                        <button className="border border-neutral-50 text-neutral-50">
-                            find your program
+                        <button className="border border-neutral-50 text-neutral-50 hover:underline">
+                            <a href="#programs" className="">find your program</a>
                         </button>
                     </div>
                 </div>
