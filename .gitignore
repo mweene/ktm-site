@@ -23,5 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 
-# Ignore the huge images for now
+# Ignore the huge files for now
 *.jpg
+*.mp4
