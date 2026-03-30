@@ -16,16 +16,18 @@ const data = {
     {
       id: '9-212f',
       preacher: "dc j chanza",
-      title: "the coming of christ",
+      title: "In the wilderness",
       date: "2026-03-28",
       program: "bible study",
+      styles: "bg-orange-500"
     },
     {
       id: '1-052r',
       preacher: "eld c chongo",
-      title: "the 10 virgins",
+      title: "The 10 virgins",
       date: "2026-03-28",
       program: "main service",
+      styles: "bg-orange-300"
     },
   ]
 }
@@ -53,7 +55,7 @@ export default function RecentSermons() {
                 </div>
                 
                 <a href="/sermons" className="self-end flex capitalize items-center gap-2">
-                    more sermons 
+                    more sermons <ArrowRight size={19}/>
                 </a>
             </div>
             <div className="cards grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
@@ -69,6 +71,7 @@ export default function RecentSermons() {
                   date={card.date}
                   program={card.program}
                   value={`${card.id}`}
+                  styles={card.styles}
                   onClick={(event) => handleCardClick(event)}
                 />
               ))}
@@ -77,15 +80,15 @@ export default function RecentSermons() {
     );
 }
 
-function Card({ onClick, preacher, title, date, program, value }) {
+function Card({ styles, onClick, preacher, title, date, program, value }) {
     return (
-        <div className="card rounded-4xl min-h-92 bg-neutral-300">
+        <div className={`card rounded-4xl min-h-92 ${styles}`}>
           <div className="card-content p-6 grid place-content-between h-full">
-            <p className="border border-neutral-400 bg-neutral-200 py-1 px-4 rounded-full text-sm w-fit">
+            <p className="bg-neutral-200/60 py-1 px-4 rounded-full text-sm w-fit">
               {preacher}
             </p>
             <div>
-              <h3 className="text-4xl leading-none">{title}</h3>
+              <h3 className="text-5xl font-semibold text-[#371700] leading-none">{title}</h3>
 
               <div className={`
                 flex gap-4 [&>p]:text-[.79rem] mt-2 uppercase
@@ -99,7 +102,7 @@ function Card({ onClick, preacher, title, date, program, value }) {
                 onClick={onClick}
                 className={`
                   flex items-center gap-2 mt-10 capitalize w-fit rounded-full
-                  text-neutral-50 bg-neutral-900 pl-4 pr-2 py-1
+                  text-neutral-50 bg-[#612800] pl-4 pr-2 py-1
                 `}
                 value={value}
               >
