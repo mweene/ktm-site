@@ -5,7 +5,7 @@ import facebook from "../assets/icons/facebook.svg";
 import whatsapp from "../assets/icons/whatsapp.svg";
 import instagram from "../assets/icons/instagram.svg";
 import youtube from "../assets/icons/youtube.svg";
-import { Menu, LucideCircleArrowRight, LucideX, Copy, Mail } from "lucide-react";
+import { Menu, LucideX, Copy, Mail } from "lucide-react";
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,7 +24,7 @@ export default function Navbar() {
         >
             <div className="logo-section flex place-content-between place-items-center relative">
                 <Link to="/">
-                  <img src={Logo} alt="logo" className="logo h-12" />
+                    <img src={Logo} alt="logo" className="logo h-12" />
                 </Link>
                 <a
                     onClick={() => setIsMenuOpen(true)}
@@ -134,38 +134,38 @@ function Contacts() {
                     >
                         <li>
                             <a href="https://www.whatsapp.com">
-                              <img
-                                src={whatsapp}
-                                alt="whatsapp logo"
-                                className=""
-                              />
+                                <img
+                                    src={whatsapp}
+                                    alt="whatsapp logo"
+                                    className=""
+                                />
                             </a>
                         </li>
                         <li>
                             <a href="https://www.facebook.com">
-                              <img
-                                src={facebook}
-                                alt="facebook logo"
-                                className=""
-                              />
+                                <img
+                                    src={facebook}
+                                    alt="facebook logo"
+                                    className=""
+                                />
                             </a>
                         </li>
                         <li>
                             <a href="https://www.instagram.com">
-                              <img
-                                src={instagram}
-                                alt="instagram logo"
-                                className=""
-                              />
+                                <img
+                                    src={instagram}
+                                    alt="instagram logo"
+                                    className=""
+                                />
                             </a>
                         </li>
                         <li>
                             <a href="https://www.youtube.com">
-                              <img
-                                src={youtube}
-                                alt="youtube logo"
-                                className="h-[1.5rem]"
-                              />
+                                <img
+                                    src={youtube}
+                                    alt="youtube logo"
+                                    className="h-[1.5rem]"
+                                />
                             </a>
                         </li>
                     </ul>
@@ -192,13 +192,13 @@ function EmailPopover({ onMouseEnter, onMouseLeave }) {
             `}
         >
             <p className="flex gap-1 items-center text-sm underline">
-              <Copy size={14}/> 
-              <span>Copy email</span> 
+                <Copy size={14} />
+                <span>Copy email</span>
             </p>
 
             <p className="flex gap-1 items-center text-sm underline">
-              <Mail size={14}/> 
-              <span>Open mail client</span>
+                <Mail size={14} />
+                <span>Open mail client</span>
             </p>
         </div>
     );

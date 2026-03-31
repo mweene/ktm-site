@@ -1,9 +1,12 @@
+.hidden {
+    display: none;
+}
+
 image {
     width: 100%;
 }
 
 .hero {
-  
 }
 
 button {
@@ -13,14 +16,15 @@ button {
 }
 
 .video-bg-wrapper {
-  background: 
-    linear-gradient(
-      to bottom left, 
-      hsla(0, 0%, 0%, 0), 
-      hsla(0, 0%, 0%, 0.2),
-      hsla(0, 0%, 0%, 0.9), 
-      hsl(0, 0%, 0%)),
-    url('./assets/demo-bg.mp4');
+    background:
+        linear-gradient(
+            to bottom left,
+            hsla(0, 0%, 0%, 0),
+            hsla(0, 0%, 0%, 0.2),
+            hsla(0, 0%, 0%, 0.9),
+            hsl(0, 0%, 0%)
+        ),
+        url("./assets/demo-bg.mp4");
 }
 
 .top {
@@ -40,7 +44,7 @@ button {
     margin: 0 auto;
     padding: 20px 0;
     display: flex;
-    overflow-x: hidden;
+    overflow-x: scroll;
 
     > * {
         flex: 0 0 100%;
@@ -57,7 +61,7 @@ button {
     padding-right: 20px;
 
     will-change: transform;
-    animation: scrolling 10s linear infinite;
+    animation: scrollin 10s linear infinite;
 }
 
 @keyframes scrolling {
