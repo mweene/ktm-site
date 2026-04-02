@@ -55,8 +55,8 @@ export default function Calendar() {
 
     return (
         <section className="" id="programs">
-            <p className="uppercase">church timeline</p>
-            <h2 className="text-5xl font-semibold">Programs & events for 2026</h2>
+            <p className="uppercase font-medium text-[#341600]">church timeline</p>
+            <h2 className="text-[4rem] leading-none text-[#341600] font-semibold">Programs & events for 2026</h2>
 
             <div className="grid md:grid-cols-2 gap-8 mt-9">
                 <div className="calendar-wrapper">
@@ -68,19 +68,17 @@ export default function Calendar() {
                         <div className="buttons flex gap-4">
                             <button 
                                 disabled={monthIndex === 0 ? true : false}
-                                className="p-2 bg-neutral-900"
+                                className="p-2 text-[#341600] border-2"
                             >
                                 <ArrowLeft
                                     size={20}
-                                    color="white"
                                     onClick={prevMonth}
                                     className="cursor-pointer"
                                 />
                             </button>
-                            <button className="p-2 bg-neutral-900">
+                            <button className="p-2 text-[#341600] border-2">
                                 <ArrowRight
-                                    size={20}
-                                    color="white"
+                                    size={20}           
                                     onClick={nextMonth}
                                     className="cursor-pointer"
                                 />
@@ -119,7 +117,7 @@ export default function Calendar() {
 function Box({ onClick, children, isDay, styles, hasEvent }) {
     const clickable = isDay;
     const classes = `
-      box p-4 rounded-lg
+      box rounded-lg h-[5rem]
       text-center text-neutral-100
       grid place-content-center place-items-center gap-1
       ${styles}
@@ -138,43 +136,11 @@ function Box({ onClick, children, isDay, styles, hasEvent }) {
 
 function DisplayEvent({ events }) {
     return (
-        <div className=" text-neutral-900 grid gap-2">
+        <div className="text-neutral-900 grid gap-2">
             {events.length > 0 ? (
                 events.map((event) => (
-                    <div key={event.id} className="grid text p-6 bg-neutral-200 rounded-2xl">
-                        <div className="flex flex-wrap place-content-between text-sm gap-4 asolute top-0">
-                            <div className="grid gap-2">
-                                <p className="font-medium">
-                                {event.date}
-                                </p>
-                                <p className="font-medium">
-                                    {event.time }
-                                </p>
-                            </div>
-                            
-                            <div className="grid gap-1">
-                                <p className="font-medium">
-                                    {event.venue}
-                                </p>
-                                <p className="font-medium">
-                                    {event.charge > 0 ? `K${event.charge}` : 'free'}
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="mt-6">
-                            <p className="text-2xl font-semibold capitalize w-3/5">
-                                {event.title}
-                            </p>
-                            <p>{event.description}</p>
-                            <p 
-                                className={`uppercase text-[0.8rem] mt-2 py-0.5
-                                font-medium            
-                                px-3 rounded-full bg-neutral-400 w-fit`}
-                            >
-                                {event.category}
-                            </p>
-                        </div>
+                    <div key={event.id} className="grid text p-6 px-10 bg-neutral-200 rounded-4xl h-fit">
+                      <h1>{event.title}</h1>  
                     </div>
                 ))
             ) : (

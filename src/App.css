@@ -12,7 +12,6 @@ image {
 button {
     cursor: pointer;
     border-radius: 1.5rem;
-    font-size: 1.125rem;
 }
 
 .video-bg-wrapper {
@@ -44,7 +43,7 @@ button {
     margin: 0 auto;
     padding: 20px 0;
     display: flex;
-    overflow-x: scroll;
+    overflow-x: hidden;
 
     > * {
         flex: 0 0 100%;
@@ -61,7 +60,7 @@ button {
     padding-right: 20px;
 
     will-change: transform;
-    animation: scrollin 10s linear infinite;
+    animation: scrolling 20s linear infinite;
 }
 
 @keyframes scrolling {

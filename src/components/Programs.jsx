@@ -49,42 +49,43 @@ const groups = [
 
 function ProgramsCard({ ageGroup, forWho, title, description, styles }) {
     const customStyles = `
-      pcard rounded-4xl h-[27rem] w-[19rem]
+      pcard rounded-4xl h-[27rem] w-[19rem] shadow
       bg-neutral-50 text-[#371700] flex flex-col ${styles}
     `;
     return (
         <div className={customStyles}>
             <div className="px-6 pt-6 pb-4">
                 <p className="capitalize text-sm flex place-content-between place-items-center">
-                    <span className="bg-neutral-100 rounded-full px-4 py-1">
+                    <span className="bg-neutral-200 rounded-full px-4 py-1">
                         {ageGroup}
                     </span>
-                    <span className="">For {forWho}</span>
+                    <span className="">{forWho}</span>
                 </p>
-                <h3 className="capitalize font-medium text-4xl my-4">
+                <h3 className="capitalize font-medium text-4xl mb-2 mt-9">
                     {title}
                 </h3>
                 <p className="">{description}</p>
             </div>
-            <div className="image bg-pink-300 h-full rounded-4xl"></div>
+            <div className="image bg-[#778db0] h-full rounded-4xl"></div>
         </div>
     );
 }
 
 export default function Programs() {
     return (
-        <section className="overflow-hidden bg-[#ffe3c4] border: 2px solid #2b1200;] rounded-4xl">
+        <section className="overflow-hidden bg-[#ffc381] border: 2px solid #2b1200;] rounded-4xl">
             <div className="flex place-content-between p-10 pb-5">
                 <div className="">
                     <div className="">
                         <p className="uppercase font-medium text-[#371700]">
                             our programs
                         </p>
-                        <h2 className="text-[4rem] leading-none font-semibold text-[#371700] md:w-4/6">
+                        <h2 className="text-[4rem] leading-none font-semibold text-[#371700] md:w-5/6">
                             A place for every season of life
                         </h2>
                     </div>
                 </div>
+                {/*
                 <div className="self-end flex gap-4">
                     <button className="p-2 border-2 text-[#1f0d00]">
                         <ArrowLeft size={20} />
@@ -93,6 +94,7 @@ export default function Programs() {
                         <ArrowRight size={20} />
                     </button>
                 </div>
+                */}  
             </div>
 
             <div className="carousel pb-10">

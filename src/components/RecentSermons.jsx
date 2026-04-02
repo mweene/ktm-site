@@ -45,8 +45,8 @@ export default function RecentSermons() {
         <section className="md:mt-30">
             <div className="mb-8 flex place-content-between">
                 <div>
-                    <p className="uppercase">recent sermons</p>
-                    <h2 className="text-5xl font-semibold">
+                    <p className="uppercase font-medium text-[#341600]">recent sermons</p>
+                    <h2 className="text-[4rem] text-[#341600] leading-none font-semibold">
                         Catch up with the word <br />
                         Anytime, anywhere
                     </h2>
@@ -54,9 +54,12 @@ export default function RecentSermons() {
 
                 <a
                     href="/sermons"
-                    className="self-end flex capitalize items-center gap-2"
+                    className="self-end flex capitalize items-center gap-2 text-[#341600] rounded-full py-1 pr-1 pl-6 border-2"
                 >
-                    more sermons <ArrowRight size={19} />
+                    more sermons 
+                    <span className="text-neutral-50 bg-[#371700] rounded-full p-2"> 
+                      <ArrowRight size={20} />
+                    </span>
                 </a>
             </div>
             <div className="cards grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">

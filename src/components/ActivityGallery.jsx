@@ -4,8 +4,8 @@ import {ArrowLeft, ArrowRight} from "lucide-react";
 const data = [
   {
     "id": 1,
-    "activityName": "Activity One",
-    "slug": "activity-one",
+    "activityName": "Outreach",
+    "slug": "outreach",
     "grid": [
       { "id": "a1-00", "type": "image", "src": "https://picsum.photos/id/220/600/400?grayscale", "span": "col-span-1" },
       { "id": "a1-01", "type": "video", "src": "https://lorem.video/720p_h264_10s", "span": "col-span-3" },
@@ -18,8 +18,8 @@ const data = [
   },
   {
     "id": 2,
-    "activityName": "Activity Two",
-    "slug": "activity-two",
+    "activityName": "Local",
+    "slug": "local",
     "grid": [
       { "id": "a2-00", "type": "image", "src": "https://picsum.photos/id/320/600/400?grayscale", "span": "col-span-1" },
       { "id": "a2-01", "type": "video", "src": "https://lorem.video/720p_h264_5s", "span": "col-span-3" },
@@ -32,8 +32,8 @@ const data = [
   },
   {
     "id": 3,
-    "activityName": "Activity Three",
-    "slug": "activity-three",
+    "activityName": "personal Ministry",
+    "slug": "personal ministries",
     "grid": [
       { "id": "a3-00", "type": "image", "src": "https://picsum.photos/id/420/600/400?grayscale", "span": "col-span-1" },
       { "id": "a3-01", "type": "video", "src": "https://lorem.video/720p_h264_15s", "span": "col-span-3" },
@@ -111,31 +111,40 @@ function EventCard({className, type, src, content}) {
 
 export default function ActivityGallery () {
   const [activity, setActivity] = useState(data[0]);
-  
+  const [activeButton, setActiveButton] = useState(data[0].activityName);
+
   const handleActivity = (event) => {
     const newActivity = data.find(d => d.activityName === event.target.value);
     setActivity(newActivity);
+    
+    setActiveButton(event.target.value);
   }
 
   return (
       <>
         <div>
-          <p className="uppercase">our gallery</p>
-          <h2 className="text-5xl font-semibold">
-            Get a glimpse into our activities
-          </h2>
+          <p className="uppercase font-medium text-[#341600]">our gallery</p>
 
-          <div className="flex gap-4 my-4 mt-6">
-            {data.map(d => (
-              <button 
-                key={d.id} 
-                value={d.activityName}
-                className="text-sm"
-                onClick={() => handleActivity(event)}
-              >
+          <div className="flex place-content-between pb-10">
+            <h2 className="text-[4rem] text-[#341600] font-semibold leading-none md:w-4/6">
+              Get a glimpse into our activities
+            </h2>
+
+            <div className="flex gap-2 self-end border-2 border-[#341600] rounded-full p-1">
+              {data.map(d => (
+                <button 
+                  key={d.id} 
+                  value={d.activityName}
+                  className={`
+                    text-[#341600] px-6 py-3 
+                    ${(activeButton === d.activityName) && 'bg-[#341600] text-neutral-50'}
+                  `}
+                  onClick={() => handleActivity(event)}
+                >
                   {d.activityName}
-              </button>
-            ))}
+                </button>
+              ))}
+            </div>
           </div>
 
           <div className="grid gap-4 grid-cols-7">
