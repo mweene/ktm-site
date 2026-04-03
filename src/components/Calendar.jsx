@@ -1,6 +1,6 @@
 import { useState } from "react";
 import data from "../data.json";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, Clock, CalendarDays, MapPin } from "lucide-react";
 
 const dayHeaders = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
 
@@ -54,21 +54,21 @@ export default function Calendar() {
     const hasEvent = (num) => eventDates.includes(num);
 
     return (
-        <section className="" id="programs">
-            <p className="uppercase font-medium text-[#341600]">church timeline</p>
-            <h2 className="text-[4rem] leading-none text-[#341600] font-semibold">Programs & events for 2026</h2>
+        <section className="text-[#341600]" id="programs">
+            <p className="uppercase font-medium ">church timeline</p>
+            <h2 className="text-[4rem] leading-none font-semibold">Programs & events</h2>
 
             <div className="grid md:grid-cols-2 gap-8 mt-9">
                 <div className="calendar-wrapper">
                     <div className="flex place-content-between place-items-center">
-                        <p className="text-2xl font-semibold capitalize text-nuetral-700">
+                        <p className="text-2xl font-semibold uppercase">
                             {month.name} <span className="">{data.year}</span>
                         </p>
 
                         <div className="buttons flex gap-4">
                             <button 
                                 disabled={monthIndex === 0 ? true : false}
-                                className="p-2 text-[#341600] border-2"
+                                className="p-2 border-2"
                             >
                                 <ArrowLeft
                                     size={20}
@@ -76,7 +76,7 @@ export default function Calendar() {
                                     className="cursor-pointer"
                                 />
                             </button>
-                            <button className="p-2 text-[#341600] border-2">
+                            <button className="p-2 border-2">
                                 <ArrowRight
                                     size={20}           
                                     onClick={nextMonth}
@@ -98,7 +98,7 @@ export default function Calendar() {
                             <Box
                                 key={ele}
                                 isDay={isDay(ele)}
-                                styles={`${ele - index === today && "bg-neutral-900"}`}
+                                styles={`${ele - index === today && "bg-[#341600] text-neutral-50"}`}
                                 hasEvent={hasEvent(ele - index)}
                                 onClick={() => handleClick(ele - index)}
                             >
@@ -117,18 +117,17 @@ export default function Calendar() {
 function Box({ onClick, children, isDay, styles, hasEvent }) {
     const clickable = isDay;
     const classes = `
-      box rounded-lg h-[5rem]
-      text-center text-neutral-100
+      box rounded-lg h-[5rem] text-center
       grid place-content-center place-items-center gap-1
-      ${styles}
-      ${clickable ? "cursor-pointer bg-neutral-700 hover:bg-neutral-600" : ""}
+      text-[#341600] ${styles}
+      ${clickable ? "cursor-pointer border-2 border-[#341600] hover:bg-[#341600] hover:text-neutral-50" : ""}
     `;
     return (
         <div onClick={clickable ? onClick : undefined} className={classes}>
             {isDay && children}
 
             {hasEvent ? (
-                <div className="circle rounded-full p-1 w-fit bg-white"></div>
+                <div className="circle rounded-full p-1 w-fit bg-neutral-50 mix-blend-difference"></div>
             ) : null}
         </div>
     );
@@ -136,16 +135,25 @@ function Box({ onClick, children, isDay, styles, hasEvent }) {
 
 function DisplayEvent({ events }) {
     return (
-        <div className="text-neutral-900 grid gap-2">
+        <div className="">
             {events.length > 0 ? (
                 events.map((event) => (
-                    <div key={event.id} className="grid text p-6 px-10 bg-neutral-200 rounded-4xl h-fit">
-                      <h1>{event.title}</h1>  
+                    <div key={event.id} className="grid text p-6 px-10 mb-4 bg-[#ffc381] rounded-4xl h-fit">
+                      <p className="uppercase text-sm border p-1 px-4 rounded-full w-fit bg-[#ffefde]">
+                        {event.category}
+                      </p>
+                      <h2 className="text-[2.5rem] leading-none capitalize font-semibold mb-4 mt-2">{event.title}</h2>
+
+                      <ul className="flex gap-4 [&>li]:flex [&>li]:gap-1 [&>li]:items-center">
+                        <li><MapPin size={19}/>{event.venue}</li>
+                        <li><CalendarDays size={19}/>{event.date}</li>
+                        <li><Clock size={19}/>{event.time} Hrs</li>
+                      </ul>
                     </div>
                 ))
             ) : (
                 <div className="grid text p-6 ">
-                    <h1>no event</h1>
+                    <h2>no event</h2>
                 </div>
             )}
         </div>
