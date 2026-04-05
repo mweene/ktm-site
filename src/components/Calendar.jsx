@@ -59,6 +59,8 @@ export default function Calendar() {
             <h2 className="text-[4rem] leading-none font-semibold">Programs & events</h2>
 
             <div className="grid md:grid-cols-2 gap-8 mt-9">
+                <DisplayEvent events={events} />
+                
                 <div className="calendar-wrapper">
                     <div className="flex place-content-between place-items-center">
                         <p className="text-2xl font-semibold uppercase">
@@ -107,8 +109,6 @@ export default function Calendar() {
                         ))}
                     </div>
                 </div>
-
-                <DisplayEvent events={events} />
             </div>
         </section>
     );
@@ -135,11 +135,11 @@ function Box({ onClick, children, isDay, styles, hasEvent }) {
 
 function DisplayEvent({ events }) {
     return (
-        <div className="">
+        <div className="p-6 rounded-4xl bg-[#ffc381] h-fit flex flex-col gap-4">
             {events.length > 0 ? (
                 events.map((event) => (
-                    <div key={event.id} className="grid text p-6 px-10 mb-4 bg-[#ffc381] rounded-4xl h-fit">
-                      <p className="uppercase text-sm border p-1 px-4 rounded-full w-fit bg-[#ffefde]">
+                    <div key={event.id} className="grid text p-6 px-10 bg-[#ffead3] rounded-4xl">
+                      <p className="uppercase text-sm border border-neutral-50 p-1 px-4 rounded-full w-fit bg-[#ffc381]">
                         {event.category}
                       </p>
                       <h2 className="text-[2.5rem] leading-none capitalize font-semibold mb-4 mt-2">{event.title}</h2>

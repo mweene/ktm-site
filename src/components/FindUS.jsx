@@ -1,4 +1,4 @@
-import Pin from "../assets/MaterialSymbolsLocationOnRounded.svg";
+import { ArrowRight, MapPin } from "lucide-react";
 
 export default function FindUS() {
     const services = [
@@ -8,13 +8,14 @@ export default function FindUS() {
         { id: 4, name: "lunch", time: "13:00" },
         { id: 5, name: "bible study", time: "15:00" },
     ];
+
     return (
         <section className="grid place-content-center">
-            <div className="grid md:grid-cols-2 place-items-center bg-green-200 w-fit rounded-3xl">
-                <div className="bg-neutral-300 p-9 md:p-15 rounded-l-3xl">
+            <div className="grid md:grid-cols-2 place-items-center text-neutral-50 w-fit rounded-4xl">
+                <div className="bg-[#ffc381] text-[#341600] p-9 md:p-15 rounded-l-4xl">
                     <div className="header-text">
                         <p className="uppercase">find us</p>
-                        <h2 className="text-5xl font-semibold">
+                        <h2 className="text-[4rem] leading-none font-semibold">
                             Come worship with us
                         </h2>
 
@@ -22,9 +23,9 @@ export default function FindUS() {
                             {services.map((service) => (
                                 <li
                                     key={service.id}
-                                    className="flex place-content-between border-b border-neutral-500 pb-2.5"
+                                    className="flex place-content-between border-b border-[#341600] pb-2.5"
                                 >
-                                    <span className="capitalize text-sm">
+                                    <span className="capitalize">
                                         {service.name}
                                     </span>
                                     <span className="font-medium">
@@ -35,15 +36,20 @@ export default function FindUS() {
                         </ul>
                     </div>
                 </div>
+                
+                <div className="h-full w-full grid place-content-center bg-cover bg-[url('https://picsum.photos/id/900/900')] rounded-r-4xl">
+                    <div className="text-center grid place-items-center bg-[#341600]/90 backdrop-blur p-9 w-fit rounded-4xl">
+                        <MapPin size={45}/>
+                        <p className="font-medium text-2xl mt-2">Katimamulilo SDA Church</p>
+                        <p className="font-medium text-2xl">Lusaka, Zambia</p>
 
-                <div className="text-center grid place-items-center">
-                    <img src={Pin} alt="pin logo" className="h-16" />
-                    <p className="font-medium">Katimamulilo SDA Church</p>
-                    <p className="font-medium">Lusaka, Zambia</p>
-
-                    <button className="uppercase border py-2 px-5">
-                        get directions
-                    </button>
+                        <button className="uppercase text-sm border mt-7 py-1 pr-1 pl-5 flex items-center gap-2 rounded-full">
+                            get directions
+                            <span className="bg-neutral-50 text-[#341600] rounded-full p-1 text-neutral-50">  
+                            <ArrowRight color="#341600"/>
+                            </span>  
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
