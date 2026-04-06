@@ -1,6 +1,12 @@
 import { useState } from "react";
 import data from "../data.json";
-import { ArrowLeft, ArrowRight, Clock, CalendarDays, MapPin } from "lucide-react";
+import {
+    ArrowLeft,
+    ArrowRight,
+    Clock,
+    CalendarDays,
+    MapPin,
+} from "lucide-react";
 
 const dayHeaders = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
 
@@ -56,21 +62,25 @@ export default function Calendar() {
     return (
         <section className="text-[#341600]" id="programs">
             <p className="uppercase font-medium ">church timeline</p>
-            <h2 className="text-[4rem] leading-none font-semibold">Programs & events</h2>
+            <h2 className="text-[4rem] leading-none font-semibold">
+                Programs & events
+            </h2>
 
-            <div className="grid md:grid-cols-2 gap-8 mt-9">
-                <DisplayEvent events={events} />
-                
-                <div className="calendar-wrapper">
-                    <div className="flex place-content-between place-items-center">
+            <div className="grid md:grid-cols-3 gap-8 mt-9">
+                <div className="col-span-2">
+                    <DisplayEvent events={events} />
+                </div>
+
+                <div className="calendar-wrapper bg-[#341600] rounded-4xl px-6 py-4 pt-9 self-center">
+                    <div className="flex place-content-between place-items-center text-neutral-50">
                         <p className="text-2xl font-semibold uppercase">
                             {month.name} <span className="">{data.year}</span>
                         </p>
 
                         <div className="buttons flex gap-4">
-                            <button 
+                            <button
                                 disabled={monthIndex === 0 ? true : false}
-                                className="p-2 border-2"
+                                className="p-2 bg-[#b2a7a0]"
                             >
                                 <ArrowLeft
                                     size={20}
@@ -78,9 +88,9 @@ export default function Calendar() {
                                     className="cursor-pointer"
                                 />
                             </button>
-                            <button className="p-2 border-2">
+                            <button className="p-2 bg-[#b2a7a0]">
                                 <ArrowRight
-                                    size={20}           
+                                    size={20}
                                     onClick={nextMonth}
                                     className="cursor-pointer"
                                 />
@@ -88,7 +98,7 @@ export default function Calendar() {
                         </div>
                     </div>
 
-                    <div className="days grid grid-cols-7 gap-1 mt-6 mb-4">
+                    <div className="days grid grid-cols-7 gap-1 mt-6 mb-4 text-[#b2a7a0]">
                         {dayHeaders.map((day) => (
                             <p key={day} className="uppercase">
                                 {day}
@@ -100,7 +110,7 @@ export default function Calendar() {
                             <Box
                                 key={ele}
                                 isDay={isDay(ele)}
-                                styles={`${ele - index === today && "bg-[#341600] text-neutral-50"}`}
+                                styles={`${ele - index === today && "text-neutral-50"}`}
                                 hasEvent={hasEvent(ele - index)}
                                 onClick={() => handleClick(ele - index)}
                             >
@@ -117,10 +127,10 @@ export default function Calendar() {
 function Box({ onClick, children, isDay, styles, hasEvent }) {
     const clickable = isDay;
     const classes = `
-      box rounded-lg h-[5rem] text-center
+      box rounded-lg h-[3rem] w-[3rem] text-center
       grid place-content-center place-items-center gap-1
-      text-[#341600] ${styles}
-      ${clickable ? "cursor-pointer border-2 border-[#341600] hover:bg-[#341600] hover:text-neutral-50" : ""}
+      text-neutral-50 ${styles}
+      ${clickable ? "cursor-pointer hover:bg-[#341630] hover:text-neutral-50" : ""}
     `;
     return (
         <div onClick={clickable ? onClick : undefined} className={classes}>
@@ -135,22 +145,47 @@ function Box({ onClick, children, isDay, styles, hasEvent }) {
 
 function DisplayEvent({ events }) {
     return (
-        <div className="p-6 rounded-4xl bg-[#ffc381] h-fit flex flex-col gap-4">
+        <div className="h-fit flex flex-col gap-4">
             {events.length > 0 ? (
-                events.map((event) => (
-                    <div key={event.id} className="grid text p-6 px-10 bg-[#ffead3] rounded-4xl">
-                      <p className="uppercase text-sm border border-neutral-50 p-1 px-4 rounded-full w-fit bg-[#ffc381]">
-                        {event.category}
-                      </p>
-                      <h2 className="text-[2.5rem] leading-none capitalize font-semibold mb-4 mt-2">{event.title}</h2>
+                events.map((event) => {
+                  const date = new Date(event.date);
+                  const month = date.toLocaleString('default', {month: 'short'});
+                  const day = date.getDate();
 
-                      <ul className="flex gap-4 [&>li]:flex [&>li]:gap-1 [&>li]:items-center">
-                        <li><MapPin size={19}/>{event.venue}</li>
-                        <li><CalendarDays size={19}/>{event.date}</li>
-                        <li><Clock size={19}/>{event.time} Hrs</li>
-                      </ul>
+                  return (
+                    <div
+                        key={event.id}
+                        className="flex gap-4 text p-6 px-7 bg-neutral-300 text-[#341600] rounded-4xl"
+                    >
+                        <div className="bg-neutral-100 px-4 py-2 rounded-2xl self-start text-center">
+                          <p className="font-medium text-3xl">{day}</p>
+                          <p className="text-sm uppercase">{month}</p>
+                        </div>
+                        <div>
+                        <p className="uppercase text-neutral-700 text-xs p-1 px-4 rounded-full w-fit bg-neutral-200">
+                            {event.category}
+                        </p>
+                        <h2 className="text-[1.5rem] leading-none capitalize font-semibold mb-4 mt-2">
+                            {event.title}
+                        </h2>
+
+                        <ul className="flex gap-4 [&>li]:flex [&>li]:gap-1 [&>li]:items-center [&>li]:text-sm">
+                            <li>
+                                <MapPin size={19} />
+                                {event.venue}
+                            </li>
+                            <li>
+                                <CalendarDays size={19} />
+                                {event.date}
+                            </li>
+                            <li>
+                                <Clock size={19} />
+                                {event.time} Hrs
+                            </li>
+                        </ul>
+                        </div>
                     </div>
-                ))
+                )})
             ) : (
                 <div className="grid text p-6 ">
                     <h2>no event</h2>
