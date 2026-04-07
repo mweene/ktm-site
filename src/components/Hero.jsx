@@ -6,9 +6,9 @@ export default function Hero() {
     return (
         <section className="Hero min-h-[100dvh] grid md:px-10 pb-5 relative">
             <video loop autoPlay src={bgVid} className="h-full w-full object-cover absolute top-0 z-1"/>
-            <div className="video-bg-wrapper absolute bg-neutral-950/80  h-full w-full z-2"></div>  
-            <div className="flex place-content-between pb-4 static z-3">
-                <div className="main-text place-self-end rounded-xl md:w-4/7">
+            <div className="video-bg-wrapper absolute bg-neutral-950/70  h-full w-full z-2"></div>  
+            <div className="flex place-content-between pb-10 static z-3">
+                <div className="main-text place-self-end md:w-4/7">
                     <h1 className="text-4xl md:text-7xl font-semibold text-white">
                         His word <br />
                         <span className="text-orange-500">Your Growth</span> <br />
@@ -23,15 +23,18 @@ export default function Hero() {
                     
                     <div className="flex gap-6 [&>button>a]:px-6 [&>button>a]:py-3 [&>button]:capitalize">
                         <button className={`
-                            text-black bg-white hover:bg-neutral-700 hover:text-neutral-50 
+                            text-neutral-50 bg-orange-500 hover:text-neutral-50 
                             font-medium flex items-center gap-2
                           `}
                         >
-                            <Link to="/sermons" className="flex items-center gap-2">
-                                <span>watch latest sermon</span> <LucidePlay size={17}/>
+                            <Link to="/sermons" className="flex items-center gap-4">
+                                watch latest sermon 
+                                <span className="p-1 rounded-full bg-neutral-50 text-neutral-950">
+                                    <LucidePlay size={17}/>
+                                </span>
                             </Link>
                         </button>
-                        <button className="border border-neutral-50 text-neutral-50 hover:underline">
+                        <button className="border border-neutral-200 text-neutral-50">
                             <a href="#programs" className="">find your program</a>
                         </button>
                     </div>

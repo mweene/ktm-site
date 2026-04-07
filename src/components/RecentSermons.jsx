@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import PlayLogo from "../assets/icons/play.svg";
-import VideoPlayer from "./VideoPlayer";
+import { VideoPlayer } from "./VideoPlayer";
 import vid from "../assets/demo-bg.mp4";
 
 const data = {
@@ -14,7 +14,7 @@ const data = {
     cards: [
         {
             id: "9-212f",
-            preacher: "dc j chanza",
+            preacher: "eld. j chanza",
             title: "In the wilderness",
             date: "2026-03-28",
             program: "bible study",
@@ -22,7 +22,7 @@ const data = {
         },
         {
             id: "1-052r",
-            preacher: "eld c chongo",
+            preacher: "eld. c chongo",
             title: "The 10 virgins",
             date: "2026-03-28",
             program: "main service",
@@ -63,7 +63,7 @@ export default function RecentSermons() {
                 </a>
             </div>
             <div className="cards grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-                <div className="lg:col-span-2 min-h-92">
+                <div className="lg:col-span-2 min-h-[23rem] [&_video]:!h-full [&_video]:!w-full [&_video]:!object-cover">
                     <VideoPlayer id={data.video.id} src={data.video.src} />
                 </div>
 
@@ -88,7 +88,7 @@ function Card({ styles, onClick, preacher, title, date, program, value }) {
     return (
         <div className={`card rounded-4xl min-h-92 ${styles}`}>
             <div className="card-content p-6 grid place-content-between h-full">
-                <p className="bg-neutral-200/60 py-1 px-4 rounded-full text-sm w-fit">
+                <p className="bg-neutral-200/60 py-1 px-4 rounded-full text-xs uppercase w-fit">
                     {preacher}
                 </p>
                 <div>

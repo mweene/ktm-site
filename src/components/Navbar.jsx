@@ -19,18 +19,18 @@ export default function Navbar() {
         <nav
             className={`
                 fixed w-full bg-neutral-900/80 border-b border-b-neutral-600/50 p-4
-                md:py-4 md:px-10 backdrop-blur-2xl z-4
+                md:py-4 md:px-10 backdrop-blur-xl z-4
             `}
         >
             <div className="logo-section flex place-content-between place-items-center relative">
                 <Link to="/">
-                    <img src={Logo} alt="logo" className="logo h-12" />
+                    <img src={Logo} alt="logo" className="logo h-11" />
                 </Link>
                 <a
                     onClick={() => setIsMenuOpen(true)}
                     className="cursor-pointer text-white"
                 >
-                    <Menu size={25} />
+                    <Menu size={22} />
                 </a>
             </div>
 

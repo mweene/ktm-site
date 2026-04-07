@@ -80,7 +80,7 @@ export default function Calendar() {
                         <div className="buttons flex gap-4">
                             <button
                                 disabled={monthIndex === 0 ? true : false}
-                                className="p-2 bg-[#b2a7a0]"
+                                className="p-2 bg-[#523826]"
                             >
                                 <ArrowLeft
                                     size={20}
@@ -88,7 +88,7 @@ export default function Calendar() {
                                     className="cursor-pointer"
                                 />
                             </button>
-                            <button className="p-2 bg-[#b2a7a0]">
+                            <button className="p-2 bg-[#523826]">
                                 <ArrowRight
                                     size={20}
                                     onClick={nextMonth}
@@ -98,21 +98,20 @@ export default function Calendar() {
                         </div>
                     </div>
 
-                    <div className="days grid grid-cols-7 gap-1 mt-6 mb-4 text-[#b2a7a0]">
+                    <ul className="days grid grid-cols-7 gap-1 mt-9 mb-4 text-[#b2a7a0]">
                         {dayHeaders.map((day) => (
-                            <p key={day} className="uppercase">
+                            <li key={day} className="uppercase text-sm">
                                 {day}
-                            </p>
+                            </li>
                         ))}
-                    </div>
+                    </ul>
                     <div className="box-grid grid grid-cols-7 gap-1">
                         {calendar.grid.map((ele) => (
                             <Box
                                 key={ele}
                                 isDay={isDay(ele)}
-                                styles={`${ele - index === today && "text-neutral-50"}`}
+                                styles={`${ele - index === today && "!text-[#341600] bg-neutral-50"}`}
                                 hasEvent={hasEvent(ele - index)}
-                                onClick={() => handleClick(ele - index)}
                             >
                                 {ele - index}
                             </Box>
@@ -127,17 +126,17 @@ export default function Calendar() {
 function Box({ onClick, children, isDay, styles, hasEvent }) {
     const clickable = isDay;
     const classes = `
-      box rounded-lg h-[3rem] w-[3rem] text-center
+      box rounded-full h-[3rem] w-[3rem] text-center
       grid place-content-center place-items-center gap-1
       text-neutral-50 ${styles}
-      ${clickable ? "cursor-pointer hover:bg-[#341630] hover:text-neutral-50" : ""}
+      ${clickable ? "cursor-pointer hover:bg-[#523826] hover:text-neutral-50" : ""}
     `;
     return (
         <div onClick={clickable ? onClick : undefined} className={classes}>
             {isDay && children}
 
             {hasEvent ? (
-                <div className="circle rounded-full p-1 w-fit bg-neutral-50 mix-blend-difference"></div>
+                <div className="circle rounded-full p-0.5 w-fit bg-neutral-50 mix-blend-difference"></div>
             ) : null}
         </div>
     );

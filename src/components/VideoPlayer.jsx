@@ -1,35 +1,27 @@
-import { useState, useRef } from "react"
-import playLogo from "../assets/icons/play.svg"
-import {Play, Pause} from "lucide-react"
+'use client';
 
-export default function VideoPlayer({src}) {
-  const videoRef = useRef(null)
-  const [ isPlaying, setIsPlaying ] = useState(false)
+import '@videojs/react/video/skin.css'
+import { createPlayer, videoFeatures } from '@videojs/react'
+import { VideoSkin, Video } from '@videojs/react/video'
 
-  const togglePlayPause = () => {
-    const video = videoRef.current;
+const Player = createPlayer({ features: videoFeatures })
 
-    if (video.paused) {
-      video.play()
-      setIsPlaying(true)
-    } else {
-      video.pause()
-      setIsPlaying(false)
-    }
+export const VideoPlayer = ({src}) => {
+  const videoOptions = {
+    autoPlay: false,
+    controls: true,
+    responsive: true,
+    fluid: true,
+    sources: [{
+      src: `${src}`,
+      type: 'video/mp4'
+    }]
   }
-
   return (
-    <div className="relative h-full m-h-92">
-      <video
-        ref={videoRef}
-        src={src}
-        width="600"
-        className={`object-cover h-full w-full rounded-4xl`}
-      >
-      </video>
-      <button onClick={togglePlayPause} className="absolute bottom-0 right-0 m-10 bg-neutral-50 p-2">
-        {isPlaying ? <Pause /> : <Play />}
-      </button>
-    </div>        
+    <Player.Provider>
+      <VideoSkin>
+        <Video src={src} playsInline options={videoOptions}/>
+      </VideoSkin>
+    </Player.Provider>
   )
 }

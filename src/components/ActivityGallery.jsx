@@ -130,13 +130,13 @@ export default function ActivityGallery () {
               Get a glimpse into our activities
             </h2>
 
-            <div className="flex gap-2 self-end border-2 border-[#341600] rounded-full p-1">
+            <div className="flex gap-2 self-end">
               {data.map(d => (
                 <button 
                   key={d.id} 
                   value={d.activityName}
                   className={`
-                    text-[#341600] px-6 py-3 
+                    text-[#341600] px-6 py-3 border border-[#341600] 
                     ${(activeButton === d.activityName) && 'bg-[#341600] text-neutral-50'}
                   `}
                   onClick={() => handleActivity(event)}
