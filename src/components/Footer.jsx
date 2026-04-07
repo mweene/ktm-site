@@ -3,25 +3,26 @@ import Logo from "../assets/footerLogo.png";
 
 export default function Footer() {
   return (
-    <section>
-    <div className="px-4 py-10 bg-neutral-300 grid md:grid-cols-4 gap-4 md:mt-30">
-      <div>
-		    <img src={Logo} alt="logo" className="h-[14rem]" />
+    <section className="bg-neutral-900 text-neutral-300 [&_li]:capitalize [&_h3]:text-neutral-500">
+    <div className="px-4 py-10 grid md:grid-cols-4 gap-4 md:mt-30">
+      <div className="w-fit h-fit">
+		    <img src={Logo} alt="logo" className="h-[7rem]" />
       </div>
 
 		  <div className="p-4">
-        <h3 className="uppercase font-semibold mb-2">media</h3>
+        <h3 className="uppercase mb-2 text-neutral-500">media</h3>
       
-        <ul className="grid gap-2">
+        <ul className="grid gap-4">
           <li><Link to="/sermons">sermons</Link></li>
           <li><Link to="/gallery">gallery</Link></li>
+          <li><Link to="/resources">resources</Link></li>
         </ul>
       </div>
       
       <div className="p-4">
-        <h3 className="uppercase font-semibold mb-2">socials</h3>
+        <h3 className="uppercase mb-2">socials</h3>
       
-        <ul className="grid gap-2">
+        <ul className="grid gap-4">
           <li>facebook</li>
           <li>instagram</li>
           <li>youtube</li>
@@ -31,9 +32,9 @@ export default function Footer() {
       </div>
 
         <div className="p-4">
-          <h3 className="uppercase font-semibold mb-2">church</h3>
+          <h3 className="uppercase mb-2">church</h3>
       
-          <ul className="grid gap-2">
+          <ul className="grid gap-4">
             <li><Link to="/">home</Link></li>
             <li><Link to="/sermons">sermons</Link></li>
             <li><Link to="/events">events</Link></li>
@@ -43,10 +44,10 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="bg-neutral-700 text-neutral-300 px-7.5 py-4 flex place-content-between text-sm">
+      <div className="border-t border-neutral-700 px-7.5 py-4 flex place-content-between text-sm">
         <p className="">ktm sda church. lusaka, zambia</p>
         <p>Copyright (c) 2026 Author. All Rights Reserved.</p>      
-    </div>
+      </div>
     </section>
   )
 }

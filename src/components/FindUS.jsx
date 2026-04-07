@@ -12,7 +12,7 @@ export default function FindUS() {
     return (
         <section className="grid place-content-center">
             <div className="grid md:grid-cols-2 place-items-center text-neutral-50 w-fit rounded-4xl">
-                <div className="bg-[#ffc381] text-[#341600] p-9 md:p-15 rounded-l-4xl">
+                <div className="text-[#341600] p-9 md:p-15 rounded-l-4xl">
                     <div className="header-text">
                         <p className="uppercase">find us</p>
                         <h2 className="text-[4rem] leading-none font-semibold">
@@ -37,16 +37,17 @@ export default function FindUS() {
                     </div>
                 </div>
                 
-                <div className="h-full w-full grid place-content-center bg-cover bg-[url('https://picsum.photos/id/900/900')] rounded-r-4xl">
-                    <div className="text-center grid place-items-center bg-[#341600]/90 backdrop-blur p-9 w-fit rounded-4xl">
-                        <MapPin size={45}/>
-                        <p className="font-medium text-2xl mt-2">Katimamulilo SDA Church</p>
-                        <p className="font-medium text-2xl">Lusaka, Zambia</p>
+                <div className="h-full w-full grid place-content-center bg-cover bg-[url('https://picsum.photos/id/900/900')] rounded-4xl">
+                    <div className="text-center grid place-items-center bg-[#341600]/90 backdrop-blur p-4 px-6 w-fit rounded-2xl">
+                        <p className="font-medium text-xl mt-2">
+                            Katimamulilo SDA Church<br />
+                            Lusaka, Zambia
+                        </p>
 
-                        <button className="uppercase text-sm border mt-7 py-1 pr-1 pl-5 flex items-center gap-2 rounded-full">
+                        <button className="uppercase text-xs border mt-7 py-1 pr-1 pl-5 flex items-center gap-2 rounded-full">
                             get directions
                             <span className="bg-neutral-50 text-[#341600] rounded-full p-1 text-neutral-50">  
-                            <ArrowRight color="#341600"/>
+                            <ArrowRight color="#341600" size={20}/>
                             </span>  
                         </button>
                     </div>
