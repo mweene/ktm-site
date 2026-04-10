@@ -19,7 +19,7 @@ export default function FindUS() {
                     <div className="header-text">
                         <p className="uppercase">find us</p>
                         <h2 className="text-[4rem] leading-none font-semibold">
-                            Come worship with us
+                            Join us this sabbath
                         </h2>
 
                         <ul className="grid gap-6 mt-7.5">
