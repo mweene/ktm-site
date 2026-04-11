@@ -15,7 +15,7 @@ export default function FindUS() {
     return (
         <section className="grid place-content-center relative">
             <div className="grid md:grid-cols-2 place-items-center text-neutral-50 w-fit rounded-4xl">
-                <div className="text-[#341600] p-9 md:p-15 rounded-l-4xl">
+                <div className="text-[#101c2b] p-9 md:p-15 rounded-l-4xl">
                     <div className="header-text">
                         <p className="uppercase">find us</p>
                         <h2 className="text-[4rem] leading-none font-semibold">
@@ -26,7 +26,7 @@ export default function FindUS() {
                             {services.map((service) => (
                                 <li
                                     key={service.id}
-                                    className="flex place-content-between border-b border-[#341600] pb-2.5"
+                                    className="flex place-content-between border-b border-[#afb6bd] pb-2.5"
                                 >
                                     <span className="capitalize">
                                         {service.name}
@@ -42,10 +42,10 @@ export default function FindUS() {
                 
                 <div className={`
                   h-full w-full grid place-content-center bg-cover 
-                  bg-[url('https://picsum.photos/id/900/900')] rounded-4xl
+                  bg-[#c2c8ce] rounded-4xl
                 `}>
                     <div className={`
-                      text-center grid place-items-center bg-[#341600]/90 
+                      text-center grid place-items-center bg-[#101c2b] 
                       backdrop-blur p-4 px-6 w-fit rounded-2xl
                     `}>
                         <p className="font-medium text-xl mt-2">
@@ -55,7 +55,7 @@ export default function FindUS() {
 
                         <button
                             onClick={() => setIsMapOpen(prev => !prev)}
-                            className="uppercase text-xs border mt-7 py-1 pr-1 pl-5 flex items-center gap-2 rounded-full"
+                            className="capitalize border mt-7 py-1 pr-1 pl-5 flex items-center gap-2 rounded-full"
                         >
                             get directions
                             <span className="bg-neutral-50 text-[#341600] rounded-full p-1 text-neutral-50">  
