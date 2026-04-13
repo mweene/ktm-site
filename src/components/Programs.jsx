@@ -50,7 +50,7 @@ const groups = [
 function ProgramsCard({ ageGroup, forWho, title, description, styles }) {
     const customStyles = `
       pcard rounded-4xl h-[27rem] w-[19rem] shadow
-      bg-neutral-50 text-[#371700] flex flex-col ${styles}
+      bg-neutral-50 text-[#101c2b] flex flex-col ${styles}
     `;
     return (
         <div className={customStyles}>
@@ -73,14 +73,14 @@ function ProgramsCard({ ageGroup, forWho, title, description, styles }) {
 
 export default function Programs() {
     return (
-        <section className="overflow-hidden bg-[#ffc381] border: 2px solid #2b1200;] rounded-4xl">
+        <section className="overflow-hidden bg-[#e6ebef] rounded-4xl">
             <div className="flex place-content-between p-10 pb-5">
                 <div className="">
-                    <div className="">
-                        <p className="uppercase font-medium text-[#371700]">
+                    <div className="text-[#101c2b]">
+                        <p className="uppercase font-medium">
                             our programs
                         </p>
-                        <h2 className="text-[4rem] leading-none font-semibold text-[#371700] md:w-5/6">
+                        <h2 className="text-[4.5rem] leading-none font-semibold md:w-5/6">
                             A place for every season of life
                         </h2>
                     </div>

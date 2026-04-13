@@ -3,6 +3,7 @@ import RecentSermons from "../components/RecentSermons";
 import Programs from "../components/Programs";
 import ActivityGallery from "../components/ActivityGallery";
 import Calendar from "../components/Calendar";
+import ResourcesComponent from '../components/ResourcesComponent'
 import FindUS from "../components/FindUS";
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
                 <ActivityGallery />
                 <Calendar />
                 <FindUS />
+                <ResourcesComponent />
             </div>
         </div>
     );

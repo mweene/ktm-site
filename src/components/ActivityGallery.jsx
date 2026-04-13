@@ -10,8 +10,8 @@ const data = [
       { "id": "a1-00", "type": "image", "src": "https://picsum.photos/id/220/600/400?grayscale", "span": "col-span-1" },
       { "id": "a1-01", "type": "video", "src": "https://lorem.video/720p_h264_10s", "span": "col-span-3" },
       { "id": "a1-02", "type": "image", "src": "https://picsum.photos/id/221/600/400?grayscale", "span": "col-span-2" },
-      { "id": "a1-03", "type": "text",  "content": "Fun", "span": "col-span-1", "bgColor": "bg-blue-500" },
-      { "id": "a1-04", "type": "text", "content": "more fun, everyday", "span": "col-span-2", "bgColor": "bg-neutral-300"},
+      { "id": "a1-03", "type": "image", "src": "https://picsum.photos/id/222/600/400?grayscale", "span": "col-span-1" },
+      { "id": "a1-04", "type": "image", "src": "https://picsum.photos/id/223/600/400?grayscale", "span": "col-span-2" },
       { "id": "a1-05", "type": "video", "src": "https://lorem.video/cat_128kbps", "span": "col-span-1" },
       { "id": "a1-06", "type": "images", "src": "https://picsum.photos/id/122/600/400?grayscale", "span": "col-span-4" },
     ]
@@ -60,7 +60,7 @@ function EventCard({className, type, src, content}) {
 
   const styles = `
     rounded-4xl overflow-hidden relative h-[20rem] ${className}
-    bg-neutral-300
+    bg-[#c2c8ce]
   `;
 
   return (
@@ -122,11 +122,11 @@ export default function ActivityGallery () {
 
   return (
       <>
-        <div>
-          <p className="uppercase font-medium text-[#341600]">our gallery</p>
+        <div className="text-[#101c2b]">
+          <p className="uppercase font-medium ">our gallery</p>
 
           <div className="flex place-content-between pb-10">
-            <h2 className="text-[4rem] text-[#341600] font-semibold leading-none md:w-4/6">
+            <h2 className="text-[4.5rem] font-semibold leading-none md:w-4/6">
               Get a glimpse into our activities
             </h2>
 
@@ -136,8 +136,8 @@ export default function ActivityGallery () {
                   key={d.id} 
                   value={d.activityName}
                   className={`
-                    text-[#341600] px-6 py-3 border border-[#341600] 
-                    ${(activeButton === d.activityName) && 'bg-[#341600] text-neutral-50'}
+                    text-[#101c2b] px-6 py-3 border border-[#c2c8ce] capitalize 
+                    ${(activeButton === d.activityName) && 'bg-[#101c2b] border-none text-neutral-50'}
                   `}
                   onClick={() => handleActivity(event)}
                 >
