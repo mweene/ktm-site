@@ -1,3 +1,4 @@
+import { Button } from "./ui/Button";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const groups = [
@@ -49,7 +50,7 @@ const groups = [
 
 function ProgramsCard({ ageGroup, forWho, title, description, styles }) {
     const customStyles = `
-      pcard rounded-4xl h-[27rem] w-[19rem] shadow
+      pcard rounded-4xl h-[27rem] w-[19rem]
       bg-neutral-50 text-[#101c2b] flex flex-col ${styles}
     `;
     return (
@@ -74,7 +75,7 @@ function ProgramsCard({ ageGroup, forWho, title, description, styles }) {
 export default function Programs() {
     return (
         <section className="overflow-hidden bg-[#e6ebef] rounded-4xl">
-            <div className="flex place-content-between p-10 pb-5">
+            <div className="flex place-content-between p-15 pb-5">
                 <div className="">
                     <div className="text-[#101c2b]">
                         <p className="uppercase font-medium">
@@ -85,16 +86,10 @@ export default function Programs() {
                         </h2>
                     </div>
                 </div>
-                {/*
-                <div className="self-end flex gap-4">
-                    <button className="p-2 border-2 text-[#1f0d00]">
-                        <ArrowLeft size={20} />
-                    </button>
-                    <button className="p-2 border-2 text-[#1f0d00]">
-                        <ArrowRight size={20} />
-                    </button>
-                </div>
-                */}  
+                {/**/}  
+                
+                <Button design="secondary">Sec</Button>
+                <Button design="primary">Prim</Button>
             </div>
 
             <div className="carousel pb-10">

@@ -18,15 +18,14 @@ const data = {
             title: "In the wilderness",
             date: "2026-03-28",
             program: "bible study",
-            styles: "bg-orange-500",
         },
+      
         {
             id: "1-052r",
             preacher: "eld. c chongo",
             title: "The 10 virgins",
             date: "2026-03-28",
             program: "main service",
-            styles: "bg-orange-300",
         },
     ],
 };
@@ -42,11 +41,11 @@ export default function RecentSermons() {
     };
 
     return (
-        <section className="md:mt-30">
+        <section className="md:mt-30 text-[#101c2b]">
             <div className="mb-8 flex place-content-between">
-                <div>
-                    <p className="uppercase font-medium text-[#341600]">recent sermons</p>
-                    <h2 className="text-[4rem] text-[#341600] leading-none font-semibold">
+                <div className="">
+                    <p className="capitalize text-xl font-medium">recent sermons</p>
+                    <h2 className="text-[4rem] leading-none font-semibold">
                         Catch up with the word <br />
                         Anytime, anywhere
                     </h2>
@@ -54,10 +53,10 @@ export default function RecentSermons() {
 
                 <a
                     href="/sermons"
-                    className="self-end flex capitalize items-center gap-2 text-[#341600] rounded-full py-1 pr-1 pl-6 border-2"
+                    className="self-end flex capitalize items-center gap-1"
                 >
                     more sermons 
-                    <span className="text-neutral-50 bg-[#371700] rounded-full p-2"> 
+                    <span className="text-[#101c2b]"> 
                       <ArrowRight size={20} />
                     </span>
                 </a>
@@ -75,7 +74,6 @@ export default function RecentSermons() {
                         date={card.date}
                         program={card.program}
                         value={`${card.id}`}
-                        styles={card.styles}
                         onClick={(event) => handleCardClick(event)}
                     />
                 ))}
@@ -84,22 +82,25 @@ export default function RecentSermons() {
     );
 }
 
-function Card({ styles, onClick, preacher, title, date, program, value }) {
+function Card({ onClick, preacher, title, date, program, value }) {
     return (
-        <div className={`card rounded-4xl min-h-92 ${styles}`}>
+        <div className={`
+          card rounded-4xl min-h-92 bg-[#6a727d] hover:bg-[#555f6a]
+          text-[#f7fbff] transition-all duration-300 ease-in-out
+        `}>
             <div className="card-content p-6 grid place-content-between h-full">
-                <p className="bg-neutral-200/60 py-1 px-4 rounded-full text-xs uppercase w-fit">
+                <p className="py-1 px-4 rounded-full text-[#e7eaf0] text-sm bg-[#6a727d] border-2 border-[#99a0a8] capitalize w-fit">
                     {preacher}
                 </p>
                 <div>
-                    <h3 className="text-5xl font-semibold text-[#371700] leading-none">
+                    <h3 className="text-4xl font-semibold leading-none">
                         {title}
                     </h3>
 
                     <div
                         className={`
-                flex gap-4 [&>p]:text-[.79rem] mt-2 uppercase
-                font-medium [&>p]:text-neutral-700
+                flex gap-4 [&>p]:text-sm mt-2 capitalize
+                font-medium text-[#cdd2d8]
               `}
                     >
                         <p>{date}</p>
@@ -109,16 +110,17 @@ function Card({ styles, onClick, preacher, title, date, program, value }) {
                     <button
                         onClick={onClick}
                         className={`
-                  flex items-center gap-2 mt-10 capitalize w-fit rounded-full
-                  text-neutral-50 bg-[#612800] pl-4 pr-2 py-1
-                `}
+                          flex items-center gap-2 mt-10 capitalize w-fit rounded-full
+                          bg-[#101c2b] text-[#f7fbff] pl-4 pr-2 py-1 transition-transform
+                          duration-300 ease-in-out hover:scale-110
+                        `}
                         value={value}
                     >
                         <span className="text-[1rem]">watch sermon</span>
                         <img
                             src={PlayLogo}
                             alt="play logo"
-                            className="h-[2.2rem] bg-neutral-50 p-1.5 rounded-full"
+                            className="h-[2.2rem] p-1.5 bg-[#f7fbff] rounded-full"
                         />
                     </button>
                 </div>
