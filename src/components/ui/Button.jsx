@@ -1,7 +1,7 @@
 export const Button = ({type, design, children, onClick}) => {
   const customType = type === undefined ? 'button' : type;
   const styles = `
-    p-2 capitalize font-semibold text-inherit text-4xl
+    p-2 capitalize font-semibold text-inherit text-4xl rounded-full
     ${(design === 'primary') ? 'bg-neutral-900 text-purple-900' : 
       'text-red-900 underline'}
   `;
