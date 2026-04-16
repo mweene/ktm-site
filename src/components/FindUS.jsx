@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, X } from "lucide-react";
+import { ArrowRightIcon, XIcon } from "@phosphor-icons/react";
 import Pattern from "../assets/grid.svg";
 
 export default function FindUS() {
@@ -68,7 +68,7 @@ export default function FindUS() {
                         >
                             get directions
                             <span className="bg-[#101c2b] rounded-full p-1 text-neutral-50">  
-                                <ArrowRight color="#f7fbff" size={20}/>
+                                <ArrowRightIcon color="#f7fbff" size={20}/>
                             </span>  
                         </button>
                     </div>
@@ -82,7 +82,7 @@ export default function FindUS() {
 function MapModal({onClose}) {
     return (
         <div className="absolute border border-[#101c2b]/70 bg-[#f7fbff] rounded-2xl text-end left-0 ml-40">
-            <button onClick={onClose} className="m-4 "><X color="#101c2b" size={25} /></button>
+            <button onClick={onClose} className="m-4 "><XIcon color="#101c2b" size={25} /></button>
             <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3846.7109405328506!2d28.2883146745561!3d-15.392133385193539!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1940f54d65c1438f%3A0x7de8dbad5a3238fa!2sKatimamulilo%20Sda%20Church!5e0!3m2!1sen!2szm!4v1775839437091!5m2!1sen!2szm" 
                 className={`border-none h-[70dvh] w-[40dvw] rounded-b-2xl text-left`}

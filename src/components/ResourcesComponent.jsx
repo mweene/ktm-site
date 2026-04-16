@@ -6,7 +6,7 @@ const booksList = [
   {id: 4, name: 'the desire of ages', imageSrc: 'https://picsum.photos/505', link: ''}
 ]
 
-import { ArrowDownToLine } from "lucide-react"
+import { DownloadSimpleIcon } from "@phosphor-icons/react"
 
 export default function ResourcesComponent() {
   return (
@@ -44,7 +44,7 @@ const Book = ({name, src, link}) => {
           cursor-pointer rounded-full self-end m-6 z-3
           transition-transform duration-300 hover:rotate-[-60deg]
         `}>
-          <ArrowDownToLine size={17}/>
+          <DownloadSimpleIcon size={17}/>
         </a>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {ArrowLeft, ArrowRight} from "lucide-react";
+import {ArrowLeftIcon, ArrowRightIcon} from "@phosphor-icons/react";
 
 const data = [
   {
@@ -84,13 +84,13 @@ function EventCard({className, type, src, content}) {
             <button onClick={handlePrev} 
               className="rounded-full p-2 bg-neutral-100/90 transition duration-300 ease-in-out hover:scale-110"
             >
-              <ArrowLeft size={20}/>
+              <ArrowLeftIcon size={20}/>
             </button>
 
             <button onClick={handleNext} 
               className="rounded-full p-2 bg-neutral-100/90 transition duration-300 ease-in-out hover:scale-110"
             >
-              <ArrowRight size={20}/>
+              <ArrowRightIcon size={20}/>
             </button>
           </div>
         </>

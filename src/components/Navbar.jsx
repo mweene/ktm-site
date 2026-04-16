@@ -1,11 +1,16 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Logo from "../assets/logo.svg";
-import facebook from "../assets/icons/facebook.svg";
-import whatsapp from "../assets/icons/whatsapp.svg";
-import instagram from "../assets/icons/instagram.svg";
-import youtube from "../assets/icons/youtube.svg";
-import { Menu, LucideX, Copy, Mail } from "lucide-react";
+import { 
+  ListIcon,
+  XIcon,
+  CopyIcon, 
+  EnvelopeIcon, 
+  WhatsappLogoIcon, 
+  InstagramLogoIcon,
+  FacebookLogoIcon,
+  YoutubeLogoIcon
+} from "@phosphor-icons/react";
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,7 +24,7 @@ export default function Navbar() {
         <nav
             className={`
                 fixed w-full bg-neutral-900/80 border-b border-b-neutral-600/50 p-4
-                md:py-4 md:px-10 backdrop-blur-xl z-4
+                text=[#101c2b] md:py-4 md:px-10 backdrop-blur-xl z-4
             `}
         >
             <div className="logo-section flex place-content-between place-items-center relative">
@@ -30,7 +35,7 @@ export default function Navbar() {
                     onClick={() => setIsMenuOpen(true)}
                     className="cursor-pointer text-white"
                 >
-                    <Menu size={22} />
+                    <ListIcon size={22} />
                 </a>
             </div>
 
@@ -41,7 +46,7 @@ export default function Navbar() {
 
 function NavList({ onClose }) {
     return (
-        <div className="h-[100dvh] w-full absolute top-0 right-0 left-0">
+        <div className="h-[100dvh] w-full absolute top-0 right-0 left-0 text-[#101c2b]">
             <div className="bg-neutral-950/90 h-[100dvh] w-full z-2 fixed"></div>
             <div className="h-[100dvh] border-l w-full md:w-3/7 z-5 bg-gray-50 top-0 bottom-0 right-0 fixed">
                 <div className="flex flex-col place-content-between w-full h-full">
@@ -50,10 +55,10 @@ function NavList({ onClose }) {
                             className="justify-self-end cursor-pointer text-left"
                             onClick={onClose}
                         >
-                            <LucideX size={27} />
+                            <XIcon size={27} />
                         </a>
 
-                        <h4 className="capitalize text-sm font-semibold text-neutral-700 mb-1">
+                        <h4 className="capitalize text-sm font-semibold mb-1">
                             menu
                         </h4>
                         <ul
@@ -98,7 +103,7 @@ function Contacts() {
         <div className="border-t w-full">
             <div className="p-10 grid gap-4">
                 <div>
-                    <h4 className="capitalize text-sm font-semibold text-neutral-700 mb-1">
+                    <h4 className="capitalize text-sm font-semibold mb-1">
                         lets talk
                     </h4>
                     <p
@@ -117,12 +122,12 @@ function Contacts() {
 
                     <p className="mt-3">
                         Lusaka (Zambia){" "}
-                        <span className="text-neutral-700">00:22 Hrs</span>
+                        <span className="">00:22 Hrs</span>
                     </p>
                 </div>
 
                 <div className="mt-6">
-                    <h4 className="capitalize text-sm font-semibold text-neutral-700 mb-2">
+                    <h4 className="capitalize text-sm font-semibold mb-2">
                         socials
                     </h4>
                     <ul
@@ -134,38 +139,22 @@ function Contacts() {
                     >
                         <li>
                             <a href="https://www.whatsapp.com">
-                                <img
-                                    src={whatsapp}
-                                    alt="whatsapp logo"
-                                    className=""
-                                />
+                              <WhatsappLogoIcon size={20} />
                             </a>
                         </li>
                         <li>
                             <a href="https://www.facebook.com">
-                                <img
-                                    src={facebook}
-                                    alt="facebook logo"
-                                    className=""
-                                />
+                              <FacebookLogoIcon size={20}/>
                             </a>
                         </li>
                         <li>
                             <a href="https://www.instagram.com">
-                                <img
-                                    src={instagram}
-                                    alt="instagram logo"
-                                    className=""
-                                />
+                              <InstagramLogoIcon size={20}/>
                             </a>
                         </li>
                         <li>
                             <a href="https://www.youtube.com">
-                                <img
-                                    src={youtube}
-                                    alt="youtube logo"
-                                    className="h-[1.5rem]"
-                                />
+                                <YoutubeLogoIcon size={20}/>
                             </a>
                         </li>
                     </ul>
@@ -192,12 +181,12 @@ function EmailPopover({ onMouseEnter, onMouseLeave }) {
             `}
         >
             <p className="flex gap-1 items-center text-sm underline">
-                <Copy size={14} />
+                <CopyIcon size={14} />
                 <span>Copy email</span>
             </p>
 
             <p className="flex gap-1 items-center text-sm underline">
-                <Mail size={14} />
+                <EnvelopeIcon size={14} />
                 <span>Open mail client</span>
             </p>
         </div>

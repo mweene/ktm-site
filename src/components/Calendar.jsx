@@ -1,12 +1,12 @@
 import { useState } from "react";
 import data from "../data.json";
 import {
-    ArrowLeft,
-    ArrowRight,
-    Clock,
-    CalendarDays,
-    MapPin,
-} from "lucide-react";
+    ArrowLeftIcon,
+    ArrowRightIcon,
+    ClockIcon,
+    CalendarDotsIcon,
+    MapPinIcon,
+} from "@phosphor-icons/react";
 
 const dayHeaders = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
 
@@ -82,14 +82,14 @@ export default function Calendar() {
                                 disabled={monthIndex === 0 ? true : false}
                                 className="p-2 bg-[#7b838e] hover:bg-[#c1c7ce] text-[#f7fbff] hover:text-[#101c2b]"
                             >
-                                <ArrowLeft
+                                <ArrowLeftIcon
                                     size={20}
                                     onClick={prevMonth}
                                     className="cursor-pointer"
                                 />
                             </button>
                             <button className="p-2 bg-[#7b838e] hover:bg-[#c1c7ce] text-[#f7fbff] hover:text-[#101c2b]">
-                                <ArrowRight
+                                <ArrowRightIcon
                                     size={20}
                                     onClick={nextMonth}
                                     className="cursor-pointer"
@@ -171,15 +171,15 @@ function DisplayEvents({ events }) {
 
                         <ul className="flex gap-4 [&>li]:flex [&>li]:gap-1 [&>li]:text-[#101c2b]/80  [&>li]:items-center [&>li]:text-sm mt-3">
                             <li>
-                                <MapPin size={19} />
+                                <MapPinIcon size={19} />
                                 {event.venue}
                             </li>
                             <li>
-                                <CalendarDays size={19} />
+                                <CalendarDotsIcon size={19} />
                                 {event.date}
                             </li>
                             <li>
-                                <Clock size={19} />
+                                <ClockIcon size={19} />
                                 {event.time} Hrs
                             </li>
                         </ul>

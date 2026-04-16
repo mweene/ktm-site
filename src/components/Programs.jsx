@@ -1,5 +1,5 @@
 import { Button } from "./ui/Button";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeftIcon, ArrowRightIcon } from "@phosphor-icons/react";
 
 const groups = [
     {
@@ -74,7 +74,7 @@ function ProgramsCard({ ageGroup, forWho, title, description, styles }) {
 
 export default function Programs() {
     return (
-        <section className="overflow-hidden bg-[#e6ebef] rounded-4xl">
+        <section className="overflow-hidden bg-[#d1d7dc] rounded-4xl">
             <div className="flex place-content-between p-15 pb-5">
                 <div className="">
                     <div className="text-[#101c2b]">
@@ -88,8 +88,6 @@ export default function Programs() {
                 </div>
                 {/**/}  
                 
-                <Button design="secondary">Sec</Button>
-                <Button design="primary">Prim</Button>
             </div>
 
             <div className="carousel pb-10">

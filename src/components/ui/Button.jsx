@@ -1,3 +1,5 @@
+import { ArrowRightIcon, PlayIcon } from "@phosphor-icons/react";
+
 export const Button = ({type, design, children, onClick}) => {
   const customType = type === undefined ? 'button' : type;
   const styles = `
@@ -13,6 +15,7 @@ export const Button = ({type, design, children, onClick}) => {
       onClick={onClick}
     >
       {children}
+      {design === 'primary' && <PlayIcon color="#fff" size={30} weight='fill' />}
     </button>
   )
 }

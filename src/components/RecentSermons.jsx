@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
-import PlayLogo from "../assets/icons/play.svg";
+import { ArrowRightIcon, PlayIcon } from "@phosphor-icons/react";
 import { VideoPlayer } from "./VideoPlayer";
 import vid from "../assets/demo-bg.mp4";
 
@@ -53,11 +52,11 @@ export default function RecentSermons() {
 
                 <a
                     href="/sermons"
-                    className="self-end flex capitalize items-center gap-1"
+                    className="self-end flex capitalize items-center gap-1 transition-transform duration-300 ease-in-out hover:scale-110"
                 >
                     more sermons 
                     <span className="text-[#101c2b]"> 
-                      <ArrowRight size={20} />
+                      <ArrowRightIcon  size={20}/>
                     </span>
                 </a>
             </div>
@@ -85,7 +84,7 @@ export default function RecentSermons() {
 function Card({ onClick, preacher, title, date, program, value }) {
     return (
         <div className={`
-          card rounded-4xl min-h-92 bg-[#6a727d] hover:bg-[#555f6a]
+          card rounded-4xl min-h-92 bg-[#b8bec5] hover:bg-[#9aa1a9]
           text-[#f7fbff] transition-all duration-300 ease-in-out
         `}>
             <div className="card-content p-6 grid place-content-between h-full">
@@ -116,12 +115,10 @@ function Card({ onClick, preacher, title, date, program, value }) {
                         `}
                         value={value}
                     >
-                        <span className="text-[1rem]">watch sermon</span>
-                        <img
-                            src={PlayLogo}
-                            alt="play logo"
-                            className="h-[2.2rem] p-1.5 bg-[#f7fbff] rounded-full"
-                        />
+                        watch sermon
+                        <span className="p-2 bg-[#f7fbff] rounded-full">
+                          <PlayIcon weight="fill" color="#101c2b"/>
+                        </span>
                     </button>
                 </div>
             </div>

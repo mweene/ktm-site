@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Navigation, LucidePlay } from "lucide-react";
+import { PlayIcon } from "@phosphor-icons/react";
 import bgVid from "../assets/demo-bg.mp4";
 
 export default function Hero() {
@@ -21,16 +21,16 @@ export default function Hero() {
                         every season of life
                     </p>
                     
-                    <div className="flex gap-6 [&>button>a]:px-6 [&>button>a]:py-3 [&>button]:capitalize">
+                    <div className="flex gap-6 [&>button>a]:px [&>button]:capitalize">
                         <button className={`
-                            text-neutral-50 bg-orange-500 hover:text-neutral-50 
+                            bg-[#ebf1f4] text-[#101c2b] hover:text-neutral-50 
                             font-medium flex items-center gap-2
                           `}
                         >
                             <Link to="/sermons" className="flex items-center gap-4">
                                 watch latest sermon 
-                                <span className="p-1 rounded-full bg-neutral-50 text-neutral-950">
-                                    <LucidePlay size={17}/>
+                                <span className="rounded-full bg-[#101c2b] p-2">
+                                    <PlayIcon weight="fill" size={17} color="#fff"/>
                                 </span>
                             </Link>
                         </button>
