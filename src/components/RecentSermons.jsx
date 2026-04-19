@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { ArrowRightIcon, PlayIcon } from "@phosphor-icons/react";
+import { ArrowRightIcon, CaretRightIcon, PlayIcon } from "@phosphor-icons/react";
 import { VideoPlayer } from "./VideoPlayer";
 import vid from "../assets/demo-bg.mp4";
 
@@ -41,10 +41,10 @@ export default function RecentSermons() {
 
     return (
         <section className="md:mt-30 text-[#101c2b]">
-            <div className="mb-8 flex place-content-between">
+            <div className="mb-12 flex place-content-between">
                 <div className="">
-                    <p className="capitalize text-xl font-medium">recent sermons</p>
-                    <h2 className="text-[4rem] leading-none font-semibold">
+                    <p className="capitalize font-medium text-xl mb-4">recent sermons</p>
+                    <h2 className="text-[4.5rem] leading-none font-semibold">
                         Catch up with the word <br />
                         Anytime, anywhere
                     </h2>
@@ -52,16 +52,19 @@ export default function RecentSermons() {
 
                 <a
                     href="/sermons"
-                    className="self-end flex capitalize items-center gap-1 transition-transform duration-300 ease-in-out hover:scale-110"
+                    className="self-end flex capitalize items-center gap-0.5 hover:underline"
                 >
                     more sermons 
-                    <span className="text-[#101c2b]"> 
-                      <ArrowRightIcon  size={20}/>
+                    <span className="text-[#244267]"> 
+                      <CaretRightIcon  size={15} weight="bold"/>
                     </span>
                 </a>
             </div>
             <div className="cards grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-                <div className="lg:col-span-2 min-h-[23rem] [&_video]:!h-full [&_video]:!w-full [&_video]:!object-cover">
+                <div className={`
+                    lg:col-span-2 min-h-[23rem] [&_video]:!h-full [&_video]:!w-full 
+                    [&_video]:!object-cover
+                `}>
                     <VideoPlayer id={data.video.id} src={data.video.src} />
                 </div>
 
@@ -84,23 +87,23 @@ export default function RecentSermons() {
 function Card({ onClick, preacher, title, date, program, value }) {
     return (
         <div className={`
-          card rounded-4xl min-h-92 bg-[#b8bec5] hover:bg-[#9aa1a9]
-          text-[#f7fbff] transition-all duration-300 ease-in-out
+          card rounded-4xl min-h-92 bg-[#e5e6e8] hover:scale-102
+          text-[#101c2b] transition-all duration-500 ease-in-out
         `}>
             <div className="card-content p-6 grid place-content-between h-full">
-                <p className="py-1 px-4 rounded-full text-[#e7eaf0] text-sm bg-[#6a727d] border-2 border-[#99a0a8] capitalize w-fit">
+                <p className="py-1 px-4 rounded-full font-medium text-sm bg-[#c9ccd0] capitalize w-fit">
                     {preacher}
                 </p>
-                <div>
-                    <h3 className="text-4xl font-semibold leading-none">
+                <div className="grid">
+                    <h3 className="text-4xl font-semibold">
                         {title}
                     </h3>
 
                     <div
                         className={`
-                flex gap-4 [&>p]:text-sm mt-2 capitalize
-                font-medium text-[#cdd2d8]
-              `}
+                            flex gap-4 mt-2 capitalize
+                            text-[#101c2b]
+                        `}
                     >
                         <p>{date}</p>
                         <p>{program}</p>
@@ -109,16 +112,13 @@ function Card({ onClick, preacher, title, date, program, value }) {
                     <button
                         onClick={onClick}
                         className={`
-                          flex items-center gap-2 mt-10 capitalize w-fit rounded-full
-                          bg-[#101c2b] text-[#f7fbff] pl-4 pr-2 py-1 transition-transform
-                          duration-300 ease-in-out hover:scale-110
+                          mt-10 capitalize w-fit rounded-full p-2.5
+                          bg-[#101c2b] text-[#e5e6e8] transition-all
+                          duration-500 ease-in-out hover:bg-[#2a3542]
                         `}
                         value={value}
                     >
-                        watch sermon
-                        <span className="p-2 bg-[#f7fbff] rounded-full">
-                          <PlayIcon weight="fill" color="#101c2b"/>
-                        </span>
+                        <PlayIcon weight="fill"/>
                     </button>
                 </div>
             </div>

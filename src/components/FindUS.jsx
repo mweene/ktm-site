@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRightIcon, XIcon } from "@phosphor-icons/react";
+import { CaretRightIcon, XIcon } from "@phosphor-icons/react";
 import Pattern from "../assets/grid.svg";
 
 export default function FindUS() {
@@ -18,7 +18,7 @@ export default function FindUS() {
             <div className="grid md:grid-cols-2 place-items-center text-neutral-50 w-fit rounded-4xl">
                 <div className="text-[#101c2b] p-9 md:p-15 rounded-l-4xl">
                     <div className="header-text">
-                        <p className="uppercase">find us</p>
+                        <p className="capitalize text-xl font-medium mb-5">find us</p>
                         <h2 className="text-[4.5rem] leading-none font-semibold">
                             Join us this sabbath
                         </h2>
@@ -45,13 +45,14 @@ export default function FindUS() {
                     className={`
                       h-full w-full grid place-content-center 
                       rounded-4xl bg-repeat bg-[length:200px_200px]
-                      bg-[#b8bfc6]
+                      bg-[#e5e6e8]
                     `}
                     style={{backgroundImage: `url(${Pattern})` }}
                 >
                     <div className={`
                       text-center grid place-items-center bg-[#101c2b] 
-                      backdrop-blur p-4 px-6 w-fit rounded-2xl mt-[10rem]
+                      backdrop-blur p-4 px-6 w-fit rounded-3xl mt-[10rem]
+                      transition-transform duration-500 ease-in-out hover:scale-102
                     `}>
                         <p className="font-medium text-xl mt-2">
                             Katimamulilo SDA Church<br />
@@ -61,14 +62,14 @@ export default function FindUS() {
                         <button
                             onClick={() => setIsMapOpen(prev => !prev)}
                             className={`
-                              capitalize bg-[#f7fbff] text-[#101c2b] mt-7 py-1
+                              capitalize bg-[#fff] text-[#101c2b] mt-7 py-1
                               pr-1 pl-5 flex items-center gap-2 rounded-full font-semibold
-                              transition-transform duration-300 ease-in-out hover:scale-110
+                              transition-all duration-500 ease-in-out hover:bg-[#e5e6e8]
                             `}
                         >
                             get directions
-                            <span className="bg-[#101c2b] rounded-full p-1 text-neutral-50">  
-                                <ArrowRightIcon color="#f7fbff" size={20}/>
+                            <span className="bg-[#101c2b] rounded-full p-2 text-neutral-50">  
+                                <CaretRightIcon color="#f7fbff" size={20}/>
                             </span>  
                         </button>
                     </div>
@@ -81,8 +82,8 @@ export default function FindUS() {
 
 function MapModal({onClose}) {
     return (
-        <div className="absolute border border-[#101c2b]/70 bg-[#f7fbff] rounded-2xl text-end left-0 ml-40">
-            <button onClick={onClose} className="m-4 "><XIcon color="#101c2b" size={25} /></button>
+        <div className="absolute shadow-[0_0_8px_1px_#101c2b36] bg-[#fff] p-4 rounded-4xl text-end top-0 mt-[21rem] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <button onClick={onClose} className="m-2"><XIcon color="#101c2b" size={25} /></button>
             <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3846.7109405328506!2d28.2883146745561!3d-15.392133385193539!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1940f54d65c1438f%3A0x7de8dbad5a3238fa!2sKatimamulilo%20Sda%20Church!5e0!3m2!1sen!2szm!4v1775839437091!5m2!1sen!2szm" 
                 className={`border-none h-[70dvh] w-[40dvw] rounded-b-2xl text-left`}

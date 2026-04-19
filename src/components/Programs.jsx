@@ -1,5 +1,4 @@
 import { Button } from "./ui/Button";
-import { ArrowLeftIcon, ArrowRightIcon } from "@phosphor-icons/react";
 
 const groups = [
     {
@@ -51,34 +50,34 @@ const groups = [
 function ProgramsCard({ ageGroup, forWho, title, description, styles }) {
     const customStyles = `
       pcard rounded-4xl h-[27rem] w-[19rem]
-      bg-neutral-50 text-[#101c2b] flex flex-col ${styles}
+      bg-[#fafafa] text-[#101c2b] flex flex-col ${styles}
     `;
     return (
         <div className={customStyles}>
-            <div className="px-6 pt-6 pb-4">
+            <div className="px-6 pt-6 py-4">
                 <p className="capitalize text-sm flex place-content-between place-items-center">
-                    <span className="bg-neutral-200 rounded-full px-4 py-1">
+                    <span className="bg-[#e5e6e8] rounded-full px-4 py-1">
                         {ageGroup}
                     </span>
                     <span className="">{forWho}</span>
                 </p>
-                <h3 className="capitalize font-medium text-4xl mb-2 mt-9">
+                <h3 className="capitalize font-semibold text-4xl mb-2 mt-9">
                     {title}
                 </h3>
-                <p className="">{description}</p>
+                <p className="text-[]">{description}</p>
             </div>
-            <div className="image bg-[#778db0] h-full rounded-4xl"></div>
+            <div className="image h-full rounded-4xl"></div>
         </div>
     );
 }
 
 export default function Programs() {
     return (
-        <section className="overflow-hidden bg-[#d1d7dc] rounded-4xl">
-            <div className="flex place-content-between p-15 pb-5">
+        <section className="overflow-hidden bg-[#e5e6e8] rounded-4xl">
+            <div className="flex place-content-between p-15 pb-12">
                 <div className="">
                     <div className="text-[#101c2b]">
-                        <p className="uppercase font-medium">
+                        <p className="capitalize text-xl font-medium mb-4">
                             our programs
                         </p>
                         <h2 className="text-[4.5rem] leading-none font-semibold md:w-5/6">

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import data from "../data.json";
 import {
-    ArrowLeftIcon,
-    ArrowRightIcon,
+    CaretLeftIcon,
+    CaretRightIcon,
     ClockIcon,
     CalendarDotsIcon,
     MapPinIcon,
@@ -61,12 +61,12 @@ export default function Calendar() {
 
     return (
         <section className="text-[#101c2b]" id="programs">
-            <p className="uppercase font-medium ">church timeline</p>
-            <h2 className="text-[4.5rem] leading-none font-semibold">
+            <p className="capitalize text-xl font-medium mb-5">church timeline</p>
+            <h2 className="text-[4.5rem] leading-none font-semibold mb-15">
                 Programs & events
             </h2>
 
-            <div className="grid md:grid-cols-3 gap-8 mt-9">
+            <div className="grid md:grid-cols-3 gap-8">
                 <div className="col-span-2">
                     <DisplayEvents events={events} />
                 </div>
@@ -77,19 +77,19 @@ export default function Calendar() {
                             {month.name} <span className="">{data.year}</span>
                         </p>
 
-                        <div className="buttons flex gap-4">
+                        <div className="buttons flex gap-4 [&_button]:transition-all [&_button]:duration-500 [&_button]:ease-in-out">
                             <button
                                 disabled={monthIndex === 0 ? true : false}
-                                className="p-2 bg-[#7b838e] hover:bg-[#c1c7ce] text-[#f7fbff] hover:text-[#101c2b]"
+                                className="p-2 bg-[#38424f] hover:bg-[#c1c7ce] text-[#f7fbff] hover:text-[#101c2b]"
                             >
-                                <ArrowLeftIcon
+                                <CaretLeftIcon
                                     size={20}
                                     onClick={prevMonth}
                                     className="cursor-pointer"
                                 />
                             </button>
-                            <button className="p-2 bg-[#7b838e] hover:bg-[#c1c7ce] text-[#f7fbff] hover:text-[#101c2b]">
-                                <ArrowRightIcon
+                            <button className="p-2 bg-[#38424f] hover:bg-[#c1c7ce] text-[#f7fbff] hover:text-[#101c2b]">
+                                <CaretRightIcon
                                     size={20}
                                     onClick={nextMonth}
                                     className="cursor-pointer"
@@ -129,7 +129,7 @@ function Box({ onClick, children, isDay, styles, hasEvent }) {
       box rounded-full h-[2.5rem] w-[2.5rem] text-center
       grid place-content-center place-items-center gap-1
       text-[#f7fbff] ${styles}
-      ${clickable ? "cursor-pointer hover:bg-[#7b838e] hover:text-[#101c2b]" : ""}
+      ${clickable ? "transition-all duration-500 ease-in-out hover:bg-[#7b838e] hover:text-[#101c2b]" : ""}
     `;
     return (
         <div onClick={clickable ? onClick : undefined} className={classes}>
@@ -144,7 +144,7 @@ function Box({ onClick, children, isDay, styles, hasEvent }) {
 
 function DisplayEvents({ events }) {
     return (
-        <div className="h-fit flex flex-col gap-4">
+        <div className="h-fit flex flex-col gap-4 md:h-[27rem] p-4 overflow-y-auto">
             {events.length > 0 ? (
                 events.map((event) => {
                   const date = new Date(event.date);
@@ -154,22 +154,23 @@ function DisplayEvents({ events }) {
                   return (
                     <div
                         key={event.id}
-                        className="flex text bg-[#e6ebef] rounded-4xl"
+                        className={`
+                          flex text-[#101c2b] bg-[#e5e6e8] hover:bg-[#cfd2d5] rounded-4xl
+                          transition-all duration-500 ease-in-out
+                        `}
                     >
-                        <div className="rounded-2xl self-start text-center bg-[#b8bfc6] m-6 p-4 px-6">
-                          <p className="font-semibold text-4xl leading-none">{day}</p>
+                        <div className="rounded-2xl self-start text-center bg-[#fff] m-5 py-4 px-6">
+                          <p className="font-bold text-4xl leading-none">{day}</p>
                           <p className=" font-medium uppercase">{month}</p>
                         </div>
 
                         <div className="self-center">
-                        <p className="uppercase text-xs px-4 rounded-full w-fit">
-                            {event.category}
-                        </p>
-                        <h2 className="text-[2.25rem] leading-none capitalize font-semibold">
+                        
+                        <h2 className="text-[2.25rem] leading-tight capitalize font-semibold">
                             {event.title}
                         </h2>
 
-                        <ul className="flex gap-4 [&>li]:flex [&>li]:gap-1 [&>li]:text-[#101c2b]/80  [&>li]:items-center [&>li]:text-sm mt-3">
+                        <ul className="flex gap-4 [&>li]:flex [&>li]:gap-1 [&>li]:items-center [&>li]:text-sm mt-0.5">
                             <li>
                                 <MapPinIcon size={19} />
                                 {event.venue}

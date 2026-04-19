@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {ArrowLeftIcon, ArrowRightIcon} from "@phosphor-icons/react";
+import {CaretLeftIcon, CaretRightIcon} from "@phosphor-icons/react";
 
 const data = [
   {
@@ -7,13 +7,13 @@ const data = [
     "activityName": "Outreach",
     "slug": "outreach",
     "grid": [
-      { "id": "a1-00", "type": "image", "src": "https://picsum.photos/id/220/600/400?grayscale", "span": "col-span-1" },
+      { "id": "a1-00", "type": "image", "src": "https://picsum.photos/id/220/600/400", "span": "col-span-1" },
       { "id": "a1-01", "type": "video", "src": "https://lorem.video/720p_h264_10s", "span": "col-span-3" },
-      { "id": "a1-02", "type": "image", "src": "https://picsum.photos/id/221/600/400?grayscale", "span": "col-span-2" },
-      { "id": "a1-03", "type": "image", "src": "https://picsum.photos/id/222/600/400?grayscale", "span": "col-span-1" },
-      { "id": "a1-04", "type": "image", "src": "https://picsum.photos/id/223/600/400?grayscale", "span": "col-span-2" },
+      { "id": "a1-02", "type": "image", "src": "https://picsum.photos/id/221/600/400", "span": "col-span-2" },
+      { "id": "a1-03", "type": "image", "src": "https://picsum.photos/id/222/600/400", "span": "col-span-1" },
+      { "id": "a1-04", "type": "image", "src": "https://picsum.photos/id/223/600/400", "span": "col-span-2" },
       { "id": "a1-05", "type": "video", "src": "https://lorem.video/cat_128kbps", "span": "col-span-1" },
-      { "id": "a1-06", "type": "images", "src": "https://picsum.photos/id/122/600/400?grayscale", "span": "col-span-4" },
+      { "id": "a1-06", "type": "images", "src": "https://picsum.photos/id/122/600/400", "span": "col-span-4" },
     ]
   },
   {
@@ -21,13 +21,13 @@ const data = [
     "activityName": "Local",
     "slug": "local",
     "grid": [
-      { "id": "a2-00", "type": "image", "src": "https://picsum.photos/id/320/600/400?grayscale", "span": "col-span-1" },
+      { "id": "a2-00", "type": "image", "src": "https://picsum.photos/id/320/600/400", "span": "col-span-1" },
       { "id": "a2-01", "type": "video", "src": "https://lorem.video/720p_h264_5s", "span": "col-span-3" },
-      { "id": "a2-02", "type": "image", "src": "https://picsum.photos/id/321/600/400?grayscale", "span": "col-span-2" },
+      { "id": "a2-02", "type": "image", "src": "https://picsum.photos/id/321/600/400", "span": "col-span-2" },
       { "id": "a2-03", "type": "text",  "content": "Joy", "span": "col-span-1", "bgColor": "bg-green-500" },
-      { "id": "a2-04", "type": "image", "src": "https://picsum.photos/id/322/600/400?grayscale", "span": "col-span-2" },
-      { "id": "a2-05", "type": "image", "src": "https://picsum.photos/id/323/600/400?grayscale", "span": "col-span-1" },
-      { "id": "a1-06", "type": "images", "src": "https://picsum.photos/id/324/600/400?grayscale", "span": "col-span-4" },      
+      { "id": "a2-04", "type": "image", "src": "https://picsum.photos/id/322/600/400", "span": "col-span-2" },
+      { "id": "a2-05", "type": "image", "src": "https://picsum.photos/id/323/600/400", "span": "col-span-1" },
+      { "id": "a1-06", "type": "images", "src": "https://picsum.photos/id/324/600/400", "span": "col-span-4" },      
     ]
   },
   {
@@ -50,17 +50,19 @@ function EventCard({className, type, src, content}) {
   const [index, setIndex] = useState(0);
 
   const imagesList = [
-    'https://picsum.photos/id/600/600/400?grayscale',
-    'https://picsum.photos/id/605/600/400?grayscale',
-    'https://picsum.photos/id/602/600/400?grayscale'
+    'https://picsum.photos/id/600/600/400',
+    'https://picsum.photos/id/605/600/400',
+    'https://picsum.photos/id/602/600/400'
   ];
 
   const handlePrev = () => setIndex(prev => prev - 1);
   const handleNext = () => setIndex(prev => prev + 1);
 
+  console.log(index)
+
   const styles = `
     rounded-4xl overflow-hidden relative h-[20rem] ${className}
-    bg-[#c2c8ce]
+    bg-[#e5e6e8]
   `;
 
   return (
@@ -82,15 +84,15 @@ function EventCard({className, type, src, content}) {
           
           <div className="absolute bottom-0 right-0 m-6.5 flex gap-4">
             <button onClick={handlePrev} 
-              className="rounded-full p-2 bg-neutral-100/90 transition duration-300 ease-in-out hover:scale-110"
+              className="rounded-full p-2 bg-neutral-50 transition duration-500 ease-in-out hover:bg-neutral-300"
             >
-              <ArrowLeftIcon size={20}/>
+              <CaretLeftIcon size={20}/>
             </button>
 
             <button onClick={handleNext} 
-              className="rounded-full p-2 bg-neutral-100/90 transition duration-300 ease-in-out hover:scale-110"
+              className="rounded-full p-2 bg-neutral-50 transition duration-500 ease-in-out hover:bg-neutral-300"
             >
-              <ArrowRightIcon size={20}/>
+              <CaretRightIcon size={20}/>
             </button>
           </div>
         </>
@@ -123,9 +125,9 @@ export default function ActivityGallery () {
   return (
       <>
         <div className="text-[#101c2b]">
-          <p className="uppercase font-medium ">our gallery</p>
+          <p className="capitalize text-xl font-medium mb-4">our gallery</p>
 
-          <div className="flex place-content-between pb-10">
+          <div className="flex place-content-between pb-15">
             <h2 className="text-[4.5rem] font-semibold leading-none md:w-4/6">
               Get a glimpse into our activities
             </h2>
@@ -136,8 +138,13 @@ export default function ActivityGallery () {
                   key={d.id} 
                   value={d.activityName}
                   className={`
-                    text-[#101c2b] px-6 py-3 border border-[#c2c8ce] capitalize 
-                    ${(activeButton === d.activityName) && 'bg-[#101c2b] border-none text-neutral-50'}
+                    text-[#101c2b] text-sm px-6 py-3 border-2 border-[#e5e6e8] 
+                    capitalize transition-all duration-500 ease-in-out
+                    hover:bg-[#e5e6e8]
+                    ${
+                      (activeButton === d.activityName) && 
+                      'bg-[#101c2b] border-none text-neutral-50 hover:!bg-[#101c2b]'
+                    }
                   `}
                   onClick={() => handleActivity(event)}
                 >

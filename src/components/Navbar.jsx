@@ -58,12 +58,12 @@ function NavList({ onClose }) {
                             <XIcon size={27} />
                         </a>
 
-                        <h4 className="capitalize text-sm font-semibold mb-1">
-                            menu
-                        </h4>
+                        <h3 className="capitalize text-sm font-semibold mb-1">
+                            pages
+                        </h3>
                         <ul
                             className={`
-                              font-semibold text-2xl flex flex-col gap-4 [&>li]:text-gray-950
+                              font-semibold text-2xl flex flex-col gap-4
                               [&>li]:capitalize [&>li]:transition [&<li]:duration-300 [&>li]:ease-in-out
                               [&>li]:hover:text-neutral-500
                             `}
@@ -77,6 +77,9 @@ function NavList({ onClose }) {
                             <li>
                                 <Link to="/events">events</Link>
                             </li>
+                            <li>
+                                <Link to="/resources">resources</Link>
+                            </li> 
                             <li>
                                 <Link to="/about">about</Link>
                             </li>
@@ -103,9 +106,9 @@ function Contacts() {
         <div className="border-t w-full">
             <div className="p-10 grid gap-4">
                 <div>
-                    <h4 className="capitalize text-sm font-semibold mb-1">
+                    <h3 className="capitalize text-sm font-semibold mb-1">
                         lets talk
-                    </h4>
+                    </h3>
                     <p
                         className="underline pb-2 text-2xl font-semibold relative"
                         onMouseEnter={() => setParentHovered(true)}
@@ -126,10 +129,10 @@ function Contacts() {
                     </p>
                 </div>
 
-                <div className="mt-6">
-                    <h4 className="capitalize text-sm font-semibold mb-2">
+                <div className="mt-4">
+                    <h3 className="capitalize text-sm font-semibold mb-2">
                         socials
-                    </h4>
+                    </h3>
                     <ul
                         className={`
                           text-sm font-medium flex gap-2 [&>li]:flex [&>li]:place-content-between
@@ -161,7 +164,7 @@ function Contacts() {
                 </div>
             </div>
 
-            <div className="border-t px-10 pt-5 pb-4">
+            <div className="border-t px-10 py-4">
                 <p className="text-neutral-700">
                     (c) 2026 katimamulilo SDA Church. All Rights Reserved.
                 </p>
@@ -171,6 +174,17 @@ function Contacts() {
 }
 
 function EmailPopover({ onMouseEnter, onMouseLeave }) {
+    const text = 'copy me to the clipboard please'
+
+    const handleCopy = async () => {
+      try {
+        await navigator.clipboard.writeText(text)
+        console.log('text copied succesfully')
+      } catch(error) {
+        console.error(error)
+      }
+    }
+
     return (
         <div
             onMouseEnter={onMouseEnter}
@@ -180,10 +194,10 @@ function EmailPopover({ onMouseEnter, onMouseLeave }) {
               [&>p]:hover:font-medium [&>p]:hover:text-neutral-500 [&>p]:cursor-pointer
             `}
         >
-            <p className="flex gap-1 items-center text-sm underline">
+            <button onClick={handleCopy} className="flex gap-1 items-center text-sm underline">
                 <CopyIcon size={14} />
                 <span>Copy email</span>
-            </p>
+            </button>
 
             <p className="flex gap-1 items-center text-sm underline">
                 <EnvelopeIcon size={14} />

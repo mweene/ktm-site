@@ -6,14 +6,19 @@ const booksList = [
   {id: 4, name: 'the desire of ages', imageSrc: 'https://picsum.photos/505', link: ''}
 ]
 
-import { DownloadSimpleIcon } from "@phosphor-icons/react"
+import { ArrowLineDownIcon, CaretRightIcon } from "@phosphor-icons/react"
 
 export default function ResourcesComponent() {
   return (
-    <section className="church-resources p-10 bg-[#101c2b] rounded-4xl">
-      <div className="text-[#f7fbff]">
-        <p className="uppercase text-[#c2c8ce]">resources</p>
-        <h2 className="text-[4rem] md:w-4/6 font-semibold leading-none">Books and reference materials</h2>
+    <section className="church-resources p-10">
+      <div className="text-[#101c2b]">
+        <div className="mb-15 flex">
+          <div className="w-fit">
+            <p className="capitalize text-xl font-medium mb-5">resources</p>
+            <h2 className="text-[4.5rem] md:w-4/6 font-semibold leading-none">Books and reference materials</h2>
+          </div>
+          <p className="place-self-end">Find more resources <CaretRightIcon /> </p>
+        </div>
 
         <div className="flex gap-4 mt-10">
           {booksList.map(book => (
@@ -36,15 +41,15 @@ const Book = ({name, src, link}) => {
       <div className={`
         text-neutral-900 h-[17rem] bg-[#f7fbff] rounded-2xl
         w-[14rem] grid relative hover:bg-[#c2c8ce]
-        transition-transform duration-300 hover:scale-105
+        transition-transform duration-500 hover:scale-102
       `}>
         <img src={src} alt={name} className="absolute h-full object-cover rounded-2xl z-2"/>
         <a link={link} className={`
-          p-2.5 w-fit h-fit bg-[#101c2b] text-[#f7fbff]
+          p-2 w-fit h-fit bg-[#fff] text-[#101c2b]
           cursor-pointer rounded-full self-end m-6 z-3
-          transition-transform duration-300 hover:rotate-[-60deg]
+          transition-all duration-500 hover:bg-[#e5e6e8]
         `}>
-          <DownloadSimpleIcon size={17}/>
+          <ArrowLineDownIcon size={20} weight="bold"/>
         </a>
       </div>
     </div>
