@@ -15,8 +15,8 @@ export default function FindUS() {
 
     return (
         <section className="grid place-content-center relative">
-            <div className="grid md:grid-cols-2 place-items-center text-neutral-50 w-fit rounded-4xl">
-                <div className="text-[#101c2b] p-9 md:p-15 rounded-l-4xl">
+            <div className="grid md:grid-cols-2 gap-20 place-items-center text-fff mx-25 w-fit rounded-4xl">
+                <div className="text-[#101c2b] rounded-l-4xl">
                     <div className="header-text">
                         <p className="capitalize text-xl font-medium mb-5">find us</p>
                         <h2 className="text-[4.5rem] leading-none font-semibold">
@@ -54,7 +54,7 @@ export default function FindUS() {
                       backdrop-blur p-4 px-6 w-fit rounded-3xl mt-[10rem]
                       transition-transform duration-500 ease-in-out hover:scale-102
                     `}>
-                        <p className="font-medium text-xl mt-2">
+                        <p className="font-medium text-xl text-white mt-2">
                             Katimamulilo SDA Church<br />
                             Lusaka, Zambia
                         </p>
