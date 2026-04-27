@@ -4,8 +4,9 @@ import Logo from "../assets/logo.svg";
 import { 
   ListIcon,
   XIcon,
+  PlusIcon,
   CopyIcon, 
-  EnvelopeIcon, 
+  EnvelopeSimpleIcon, 
   WhatsappLogoIcon, 
   InstagramLogoIcon,
   FacebookLogoIcon,
@@ -19,14 +20,24 @@ export default function Navbar() {
   //get internet time when component renders
 
     useEffect(() => {
-        setIsMenuOpen(false);
+        setIsMenuOpen(false) 
     }, [location.pathname]);
+
+    useEffect(() => {
+      isMenuOpen ? 
+          document.body.classList.add('overflow-hidden') :
+          document.body.classList.remove('overflow-hidden')
+        
+        //cleanup when component unmounts
+        return () => document.body.classList.remove('overflow-hidden')
+    }, [isMenuOpen])
+    
 
     return (
         <nav
             className={`
-                fixed w-full bg-[#090f17]/70 border-b border-b-neutral-500/50 p-4
-                text=[#101c2b] md:py-4 md:px-10 backdrop-blur-xl z-4
+                fixed w-full bg-[#090f17]/70 border-b border-b-white/10 p-4
+                text-[#101c2b] md:py-4 md:px-10 backdrop-blur-xl z-4
             `}
         >
             <div className="logo-section flex place-content-between place-items-center relative">
@@ -48,26 +59,25 @@ export default function Navbar() {
 
 function NavList({ onClose }) {
     return (
-        <div className="h-[100dvh] w-full absolute top-0 right-0 left-0 text-[#101c2b]">
-            <div className="bg-neutral-950/90 h-[100dvh] w-full z-2 fixed"></div>
-            <div className="h-[100dvh] border-l w-full md:w-3/7 z-5 bg-[#e5e6e8] top-0 bottom-0 right-0 fixed">
+        <div className="h-[100dvh] w-full absolute inset-0 bg-[#060b12]/70 text-[#101c2b]">
+            <div className="h-[100dvh] border-l w-full md:w-3/7 z-5 bg-[#e5e6e8] right-0 fixed">
                 <div className="flex flex-col place-content-between w-full h-full">
                     <div className="px-10 pt-7 grid">
                         <a
                             className="justify-self-end cursor-pointer text-left"
                             onClick={onClose}
                         >
-                            <XIcon size={25} />
+                            <XIcon size={25} weight="bold"/>
                         </a>
 
-                        <h3 className="capitalize text-sm font-semibold mb-1">
+                        <h3 className="capitalize text-sm font-semibold mb-3">
                             Menu
                         </h3>
                         <ul
                             className={`
-                              font-semibold text-2xl flex flex-col gap-2
+                              font-semibold text-3xl flex flex-col gap-3
                               [&>li]:capitalize [&>li]:transition [&<li]:duration-300 [&>li]:ease-in-out
-                              [&>li]:hover:text-neutral-500
+                              [&>li]:hover:text-[#101c2b]/60
                             `}
                         >
                             <li>
@@ -98,25 +108,46 @@ function NavList({ onClose }) {
     );
 }
 
+//should go in the utils
+const url = 'https://timeapi.io/api/v1/timezone/zone?timeZone=Africa%2FLusaka';
+
+const getTime = async () => {
+  try {
+    const response = await fetch(url);
+    if(!resources.ok) throw Error('something went wrong')
+    const time = response['local_time'];
+    console.log(time)
+  } catch(err) {
+    console.error(err);
+  }
+}
+
 function Contacts() {
     const [parentHovered, setParentHovered] = useState(false);
     const [popoverHovered, setPopoverHovered] = useState(false);
+    const [time, setTime] = useState('');
+
+    useEffect(() => {
+      const t = getTime();
+      setTime(t);
+    }, [])   
 
     const isOpen = parentHovered || popoverHovered;
 
     return (
-        <div className="border-t w-full">
-            <div className="p-10 grid gap-4">
+        <div className="border-t border-t-[#101c2b]/60 w-full">
+            <div className="px-10 py-5 grid gap-4">
                 <div>
-                    <h3 className="capitalize text-sm font-semibold mb-1">
+                    <h3 className="capitalize text-sm font-semibold mb-3">
                         let's talk
                     </h3>
                     <p
-                        className="underline pb-2 text-2xl font-semibold relative"
+                        className="underline pb-2 text-3xl font-semibold relative flex items-center gap-1"
                         onMouseEnter={() => setParentHovered(true)}
                         onMouseLeave={() => setParentHovered(false)}
                     >
                         katimamulilosda@mail.co.zm
+                        <PlusIcon size={16} weight="bold" color="#101c2b" />
                     </p>
                     {isOpen && (
                         <EmailPopover
@@ -125,14 +156,14 @@ function Contacts() {
                         />
                     )}
 
-                    <p className="mt-3">
+                    <p className="mt-3 font-semibold">
                         Lusaka (Zambia){" "}
-                        <span className="">00:22 Hrs</span>
+                        <span className="">{time} Hrs</span>
                     </p>
                 </div>
 
                 <div className="mt-4">
-                    <h3 className="capitalize text-sm font-semibold mb-2">
+                    <h3 className="capitalize text-sm font-semibold mb-3">
                         socials
                     </h3>
                     <ul
@@ -166,8 +197,8 @@ function Contacts() {
                 </div>
             </div>
 
-            <div className="border-t px-10 py-4">
-                <p className="text-neutral-700">
+            <div className="border-t border-t-[#101c2b]/60 px-10 py-4">
+                <p className="">
                     (c) 2026 katimamulilo SDA Church. All Rights Reserved.
                 </p>
             </div>
@@ -192,20 +223,20 @@ function EmailPopover({ onMouseEnter, onMouseLeave }) {
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
             className={`
-              absolute p-4 border bg-neutral-50 grid gap-3 rounded-2xl
+              absolute p-4 border border-[#101c2b]/70 bg-[#e5e6e8] shadow-lg grid gap-3 rounded-2xl
               [&>p]:hover:font-medium [&>p]:hover:text-neutral-500 [&>p]:cursor-pointer
             `}
         >
-            <button onClick={handleCopy} className="flex gap-1 items-center text-sm underline">
-                <CopyIcon size={14} />
+            <button onClick={handleCopy} className="flex gap-1 items-center underline">
+                <CopyIcon size={15} />
                 <span>Copy email</span>
             </button>
 
             <a 
               href="mailto:katimamulilosda@gmail.com"
-              className="flex gap-1 items-center text-sm underline"
+              className="flex gap-1 items-center underline"
             >
-                <EnvelopeIcon size={14} />
+                <EnvelopeSimpleIcon size={15} />
                 <span>Open mail client</span>
             </a>
         </div>

@@ -13,12 +13,12 @@ export default function Home() {
                 <Hero />
             </div>
             
-            <div className="grid md:gap-30 md:px-10">
+            <div className="grid md:gap-30">
                 <RecentSermons />
                 <Programs />
-                <ActivityGallery />
-                <Calendar />
                 <FindUS />
+                <ActivityGallery />
+                <Calendar /> 
                 <ResourcesComponent />
             </div>
         </div>

@@ -20,8 +20,8 @@ button {
             to bottom left,
             hsla(0, 0%, 0%, 0),
             hsla(0, 0%, 0%, 0.2),
-            hsla(0, 0%, 0%, 0.9),
-            hsl(0, 0%, 0%)
+            hsla(214, 0%, 0%, 0.9),
+            hsl(216, 45.5%, 6.5%)
         ),
         url("./assets/demo-bg.mp4");
 }
