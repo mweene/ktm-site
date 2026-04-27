@@ -10,14 +10,14 @@ import { ArrowLineDownIcon, CaretRightIcon } from "@phosphor-icons/react"
 
 export default function ResourcesComponent() {
   return (
-    <section className="church-resources p-10">
+    <section className="church-resources place-self-center">
       <div className="text-[#101c2b]">
         <div className="mb-15 flex">
           <div className="w-fit">
             <p className="capitalize text-xl font-medium mb-5">resources</p>
             <h2 className="text-[4.5rem] md:w-4/6 font-semibold leading-none">Books and reference materials</h2>
           </div>
-          <p className="place-self-end">Find more resources <CaretRightIcon /> </p>
+          <p className="place-self-end flex place-items-center">More resources <CaretRightIcon /> </p>
         </div>
 
         <div className="flex gap-4 mt-10">

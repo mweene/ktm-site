@@ -14,11 +14,11 @@ export default function FindUS() {
     ];
 
     return (
-        <section className="grid place-content-center relative">
-            <div className="grid md:grid-cols-2 gap-20 place-items-center text-fff mx-25 w-fit rounded-4xl">
-                <div className="text-[#101c2b] rounded-l-4xl">
+        <section className="grid place-content-center relative bg-[#101c2b] py-15 md:px-20">
+            <div className="grid md:grid-cols-2 gap-20 place-items-center text-fff p-5">
+                <div className="text-[#fff] rounded-l-4xl">
                     <div className="header-text">
-                        <p className="capitalize text-xl font-medium mb-5">find us</p>
+                        <p className="capitalize text-xl font-medium mb-5 text-[#9fa4aa]">find us</p>
                         <h2 className="text-[4.5rem] leading-none font-semibold">
                             Join us this sabbath
                         </h2>
@@ -27,7 +27,7 @@ export default function FindUS() {
                             {services.map((service) => (
                                 <li
                                     key={service.id}
-                                    className="flex place-content-between border-b border-[#afb6bd] pb-2.5"
+                                    className="flex place-content-between border-b border-[#afb6bd] pb-2.5 text-[#9fa4aa]"
                                 >
                                     <span className="capitalize">
                                         {service.name}
@@ -86,7 +86,7 @@ function MapModal({onClose}) {
             <button onClick={onClose} className="m-2"><XIcon color="#101c2b" size={25} /></button>
             <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3846.7109405328506!2d28.2883146745561!3d-15.392133385193539!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1940f54d65c1438f%3A0x7de8dbad5a3238fa!2sKatimamulilo%20Sda%20Church!5e0!3m2!1sen!2szm!4v1775839437091!5m2!1sen!2szm" 
-                className={`border-none h-[70dvh] w-[40dvw] rounded-b-2xl text-left`}
+                className={`border-none h-[70dvh] w-[40dvw] rounded-2xl text-left`}
                 allowFullScreen="" 
                 loading="lazy" 
                 referrerPolicy="no-referrer-when-downgrade"

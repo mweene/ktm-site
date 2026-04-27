@@ -6,36 +6,45 @@ export default function Hero() {
     return (
         <section className="Hero min-h-[100dvh] grid md:px-10 pb-5 relative">
             <video loop autoPlay src={bgVid} className="h-full w-full object-cover absolute top-0 z-1"/>
-            <div className="video-bg-wrapper absolute bg-neutral-950/70  h-full w-full z-2"></div>  
-            <div className="flex place-content-between pb-10 static z-3">
+            <div className="video-bg-wrapper absolute bg-neutral-950/70  h-full w-full z-2"></div> 
+
+            <div className="flex place-content-between pb-5 static z-3">
                 <div className="main-text place-self-end md:w-4/7">
-                    <h1 className="text-4xl md:text-7xl font-semibold text-white">
+                    <h1 className="text-[3.5rem] md:text-[5rem] leading-none font-extrabold text-white">
                         His word <br />
-                        <span className="text-orange-500">Your Growth</span> <br />
+                        Your Growth <br />
                         Our Journey
                     </h1>
 
-                    <p className="my-5 text-gray-200 text-lg font-light w-4/5">
+                    <p className="my-5 text-[#c9d2de] text-lg font-light md:w-4/5">
                         Join a community rooted in faith, growing together
                         through the teachings of Jesus Christ for every age,
                         every season of life
                     </p>
                     
-                    <div className="flex gap-6 [&>button>a]:px [&>button]:capitalize">
+                    <div className={`
+                        md:flex gap-6 [&_button]:transition-all [&_button]:w-full
+                        md:[&_button]:w-fit
+                        [&_button]:duration-500 [&_button]:ease-in-out
+                    `}>
                         <button className={`
-                            bg-[#ebf1f4] text-[#101c2b] hover:text-neutral-50 
-                            font-medium flex items-center gap-2
+                            bg-[#fff] text-[#070d14] pl-4 pr-1 py-1
+                            font-medium flex items-center hover:bg-[#e5e6e8]
+                            hover:scale-105
                           `}
                         >
-                            <Link to="/sermons" className="flex items-center gap-4">
-                                watch latest sermon 
-                                <span className="rounded-full bg-[#101c2b] p-2">
-                                    <PlayIcon weight="fill" size={17} color="#fff"/>
+                            <Link to="/sermons" className="flex items-center gap-2">
+                                Watch latest sermon 
+                                <span className="rounded-full bg-[#070d14] p-2.5">
+                                    <PlayIcon weight="fill" color="#fff"/>
                                 </span>
                             </Link>
                         </button>
-                        <button className="border border-neutral-200 text-neutral-50">
-                            <a href="#programs" className="">find your program</a>
+                        <button className={`
+                          border border-white text-white px-6 py-1 hover:bg-white
+                          hover:scale-105 hover:text-[#070d14]
+                        `}>
+                            <a href="#programs" className="">Find your program</a>
                         </button>
                     </div>
                 </div>

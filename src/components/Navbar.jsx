@@ -16,6 +16,8 @@ export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const location = useLocation();
 
+  //get internet time when component renders
+
     useEffect(() => {
         setIsMenuOpen(false);
     }, [location.pathname]);
@@ -23,7 +25,7 @@ export default function Navbar() {
     return (
         <nav
             className={`
-                fixed w-full bg-neutral-900/80 border-b border-b-neutral-600/50 p-4
+                fixed w-full bg-[#090f17]/70 border-b border-b-neutral-500/50 p-4
                 text=[#101c2b] md:py-4 md:px-10 backdrop-blur-xl z-4
             `}
         >
@@ -35,7 +37,7 @@ export default function Navbar() {
                     onClick={() => setIsMenuOpen(true)}
                     className="cursor-pointer text-white"
                 >
-                    <ListIcon size={22} />
+                    <ListIcon size={25} color="#fff" />
                 </a>
             </div>
 
@@ -48,22 +50,22 @@ function NavList({ onClose }) {
     return (
         <div className="h-[100dvh] w-full absolute top-0 right-0 left-0 text-[#101c2b]">
             <div className="bg-neutral-950/90 h-[100dvh] w-full z-2 fixed"></div>
-            <div className="h-[100dvh] border-l w-full md:w-3/7 z-5 bg-gray-50 top-0 bottom-0 right-0 fixed">
+            <div className="h-[100dvh] border-l w-full md:w-3/7 z-5 bg-[#e5e6e8] top-0 bottom-0 right-0 fixed">
                 <div className="flex flex-col place-content-between w-full h-full">
-                    <div className="px-10 pt-10 grid">
+                    <div className="px-10 pt-7 grid">
                         <a
                             className="justify-self-end cursor-pointer text-left"
                             onClick={onClose}
                         >
-                            <XIcon size={27} />
+                            <XIcon size={25} />
                         </a>
 
                         <h3 className="capitalize text-sm font-semibold mb-1">
-                            pages
+                            Menu
                         </h3>
                         <ul
                             className={`
-                              font-semibold text-2xl flex flex-col gap-4
+                              font-semibold text-2xl flex flex-col gap-2
                               [&>li]:capitalize [&>li]:transition [&<li]:duration-300 [&>li]:ease-in-out
                               [&>li]:hover:text-neutral-500
                             `}
@@ -107,7 +109,7 @@ function Contacts() {
             <div className="p-10 grid gap-4">
                 <div>
                     <h3 className="capitalize text-sm font-semibold mb-1">
-                        lets talk
+                        let's talk
                     </h3>
                     <p
                         className="underline pb-2 text-2xl font-semibold relative"
@@ -142,22 +144,22 @@ function Contacts() {
                     >
                         <li>
                             <a href="https://www.whatsapp.com">
-                              <WhatsappLogoIcon size={20} />
+                              <WhatsappLogoIcon size={25} />
                             </a>
                         </li>
                         <li>
                             <a href="https://www.facebook.com">
-                              <FacebookLogoIcon size={20}/>
+                              <FacebookLogoIcon size={25} />
                             </a>
                         </li>
                         <li>
                             <a href="https://www.instagram.com">
-                              <InstagramLogoIcon size={20}/>
+                              <InstagramLogoIcon size={25} />
                             </a>
                         </li>
                         <li>
                             <a href="https://www.youtube.com">
-                                <YoutubeLogoIcon size={20}/>
+                                <YoutubeLogoIcon size={25} />
                             </a>
                         </li>
                     </ul>
@@ -199,10 +201,13 @@ function EmailPopover({ onMouseEnter, onMouseLeave }) {
                 <span>Copy email</span>
             </button>
 
-            <p className="flex gap-1 items-center text-sm underline">
+            <a 
+              href="mailto:katimamulilosda@gmail.com"
+              className="flex gap-1 items-center text-sm underline"
+            >
                 <EnvelopeIcon size={14} />
                 <span>Open mail client</span>
-            </p>
+            </a>
         </div>
     );
 }

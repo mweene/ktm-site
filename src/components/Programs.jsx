@@ -73,7 +73,7 @@ function ProgramsCard({ ageGroup, forWho, title, description, styles }) {
 
 export default function Programs() {
     return (
-        <section className="overflow-hidden bg-[#e5e6e8] rounded-4xl">
+        <section className="overflow-hidden bg-[#e5e6e8] rounded-4xl md:mx-10">
             <div className="flex place-content-between p-15 pb-12">
                 <div className="">
                     <div className="text-[#101c2b]">

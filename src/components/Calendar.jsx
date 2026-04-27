@@ -60,7 +60,7 @@ export default function Calendar() {
     const hasEvent = (num) => eventDates.includes(num);
 
     return (
-        <section className="text-[#101c2b]" id="programs">
+        <section className="text-[#101c2b] md:mx-10" id="programs">
             <p className="capitalize text-xl font-medium mb-5">church timeline</p>
             <h2 className="text-[4.5rem] leading-none font-semibold mb-15">
                 Programs & events

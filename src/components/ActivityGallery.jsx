@@ -124,7 +124,7 @@ export default function ActivityGallery () {
 
   return (
       <>
-        <div className="text-[#101c2b]">
+        <section className="text-[#101c2b] md:mx-10">
           <p className="capitalize text-xl font-medium mb-4">our gallery</p>
 
           <div className="flex place-content-between pb-15">
@@ -165,7 +165,7 @@ export default function ActivityGallery () {
               />
             ))}
           </div>
-        </div>
+        </section>
       </>
     )
 }

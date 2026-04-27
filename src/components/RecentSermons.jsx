@@ -40,7 +40,7 @@ export default function RecentSermons() {
     };
 
     return (
-        <section className="md:mt-30 text-[#101c2b]">
+        <section className="md:mt-30 text-[#101c2b] md:mx-10">
             <div className="mb-12 flex place-content-between">
                 <div className="">
                     <p className="capitalize font-medium text-xl mb-4">recent sermons</p>
