@@ -74,7 +74,7 @@ function NavList({ onClose }) {
                             <XIcon size={25} weight="bold"/>
                         </a>
 
-                        <h3 className="capitalize text-sm font-semibold mb-3">
+                        <h3 className="capitalize font-semibold mb-3 text-[#101c2b]/70">
                             Menu
                         </h3>
                         <ul
@@ -147,7 +147,7 @@ function Contacts() {
         <div className="border-t border-t-[#101c2b]/60 w-full">
             <div className="px-10 py-5 grid gap-4">
                 <div>
-                    <h3 className="capitalize text-sm font-semibold mb-3">
+                    <h3 className="capitalize font-semibold mb-3 text-[#101c2b]/70">
                         let's talk
                     </h3>
                     <p
@@ -165,13 +165,13 @@ function Contacts() {
                     )}
 
                     <p className="mt-3 font-semibold">
-                        Lusaka (Zambia){" "}
-                        <span className="">{time} Hrs</span>
+                        Lusaka (ZM){" "}
+                        <span className="text-[#101c2b]/70">{time} Hrs</span>
                     </p>
                 </div>
 
                 <div className="mt-4">
-                    <h3 className="capitalize text-sm font-semibold mb-3">
+                    <h3 className="capitalize font-semibold mb-3 text-[#101c2b]/70">
                         socials
                     </h3>
                     <ul
@@ -205,8 +205,8 @@ function Contacts() {
                 </div>
             </div>
 
-            <div className="border-t border-t-[#101c2b]/60 px-10 py-4">
-                <p className="">
+            <div className="border-t border-t-[#101c2b]/60 px-10 py-3">
+                <p className="text-sm">
                     (c) 2026 katimamulilo SDA Church. All Rights Reserved.
                 </p>
             </div>

@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import Logo from "../assets/footerLogo.png";
+import Logo from "../assets/logo.svg";
 
 export default function Footer() {
   return (
     <section className="bg-[#101c2b] text-neutral-300 [&_li]:capitalize [&_h3]:text-neutral-500">
     <div className="px-4 py-10 grid md:grid-cols-4 gap-4 md:mt-30">
       <div className="w-fit h-fit">
-		    <img src={Logo} alt="logo" className="h-[7rem]" />
+		    <img src={Logo} alt="logo" className="h-[4rem]" />
       </div>
 
 		  <div className="p-4">
