@@ -6,6 +6,13 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
     plugins: [react(), tailwindcss()],
     server: {
+      proxy: {
+        '/api': {
+          target: 'https://timeapi.io',
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api/, ''), //remove api from final url
+        }
+      },
       allowedHosts: true,
       host: true,
       strictPort: true,

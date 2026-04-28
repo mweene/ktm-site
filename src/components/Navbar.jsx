@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
+import axios from "axios";
 import Logo from "../assets/logo.svg";
 import { 
   ListIcon,
@@ -7,11 +8,14 @@ import {
   PlusIcon,
   CopyIcon, 
   EnvelopeSimpleIcon, 
-  WhatsappLogoIcon, 
-  InstagramLogoIcon,
-  FacebookLogoIcon,
-  YoutubeLogoIcon
 } from "@phosphor-icons/react";
+
+import { 
+  facebookLogo, 
+  whatsappLogo,
+  instagramLogo,
+  youtubeLogo
+} from "../assets/icons";
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -75,9 +79,9 @@ function NavList({ onClose }) {
                         </h3>
                         <ul
                             className={`
-                              font-semibold text-3xl flex flex-col gap-3
-                              [&>li]:capitalize [&>li]:transition [&<li]:duration-300 [&>li]:ease-in-out
-                              [&>li]:hover:text-[#101c2b]/60
+                              font-semibold text-3xl flex flex-col gap-3 w-fit
+                              [&>li]:capitalize [&>li]:transition-all [&<li]:duration-300 
+                              [&>li]:ease-in-out [&>li]:hover:scale-105
                             `}
                         >
                             <li>
@@ -109,18 +113,22 @@ function NavList({ onClose }) {
 }
 
 //should go in the utils
-const url = 'https://timeapi.io/api/v1/timezone/zone?timeZone=Africa%2FLusaka';
-
 const getTime = async () => {
+  const url = 'api/api/v1/timezone/zone';
+
   try {
-    const response = await fetch(url);
-    if(!resources.ok) throw Error('something went wrong')
-    const time = response['local_time'];
-    console.log(time)
+    const res = await axios.get(url, {
+      params: {
+        timeZone: 'Africa/Lusaka'
+      }
+    })
+    const data = await res.data
+    return data['local_time'].split('T')[1].split('.')[0]
   } catch(err) {
-    console.error(err);
+    return err
   }
 }
+
 
 function Contacts() {
     const [parentHovered, setParentHovered] = useState(false);
@@ -129,6 +137,7 @@ function Contacts() {
 
     useEffect(() => {
       const t = getTime();
+      console.log(t);
       setTime(t);
     }, [])   
 
@@ -147,7 +156,6 @@ function Contacts() {
                         onMouseLeave={() => setParentHovered(false)}
                     >
                         katimamulilosda@mail.co.zm
-                        <PlusIcon size={16} weight="bold" color="#101c2b" />
                     </p>
                     {isOpen && (
                         <EmailPopover
@@ -169,28 +177,28 @@ function Contacts() {
                     <ul
                         className={`
                           text-sm font-medium flex gap-2 [&>li]:flex [&>li]:place-content-between
-                          [&>li]:place-items-base [&>li>a>img]:h-[1.3rem] [&>li]:transition
-                          [&>li]:duration-300 [&>li]:ease-in-out [&>li]:hover:scale-110
+                          [&>li]:place-items-base [&>li>a>img]:h-[1.3rem] [&>li]:transition-all
+                          [&>li]:duration-300 [&>li]:ease-in-out [&>li]:hover:scale-105
                         `}
                     >
                         <li>
                             <a href="https://www.whatsapp.com">
-                              <WhatsappLogoIcon size={25} />
+                              <img src={whatsappLogo} alt="" />
                             </a>
                         </li>
                         <li>
                             <a href="https://www.facebook.com">
-                              <FacebookLogoIcon size={25} />
+                              <img src={facebookLogo} alt="" className="h-[10em]"/> 
                             </a>
                         </li>
                         <li>
                             <a href="https://www.instagram.com">
-                              <InstagramLogoIcon size={25} />
+                              <img src={instagramLogo} alt="" />
                             </a>
                         </li>
                         <li>
                             <a href="https://www.youtube.com">
-                                <YoutubeLogoIcon size={25} />
+                              <img src={youtubeLogo} alt="" />  
                             </a>
                         </li>
                     </ul>
@@ -223,12 +231,14 @@ function EmailPopover({ onMouseEnter, onMouseLeave }) {
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
             className={`
-              absolute p-4 border border-[#101c2b]/70 bg-[#e5e6e8] shadow-lg grid gap-3 rounded-2xl
-              [&>p]:hover:font-medium [&>p]:hover:text-neutral-500 [&>p]:cursor-pointer
+              absolute p-4 border border-[#101c2b]/70 bg-[#e5e6e8] 
+              shadow-lg grid gap-3 rounded-2xl [&>*]:hover:font-medium 
+              [&>*]transition-all [&>*]:duration-500 [&>*]:ease-in-out
+              [&>*]:hover:scale-102
             `}
         >
             <button onClick={handleCopy} className="flex gap-1 items-center underline">
-                <CopyIcon size={15} />
+                <CopyIcon size={17} weight="bold"/>
                 <span>Copy email</span>
             </button>
 
@@ -236,7 +246,7 @@ function EmailPopover({ onMouseEnter, onMouseLeave }) {
               href="mailto:katimamulilosda@gmail.com"
               className="flex gap-1 items-center underline"
             >
-                <EnvelopeSimpleIcon size={15} />
+                <EnvelopeSimpleIcon size={17} weight="bold"/>
                 <span>Open mail client</span>
             </a>
         </div>

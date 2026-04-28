@@ -58,8 +58,6 @@ function EventCard({className, type, src, content}) {
   const handlePrev = () => setIndex(prev => prev - 1);
   const handleNext = () => setIndex(prev => prev + 1);
 
-  console.log(index)
-
   const styles = `
     rounded-4xl overflow-hidden relative h-[20rem] ${className}
     bg-[#e5e6e8]
