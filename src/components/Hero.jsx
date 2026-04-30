@@ -23,7 +23,7 @@ export default function Hero() {
                     </p>
                     
                     <div className={`
-                        md:flex gap-6 [&_button]:transition-all [&_button]:w-full
+                        [&_button]:transition-all [&_button]:w-full
                         md:[&_button]:w-fit
                         [&_button]:duration-500 [&_button]:ease-in-out
                     `}>
@@ -39,13 +39,7 @@ export default function Hero() {
                                     <PlayIcon weight="fill" color="#fff"/>
                                 </span>
                             </Link>
-                        </button>
-                        <button className={`
-                          border border-white text-white px-6 py-1 hover:bg-white
-                          hover:scale-105 hover:text-[#070d14]
-                        `}>
-                            <a href="#programs" className="">Find your program</a>
-                        </button>
+                        </button> 
                     </div>
                 </div>
                 <div
