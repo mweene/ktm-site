@@ -8,14 +8,12 @@ import {
   PlusIcon,
   CopyIcon, 
   EnvelopeSimpleIcon, 
+  FacebookLogoIcon, 
+  WhatsappLogoIcon,
+  InstagramLogoIcon,
+  YoutubeLogoIcon
 } from "@phosphor-icons/react";
 
-import { 
-  facebookLogo, 
-  whatsappLogo,
-  instagramLogo,
-  youtubeLogo
-} from "../assets/icons";
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -112,37 +110,8 @@ function NavList({ onClose }) {
     );
 }
 
-//should go in the utils
-const getTime = async () => {
-  const url = 'api/api/v1/timezone/zone';
-
-  try {
-    const res = await axios.get(url, {
-      params: {
-        timeZone: 'Africa/Lusaka'
-      }
-    })
-    const data = await res.data
-    return data['local_time'].split('T')[1].split('.')[0]
-  } catch(err) {
-    return err
-  }
-}
-
 
 function Contacts() {
-    const [parentHovered, setParentHovered] = useState(false);
-    const [popoverHovered, setPopoverHovered] = useState(false);
-    const [time, setTime] = useState('');
-
-    useEffect(() => {
-      const t = getTime();
-      console.log(t);
-      setTime(t);
-    }, [])   
-
-    const isOpen = parentHovered || popoverHovered;
-
     return (
         <div className="border-t border-t-[#101c2b]/60 w-full">
             <div className="px-10 py-5 grid gap-4">
@@ -150,24 +119,17 @@ function Contacts() {
                     <h3 className="capitalize font-semibold mb-3 text-[#101c2b]/70">
                         let's talk
                     </h3>
-                    <p
-                        className="underline pb-2 text-3xl font-semibold relative flex items-center gap-1"
-                        onMouseEnter={() => setParentHovered(true)}
-                        onMouseLeave={() => setParentHovered(false)}
+                    <a  href="mailto:katimamulilosda@mail.com"
+                        className="underline pb-2 text-2xl font-semibold relative flex items-center gap-1"
                     >
                         katimamulilosda@mail.co.zm
-                    </p>
-                    {isOpen && (
-                        <EmailPopover
-                            onMouseEnter={() => setPopoverHovered(true)}
-                            onMouseLeave={() => setPopoverHovered(false)}
-                        />
-                    )}
-
-                    <p className="mt-3 font-semibold">
-                        Lusaka (ZM){" "}
-                        <span className="text-[#101c2b]/70">{time} Hrs</span>
-                    </p>
+                    </a>
+                    <a
+                        className="underline font-semibold text-2xl"
+                        href="tel:+260977110077"
+                    >
+                            +260 977 110 077
+                    </a> 
                 </div>
 
                 <div className="mt-4">
@@ -183,22 +145,22 @@ function Contacts() {
                     >
                         <li>
                             <a href="https://www.whatsapp.com">
-                              <img src={whatsappLogo} alt="" />
+                              <WhatsappLogoIcon size={25} />
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.facebook.com">
-                              <img src={facebookLogo} alt="" className="h-[10em]"/> 
+                            <a href="https://www.facebook.com"> 
+                              <FacebookLogoIcon size={25} />
                             </a>
                         </li>
                         <li>
                             <a href="https://www.instagram.com">
-                              <img src={instagramLogo} alt="" />
+                              <InstagramLogoIcon size={25} />
                             </a>
                         </li>
                         <li>
                             <a href="https://www.youtube.com">
-                              <img src={youtubeLogo} alt="" />  
+                              <YoutubeLogoIcon size={25} />
                             </a>
                         </li>
                     </ul>
@@ -214,41 +176,3 @@ function Contacts() {
     );
 }
 
-function EmailPopover({ onMouseEnter, onMouseLeave }) {
-    const text = 'copy me to the clipboard please'
-
-    const handleCopy = async () => {
-      try {
-        await navigator.clipboard.writeText(text)
-        console.log('text copied succesfully')
-      } catch(error) {
-        console.error(error)
-      }
-    }
-
-    return (
-        <div
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
-            className={`
-              absolute p-4 border border-[#101c2b]/70 bg-[#e5e6e8] 
-              shadow-lg grid gap-3 rounded-2xl [&>*]:hover:font-medium 
-              [&>*]transition-all [&>*]:duration-500 [&>*]:ease-in-out
-              [&>*]:hover:scale-102
-            `}
-        >
-            <button onClick={handleCopy} className="flex gap-1 items-center underline">
-                <CopyIcon size={17} weight="bold"/>
-                <span>Copy email</span>
-            </button>
-
-            <a 
-              href="mailto:katimamulilosda@gmail.com"
-              className="flex gap-1 items-center underline"
-            >
-                <EnvelopeSimpleIcon size={17} weight="bold"/>
-                <span>Open mail client</span>
-            </a>
-        </div>
-    );
-}
