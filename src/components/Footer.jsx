@@ -46,7 +46,7 @@ export default function Footer() {
         </div>  
 
         <div className="p-4">
-          <h3 className="capitalize mb-2">church</h3>
+          <h3 className="capitalize mb-2">menu</h3>
       
           <ul className="grid gap-4">
             <li><Link to="/">home</Link></li>

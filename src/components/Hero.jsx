@@ -28,13 +28,13 @@ export default function Hero() {
                         [&_button]:duration-500 [&_button]:ease-in-out
                     `}>
                         <button className={`
-                            bg-[#fff] text-[#070d14] pl-4 pr-1 py-1
-                            font-medium flex items-center hover:bg-[#e5e6e8]
+                            bg-[#fff] text-[#070d14] pl-5 pr-1 py-1.5
+                            font-semibold flex items-center hover:bg-[#e5e6e8]
                             hover:scale-105
                           `}
                         >
-                            <Link to="/sermons" className="flex items-center gap-2">
-                                Watch latest sermon 
+                            <Link to="/sermons" className="flex items-center gap-3">
+                                Watch sermons 
                                 <span className="rounded-full bg-[#070d14] p-2.5">
                                     <PlayIcon weight="fill" color="#fff"/>
                                 </span>
