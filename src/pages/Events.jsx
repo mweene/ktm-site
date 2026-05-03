@@ -16,8 +16,17 @@ const randList = (n) => {
   return arr
 }
 
+function EventModal({data}) {
+  return (
+    <div className="p-40 bg-green-300">
+    {data}
+    </div>
+  )
+}
+
 export default function Events() {
   const [openEvent, setOpenEvent] = useState(null)
+  const [isModalOpen, setIsModalOpen] - useState(false)
 
   const events = [
     {id: 0, title: 'january', number: 4},
@@ -36,8 +45,9 @@ export default function Events() {
 
   const handleClick = (e) => {
     setOpenEvent(e.id)
-    console.log(openEvent)
   }
+
+  const handleCardClick = (e) => console.log(e)
 	return (
 		<section className="text-[#101c2b]">
       <Jumbotron />
@@ -63,12 +73,22 @@ export default function Events() {
             {/**/}
             <div className="flex gap-4 overflow-hidden">
               {event.id === openEvent && (
-                randList(event.number).map( ele => (
-                  <div key={ele} className="h-35 bg-pink-300 w-fit p-4 px-15 mt-6 rounded-2xl">
-                  </div>
-                ))
+                randList(event.number).map((ele, index) => {
+                  console.log(randList(event.number))
+                  return (
+                  <>
+                    <div 
+                      key={`${event.id}-${ele}`} 
+                      onClick={() => handleCardClick(index)} 
+                      className="h-30 bg-white/90 p-4 px-15 mt-6 rounded-3xl"
+                    >
+                    </div>
+                  </>
+                )})
               )}
             </div>
+
+            {isModalOpen && <EventModal data="i am open"/>}
           </li>
         ))}
       </ul>
