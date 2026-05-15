@@ -26,7 +26,7 @@ function EventModal({data}) {
 
 export default function Events() {
   const [openEvent, setOpenEvent] = useState(null)
-  const [isModalOpen, setIsModalOpen] - useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   const events = [
     {id: 0, title: 'january', number: 4},
