@@ -4,7 +4,6 @@ import Home from "./pages/Home";
 import Sermons from "./pages/Sermons";
 import Events from "./pages/Events.jsx";
 import About from "./pages/About";
-import Contact from "./pages/Contact";
 import Resources from "./pages/Resources";
 import Gallery from "./pages/Gallery";
 import Navbar from "./components/Navbar";
@@ -26,7 +25,6 @@ export default function App() {
 				<Route path="/about" element={<About />} />
         <Route path="/resources" element={<Resources />} />
         <Route path="/gallery" element={<Gallery />} />
-				<Route path="/Contact" element={<Contact />} />
 			</Routes>
 			
 			<Footer />

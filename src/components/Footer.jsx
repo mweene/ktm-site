@@ -16,7 +16,7 @@ export default function Footer() {
     <div className="px-10 py-10 md:mt-30 md:flex place-content-between">
       <div className="">
         <div className="w-fit h-fit">
-		      <img src={Logo} alt="logo" className="md:h-[9rem]" />
+		      <img src={Logo} alt="logo" className="h-[5.5rem] md:h-[9rem]" />
         </div>
 
         <div className={`
@@ -26,40 +26,42 @@ export default function Footer() {
           <a href=""><WhatsappLogoIcon size={30}/></a>
           <a href=""><FacebookLogoIcon size={30}/></a>
           <a href=""><InstagramLogoIcon size={30}/></a>
-          <a href=""><YoutubeLogoIcon size={30}/></a>
-          <a href=""><EnvelopeSimpleIcon size={30}/></a>
-          <a href=""><PhoneIcon size={30}/></a>
+          <a href=""><YoutubeLogoIcon size={30}/></a> 
+        </div>
+        
+        <div className="mt-2">
+          <p>katimamulilosda@mail.com</p>
+          <p>+260 977 110 077</p>
         </div>
       </div>
 
       <div className={`md:flex gap-15 [&_li]:transition-all [&_li]:duration-500
         [&_li]:ease-in-out [&_li]:hover:scale-105
       `}>
-		    <div className="p-4">
+		    <div className="py-4 md:px-4">
           <h3 className="capitalize mb-2">media</h3>
       
           <ul className="grid gap-4">
-            <li><Link to="/sermons">sermons</Link></li>
             <li><Link to="/gallery">gallery</Link></li>
             <li><Link to="/resources">resources</Link></li>
           </ul>
         </div>  
 
-        <div className="p-4">
+        <div className="py-4 md:px-4">
           <h3 className="capitalize mb-2">menu</h3>
+
       
           <ul className="grid gap-4">
             <li><Link to="/">home</Link></li>
             <li><Link to="/sermons">sermons</Link></li>
             <li><Link to="/events">events</Link></li>
             <li><Link to="/about">about us</Link></li>
-            <li><Link to="/contact">contact</Link></li>
           </ul>
         </div>
       </div>
     </div>
 
-      <div className="border-t border-white/10 px-10 pt-5 pb-20 flex place-content-between">
+      <div className="border-t border-white/10 px-10 pt-5 pb-20 md:flex place-content-between">
         <p className="">ktm sda church. lusaka, zambia</p>
         <p>Copyright (c) 2026 Author. All Rights Reserved.</p>      
       </div>
